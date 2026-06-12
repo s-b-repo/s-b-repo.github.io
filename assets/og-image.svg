@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="'JetBrains Mono','Courier New',monospace">
+  <defs>
+    <radialGradient id="glow" cx="80%" cy="0%" r="70%">
+      <stop offset="0%" stop-color="#c4f74a" stop-opacity=".18"/>
+      <stop offset="60%" stop-color="#52d8ff" stop-opacity=".05"/>
+      <stop offset="100%" stop-color="#080c0e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M48 0H0V48" fill="none" stroke="#ffffff" stroke-opacity=".05" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="630" fill="#080c0e"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <rect width="1200" height="630" fill="url(#glow)"/>
+  <rect x="20" y="20" width="1160" height="590" rx="14" fill="none" stroke="#c4f74a" stroke-opacity=".25"/>
+
+  <!-- reticle mark -->
+  <g transform="translate(92,96)" stroke="#c4f74a" stroke-width="3" fill="none">
+    <rect x="2" y="2" width="58" height="58" rx="9" stroke-opacity=".5"/>
+    <path d="M31 10v13M31 39v13M10 31h13M39 31h13"/>
+    <circle cx="31" cy="31" r="11"/>
+    <circle cx="31" cy="31" r="3.4" fill="#c4f74a" stroke="none"/>
+  </g>
+  <text x="172" y="120" fill="#e9eff0" font-size="32" letter-spacing="6" font-family="'Chakra Petch',sans-serif" font-weight="700">SID</text>
+  <text x="172" y="150" fill="#5f6f76" font-size="15" letter-spacing="3">SECURITY INNOVATION &amp; DEVELOPMENT</text>
+
+  <text x="90" y="300" fill="#e9eff0" font-size="74" font-family="'Chakra Petch',sans-serif" font-weight="700">Find what the</text>
+  <text x="90" y="384" fill="#c4f74a" font-size="74" font-family="'Chakra Petch',sans-serif" font-weight="700">scanners miss.</text>
+
+  <text x="92" y="452" fill="#93a3aa" font-size="23">Custom pentesting tools · code audits · vendor product testing</text>
+  <text x="92" y="486" fill="#93a3aa" font-size="23">dynamic solutions · open-source audits</text>
+
+  <g font-size="19" fill="#5f6f76">
+    <text x="92" y="566">github.com/s-b-repo</text>
+    <text x="430" y="566" fill="#c4f74a">·</text>
+    <text x="452" y="566">280+ open-source security tools</text>
+    <text x="900" y="566" fill="#c4f74a">·</text>
+    <text x="922" y="566">remote · worldwide</text>
+  </g>
+</svg>
