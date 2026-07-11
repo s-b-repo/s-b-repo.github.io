@@ -1,6 +1,6 @@
-# Sentinel Cyber Solutions (website)
+# Cyber Sec (website)
 
-A fast, static, SEO-optimised site for **Sentinel Cyber Solutions**,
+A fast, static, SEO-optimised site for **Cyber Sec**,
 an enterprise cybersecurity firm. No build step, no dependencies —
 plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 
@@ -9,9 +9,9 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 ├── index.html            # home (semantic HTML + full meta/JSON-LD)
 ├── about.html            # about the firm
 ├── services.html         # service catalogue
-├── solutions.html        # industry-specific solutions
 ├── contact.html          # contact page
 ├── resources.html        # resources & insights
+├── article-*.html        # 12 full resource articles
 ├── assets/
 │   ├── styles.css        # all styling (dark "tactical" theme)
 │   ├── main.js           # reveals, mobile nav, terminal typing, mailto forms
@@ -68,7 +68,7 @@ and add the sitemap (`/sitemap.xml`) for indexing.
 ## 3. Contact form
 
 By default the form **opens the visitor's email app** with a pre-filled message
-to `contact@sentinelcybersolutions.com` — works instantly on GitHub Pages with no backend.
+to `stephanbotesIT@proton.me` — works instantly on GitHub Pages with no backend.
 
 Want submissions delivered without the visitor needing an email client? Wire up a
 free form backend (no server required):

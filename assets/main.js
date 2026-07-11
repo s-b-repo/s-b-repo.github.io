@@ -1,4 +1,4 @@
-/* Sentinel Cyber Solutions — Enterprise Cybersecurity · interactions */
+/* Cyber Sec — Enterprise Cybersecurity · interactions */
 (function () {
   "use strict";
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -252,7 +252,7 @@
   (function () {
     var palette = [
       ["#1e80ff", "#0d4bb3", "rgba(30,128,255,0.35)"],   /* Sun — Deep Blue */
-      ["#1e80ff", "#0d4bb3", "rgba(30,128,255,0.35)"],   /* Mon — Sentinel Blue */
+      ["#1e80ff", "#0d4bb3", "rgba(30,128,255,0.35)"],   /* Mon — Cyber Sec Blue */
       ["#0088dd", "#0066aa", "rgba(0,136,221,0.35)"],    /* Tue — Ocean Blue */
       ["#1050cc", "#0a3888", "rgba(16,80,204,0.35)"],    /* Wed — Navy Blue */
       ["#00aadd", "#0077aa", "rgba(0,170,221,0.35)"],    /* Thu — Electric Blue */

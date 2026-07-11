@@ -21,14 +21,14 @@
     <path d="M32 20v12M26 26h12" stroke-linecap="round"/>
   </g>
 
-  <text x="178" y="122" fill="#e9eff0" font-size="36" letter-spacing="8" font-family="'Chakra Petch',sans-serif" font-weight="700">SENTINEL</text>
-  <text x="178" y="154" fill="#2b7fff" font-size="16" letter-spacing="5" font-family="'Chakra Petch',sans-serif" font-weight="600">CYBER SOLUTIONS</text>
+  <text x="178" y="122" fill="#e9eff0" font-size="36" letter-spacing="8" font-family="'Chakra Petch',sans-serif" font-weight="700">CYBER SEC</text>
+  <text x="178" y="154" fill="#2b7fff" font-size="16" letter-spacing="5" font-family="'Chakra Petch',sans-serif" font-weight="600">OFFENSIVE SECURITY</text>
 
   <text x="90" y="310" fill="#e9eff0" font-size="68" font-family="'Chakra Petch',sans-serif" font-weight="700">Defend your enterprise.</text>
   <text x="90" y="386" fill="#2b7fff" font-size="68" font-family="'Chakra Petch',sans-serif" font-weight="700">Predict before the breach.</text>
 
-  <text x="92" y="464" fill="#93a3aa" font-size="22">Enterprise penetration testing · threat intelligence · incident response</text>
-  <text x="92" y="498" fill="#93a3aa" font-size="22">managed security services · compliance auditing · security architecture</text>
+  <text x="92" y="464" fill="#93a3aa" font-size="22">Custom pentesting tools · vulnerability research · code audits</text>
+  <text x="92" y="498" fill="#93a3aa" font-size="22">open-source audits · vendor product testing · detection engineering</text>
 
   <g font-size="18" fill="#5f6f76">
     <text x="92" y="578">sentinelcybersolutions.com</text>
