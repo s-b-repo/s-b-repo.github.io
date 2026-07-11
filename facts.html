@@ -4,71 +4,82 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<title>The Current Cyber Struggle — SID | Security Innovation &amp; Development</title>
-<meta name="description" content="Hard truths about the cybersecurity industry: bureaucratic ISO audits that kill productivity, certifications that don't prove competence, exam dumps, impossible 'entry-level' requirements, and hiring that never tests real skill. Share your own struggle." />
+<title>The State of Cybersecurity — Threat Landscape Facts &amp; Statistics | Cyber Sec</title>
+<meta name="description" content="Real cybersecurity statistics, threat landscape data, and breach facts. Understand the risks facing your organization with data-driven insights from Cyber Sec." />
+<meta name="keywords" content="cybersecurity statistics, data breach statistics, threat landscape, ransomware statistics, cybersecurity facts, security data, breach facts" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
-<link rel="canonical" href="https://stephanbotes.dev/facts.html" />
-<meta name="theme-color" content="#080c0e" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/facts.html" />
+<meta name="theme-color" content="#000000" />
 
+<!-- Open Graph -->
 <meta property="og:type" content="article" />
-<meta property="og:site_name" content="SID — Security Innovation &amp; Development" />
-<meta property="og:title" content="The Current Cyber Struggle — hard truths about cybersecurity" />
-<meta property="og:description" content="ISO audits as bureaucracy, certs without competence, exam dumps, impossible entry-level reqs, broken hiring. Read the struggles — and send your own." />
-<meta property="og:url" content="https://stephanbotes.dev/facts.html" />
-<meta property="og:image" content="https://stephanbotes.dev/assets/og-image.png" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="The State of Cybersecurity — Threat Landscape Facts &amp; Statistics | Cyber Sec" />
+<meta property="og:description" content="Real cybersecurity statistics, threat landscape data, and breach facts. Understand the risks facing your organization with data-driven insights from Cyber Sec." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/facts.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="The Current Cyber Struggle — SID" />
-<meta name="twitter:description" content="Bureaucratic audits, certs without competence, broken hiring. Read the struggles — and send your own." />
-<meta name="twitter:image" content="https://stephanbotes.dev/assets/og-image.png" />
+<meta property="og:image:alt" content="Cyber Sec — The Current Cyber Struggle" />
+<meta property="og:locale" content="en" />
 
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The State of Cybersecurity — Threat Landscape Facts &amp; Statistics | Cyber Sec" />
+<meta name="twitter:description" content="Real cybersecurity statistics, threat landscape data, and breach facts. Understand the risks facing your organization with data-driven insights from Cyber Sec." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<!-- Icons -->
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="mask-icon" href="assets/favicon.svg" color="#c4f74a" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<!-- Fonts: Chakra Petch (display) · JetBrains Mono (terminal) · IBM Plex Sans (body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
 <link rel="stylesheet" href="assets/styles.css" />
 
+<!-- Structured data: WebPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "The Current Cyber Struggle",
-  "url": "https://stephanbotes.dev/facts.html",
-  "isPartOf": { "@type": "WebSite", "name": "SID — Security Innovation & Development", "url": "https://stephanbotes.dev/" },
-  "about": "Systemic problems in the cybersecurity industry: compliance theater, certification inflation, broken hiring and gatekeeping.",
-  "publisher": { "@type": "ProfessionalService", "name": "SID — Security Innovation & Development" }
+  "url": "https://sentinelcybersolutions.com/facts.html",
+  "isPartOf": { "@type": "WebSite", "name": "Cyber Sec", "url": "https://sentinelcybersolutions.com/" },
+  "about": "Systemic problems in the cybersecurity industry: compliance theater, certification inflation, broken hiring, gatekeeping, scanner dependence, and talent ignored.",
+  "publisher": { "@type": "Organization", "name": "Cyber Sec" }
 }
 </script>
 </head>
 
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
+
 <div class="grain" aria-hidden="true"></div>
 <div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
 
+<!-- ───────────────────────── header ───────────────────────── -->
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="index.html" aria-label="SID — Security Innovation and Development, home">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
       <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="30" height="30" fill="none">
-          <rect x="1.5" y="1.5" width="29" height="29" rx="3" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M16 5v6M16 21v6M5 16h6M21 16h6" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="16" cy="16" r="4.2" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="16" cy="16" r="1.4" fill="currentColor"/>
-        </svg>
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
       </span>
-      <span class="brand-text">SID<i>// security innovation &amp; development</i></span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
     </a>
 
     <nav class="nav" aria-label="Primary">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#tools">Arsenal</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
       <a href="facts.html" aria-current="page">Facts</a>
-      <a href="index.html#credentials">Credentials</a>
-      <a href="index.html#about">About</a>
-      <a class="nav-cta" href="index.html#contact">Start engagement</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
     </nav>
 
     <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -76,27 +87,27 @@
     </button>
   </div>
   <div class="mobile-nav" id="mobile-nav" hidden>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#tools">Arsenal</a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
     <a href="facts.html" aria-current="page">Facts</a>
-    <a href="index.html#credentials">Credentials</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#contact">Start engagement</a>
+    <a href="contact.html">Contact</a>
   </div>
 </header>
 
 <main id="main">
 
-  <!-- intro -->
+  <!-- ───────────────────────── facts hero ───────────────────────── -->
   <section class="section facts-hero">
     <div class="wrap">
-      <p class="kicker reveal"><span class="blip"></span> Facts · an honest take</p>
-      <h1 class="reveal">The Current<br><span class="hl">Cyber Struggle.</span></h1>
+      <p class="kicker reveal"><span class="blip"></span> // facts · an honest take</p>
+      <h1 class="reveal">The Current <span class="hl">Cyber Struggle.</span></h1>
       <p class="lede facts-lede reveal">The security industry has a credibility problem — and most of it is self-inflicted. Below are the structural failures we see every week: the ones that drain budgets, burn out talent, and leave organisations <em>compliant</em> but wide open. No vendor spin. Just what's actually broken.</p>
     </div>
   </section>
 
-  <!-- struggle cards -->
+  <!-- ───────────────────────── struggle cards ───────────────────────── -->
   <section class="section section-alt" aria-labelledby="struggles-h">
     <div class="wrap">
       <h2 id="struggles-h" class="struggle-head reveal">Current cyber struggle</h2>
@@ -104,61 +115,61 @@
       <div class="struggle-grid">
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Compliance ≠ Security</span>
-          <h3>ISO audits are bureaucracy, not testing</h3>
-          <p>Audits like ISO 27001 are run as paperwork exercises by assessors who never touch the systems. Teams burn weeks generating documents, productivity tanks, and the actual attack surface stays untested. A passed audit is a filing cabinet — not a secure network. It measures whether you can describe a control, not whether it stops anyone.</p>
+          <span class="struggle-tag">Compliance Theater</span>
+          <h3>Compliance ≠ Security</h3>
+          <p>ISO audits are bureaucracy, not testing. Audits like ISO 27001 are run as paperwork exercises by assessors who never touch the systems. Teams burn weeks generating documents, productivity tanks, and the actual attack surface stays untested. A passed audit is a filing cabinet — not a secure network.</p>
         </article>
 
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Cert inflation</span>
-          <h3>Certifications don't make you competent</h3>
-          <p>The field treats certs as proof of skill. They aren't. <strong>Exam dumps</strong> let anyone memorise their way to a badge without ever finding a real bug, reading real code, or owning a real box. A wall of acronyms tells you someone passed a multiple-choice test — nothing about whether they can do the work.</p>
+          <span class="struggle-tag">Paper Tigers</span>
+          <h3>Cert Inflation</h3>
+          <p>Certifications don't make you competent. The field treats certs as proof of skill. They aren't. <strong>Exam dumps</strong> let anyone memorise their way to a badge without ever finding a real bug, reading real code, or owning a real box.</p>
         </article>
 
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Gatekeeping</span>
-          <h3>“Entry-level” that demands 5 years</h3>
-          <p>Junior listings requiring senior experience, a stack of certs, and a degree — for a salary that assumes none of it. Impossible bars that lock capable people out of the field, while the same companies cry “skills shortage” for a gap they manufactured themselves.</p>
+          <span class="struggle-tag">Broken Pipeline</span>
+          <h3>Gatekeeping</h3>
+          <p>"Entry-level" that demands 5 years. Junior listings requiring senior experience, a stack of certs, and a degree — for a salary that assumes none of it. Impossible bars that lock capable people out while the industry cries "skills shortage".</p>
         </article>
 
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Broken hiring</span>
-          <h3>Hiring that never tests the skill</h3>
-          <p>ATS keyword filters and trivia interviews decide who gets in. Almost nobody asks a candidate to read code, find a vulnerability, or break something live. The people who can actually do the work get filtered out by processes — and panels — that can't assess it.</p>
+          <span class="struggle-tag">Process Over Proof</span>
+          <h3>Broken Hiring</h3>
+          <p>Hiring that never tests the skill. ATS keyword filters and trivia interviews decide who gets in. Almost nobody asks a candidate to read code, find a vulnerability, or break something live.</p>
         </article>
 
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Tool theater</span>
-          <h3>Buying logos instead of doing the work</h3>
-          <p>Budgets go to brand-name dashboards and a “we ran a scan” checkbox. Automated scanners get treated as the assessment — and miss exactly the logic flaws, chained bugs and custom weaknesses real attackers walk straight through. Spend follows fear and marketing, not outcomes.</p>
+          <span class="struggle-tag">Scanner Dependence</span>
+          <h3>Tool Theater</h3>
+          <p>Buying logos instead of doing the work. Budgets go to brand-name dashboards and a "we ran a scan" checkbox. Automated scanners miss exactly the logic flaws, chained bugs and custom weaknesses real attackers walk through.</p>
         </article>
 
         <article class="card struggle reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <span class="struggle-tag">Talent ignored</span>
-          <h3>Proof loses to paperwork</h3>
+          <span class="struggle-tag">Proof Loses to Paperwork</span>
+          <h3>Talent Ignored</h3>
           <p>Demonstrated ability — shipped tools, real findings, public research — counts for less than a degree and the right alphabet soup. The industry filters for credentials over capability, then wonders why it keeps missing the people who can actually defend it.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- submit your own + offer help -->
+  <!-- ───────────────────────── share / submit ───────────────────────── -->
   <section class="section" id="share" aria-labelledby="share-h">
     <div class="wrap share-grid">
       <div class="share-copy reveal">
         <p class="kicker">// your turn</p>
         <h2 id="share-h">Living one of these? You're not alone.</h2>
-        <p class="section-sub">Send us your own cyber struggle — the audit that helped no one, the broken hiring loop, the “compliant but breached” story, the talent that got away. We're collecting them, and the honest ones might end up on this page (anonymised unless you say otherwise).</p>
+        <p class="section-sub">Send us your own cyber struggle — the audit that helped no one, the broken hiring loop, the "compliant but breached" story, the talent that got away. We're collecting them, and the honest ones might end up on this page (anonymised unless you say otherwise).</p>
 
         <div class="share-help card">
           <h3>And if it's costing you real money…</h3>
-          <p>That's exactly what <strong>SID</strong> exists to fix: real testing, real tooling, real outcomes — not theater, not paperwork. If any of these struggles are bleeding your team, let's solve the actual problem.</p>
-          <a class="btn btn-primary" href="index.html#contact">Get help <span aria-hidden="true">→</span></a>
+          <p>That's exactly what <strong>Cyber Sec</strong> exists to fix: real testing, real tooling, real outcomes — not theater, not paperwork. If any of these struggles are bleeding your team, let's solve the actual problem.</p>
+          <a class="btn btn-primary" href="contact.html">Get help <span aria-hidden="true">&rarr;</span></a>
         </div>
       </div>
 
@@ -169,43 +180,46 @@
           <input id="s-name" name="name" type="text" autocomplete="name" placeholder="Anonymous is fine" />
         </div>
         <div class="field">
-          <label for="s-email">Email <span class="opt">(optional — only if you want a reply)</span></label>
+          <label for="s-email">Email <span class="opt">(optional)</span></label>
           <input id="s-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" />
         </div>
         <div class="field">
           <label for="s-msg">Your cyber struggle</label>
           <textarea id="s-msg" name="message" rows="7" required placeholder="What's broken? The audit, the cert farce, the hiring loop, the tool that missed everything…"></textarea>
         </div>
-        <button class="btn btn-primary btn-block" type="submit">Send my struggle <span aria-hidden="true">→</span></button>
+        <button class="btn btn-primary btn-block" type="submit">Submit <span aria-hidden="true">&rarr;</span></button>
         <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-        <p class="contact-note">Goes straight to stephanbotesIT@proton.me. Don't include anything confidential or non-public about your employer.</p>
       </form>
     </div>
   </section>
+
 </main>
 
+<!-- ───────────────────────── footer ───────────────────────── -->
 <footer class="site-footer">
   <div class="wrap footer-inner">
     <div class="footer-brand">
-      <span class="brand-text">SID<i>// security innovation &amp; development</i></span>
-      <p>Penetration testing · custom tooling · embedded specialists for government &amp; enterprise. Remote &amp; on-site.</p>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
-      <a href="index.html#services">Services</a>
-      <a href="index.html#tools">Arsenal</a>
-      <a href="facts.html">Facts</a>
-      <a href="index.html#credentials">Credentials</a>
-      <a href="index.html#contact">Contact</a>
-      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html" aria-current="page">Facts</a>
+      <a href="contact.html">Contact</a>
     </nav>
     <div class="footer-meta">
+      <!--<a href="mailto:contact@sentinelcybersolutions.com">contact@sentinelcybersolutions.com</a>-->
       <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
-      <span>© <span id="year">2026</span> SID — Security Innovation &amp; Development. Authorized testing only.</span>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
     </div>
   </div>
 </footer>
 
-<a class="to-top" href="#top" aria-label="Back to top">↑</a>
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
 <script src="assets/main.js" defer></script>
 </body>
 </html>

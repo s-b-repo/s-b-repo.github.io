@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Building Memory-Safe Offensive Tooling in Rust | Cyber Sec</title>
+<meta name="description" content="Why we write offensive security tooling in Rust — memory safety, fearless concurrency, single static binaries, and the patterns that keep custom tools reliable under fire during an engagement." />
+<meta name="keywords" content="rust offensive tooling, memory-safe security tools, rustsploit, exploit development rust, custom pentesting tools, offensive security engineering, static binary tooling" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-rust-offensive-tooling.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Building Memory-Safe Offensive Tooling in Rust" />
+<meta property="og:description" content="Offensive tools fail at the worst possible moment — mid-engagement, against a live target. Here's why we write ours in Rust, and the patterns that keep them reliable." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-rust-offensive-tooling.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Building Memory-Safe Offensive Tooling in Rust" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Building Memory-Safe Offensive Tooling in Rust" />
+<meta name="twitter:description" content="Why we write offensive security tooling in Rust — and the patterns that keep custom tools reliable under fire." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-rust-offensive-tooling.html#article",
+      "headline": "Building Memory-Safe Offensive Tooling in Rust",
+      "description": "Why we write offensive security tooling in Rust — memory safety, fearless concurrency, single static binaries, and the patterns that keep custom tools reliable under fire.",
+      "datePublished": "2026-05-12",
+      "inLanguage": "en",
+      "keywords": ["Rust","offensive tooling","memory safety","Rustsploit","custom pentesting tools"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-rust-offensive-tooling.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · engineering</p>
+      <h1 class="reveal">Building Memory-Safe Offensive Tooling in Rust</h1>
+      <p class="page-sub reveal">Offensive tools fail at the worst possible moment — mid-engagement, against a live target. Here's why we write ours in Rust, and the patterns that keep them reliable under fire.</p>
+      <p class="article-meta reveal">Guide &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~7 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">The tool that segfaults at 2&nbsp;a.m.</h2>
+      <p>Every operator has a story about the custom scanner that died halfway through an authorized engagement — a buffer overrun in a hand-rolled parser, a use-after-free in a threaded socket handler, a heap corruption that only shows up against one weird target. When your own tooling crashes against a live production system, you don't just lose time. You lose the evidence trail, you risk leaving the target in an odd state, and you spend the rest of the engagement wondering whether the last result was real.</p>
+      <p>Memory-unsafe languages put the entire burden of correctness on the person writing the tool at 2&nbsp;a.m. under deadline. Rust moves most of that burden into the compiler, where it belongs.</p>
+
+      <h2 class="reveal">What memory safety actually buys an offensive engineer</h2>
+      <p>This isn't about ideology. It's about a tool that behaves the same on its tenth run as its first:</p>
+      <ul>
+        <li><strong>No use-after-free, double-free, or buffer overrun</strong> in safe code — the exact bug classes that make hand-rolled C tooling flaky against hostile input.</li>
+        <li><strong>Fearless concurrency.</strong> Fan out thousands of concurrent probes without data races; the borrow checker rejects the shared-mutable-state mistakes that cause heisenbugs.</li>
+        <li><strong>One static binary.</strong> Target <code>musl</code> and you get a single file you can drop onto a jump host with no runtime, no interpreter, no dependency hell.</li>
+        <li><strong>A type system that models protocols.</strong> Parse once, validate at the boundary, and the rest of the tool can trust its own data.</li>
+      </ul>
+
+      <h2 class="reveal">A recon worker that doesn't fall over</h2>
+      <p>Async Rust makes high-concurrency scanning cheap. A single probe is a few lines, with an explicit timeout so a black-holed host can never hang the run:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>rust</i></div>
+        <pre class="term-body"><code>use tokio::{net::TcpStream, time::{timeout, Duration}};
+
+async fn probe(addr: &amp;str) -&gt; bool {
+    matches!(
+        timeout(Duration::from_millis(800), TcpStream::connect(addr)).await,
+        Ok(Ok(_))
+    )
+}</code></pre>
+      </div>
+      <p>Wrap that in a <code>Semaphore</code> to bound concurrency, spawn one task per target, and you have a scanner that saturates the network without exhausting file descriptors or racing on shared state. The failure mode of a slow target is a clean <code>false</code>, not a hung process.</p>
+
+      <h2 class="reveal">Parsing hostile input safely</h2>
+      <p>The most dangerous code in any offensive tool is the part that parses what the target sends back — banners, protocol responses, file formats you don't control. In C, a malformed banner is a crash waiting to happen. In Rust, you parse into a typed structure and the error path is explicit:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>rust</i></div>
+        <pre class="term-body"><code>fn parse_banner(buf: &amp;[u8]) -&gt; Option&lt;Service&gt; {
+    let text = std::str::from_utf8(buf).ok()?;
+    let (proto, version) = text.split_once('/')?;
+    Some(Service {
+        proto: proto.trim().into(),
+        version: version.trim().into(),
+    })
+}</code></pre>
+      </div>
+      <p>No pointer arithmetic, no length miscalculation, no silent overrun. A bad banner returns <code>None</code> — it does not corrupt the process or hand an attacker control of your own tool.</p>
+
+      <h2 class="reveal">Ship a single binary</h2>
+      <p>Distribution is where a lot of tooling falls apart. A static build removes the problem entirely:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>bash</i></div>
+        <pre class="term-body"><code>cargo build --release --target x86_64-unknown-linux-musl</code></pre>
+      </div>
+      <p>Cross-compile for the target architecture, copy one file across, run it. No Python runtime to install on a hardened host, no library versions to fight. On a locked-down box, "it's a single static binary" is often the difference between running your tool and not.</p>
+
+      <h2 class="reveal">Modularity: the Rustsploit approach</h2>
+      <p>The framework I maintain, <strong>Rustsploit</strong>, treats every capability — a scanner, an exploit, a post-exploitation module — as a trait object behind one common interface. New modules plug into the same runner, share the same reporting, and the compiler guarantees they honor the contract:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>rust</i></div>
+        <pre class="term-body"><code>pub trait Module {
+    fn name(&amp;self) -&gt; &amp;str;
+    fn run(&amp;self, ctx: &amp;Context) -&gt; Result&lt;Findings, ModuleError&gt;;
+}</code></pre>
+      </div>
+      <p>Adding a module cannot silently break the others, because the type system enforces the boundary between them. That is what lets a framework grow to hundreds of modules without collapsing under its own weight.</p>
+
+      <h2 class="reveal">Discipline still matters</h2>
+      <p>Memory safety makes a tool reliable; it does not make it authorized. Every engagement is scoped in writing, every target is inside the rules of engagement, and the client keeps the source to whatever we build. Rust makes a tool trustworthy to run. The paperwork makes it legal to run. Both are non-negotiable.</p>
+
+      <h2 class="reveal">Bottom line</h2>
+      <p>The right language for an offensive tool is the one that behaves predictably exactly when it matters most — under load, against hostile input, on an unfamiliar host. For us that is Rust: memory-safe by default, fast enough that performance is never the excuse, and portable down to a single file you can trust on a client's network.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Need custom tooling built for your engagement? <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Reverse-Engineering an Enterprise VPN Client | Cyber Sec</title>
+<meta name="description" content="A field methodology for tearing down a privileged VPN client — static triage, dynamic observation, the authentication handshake, the IPC privilege boundary, and responsible disclosure." />
+<meta name="keywords" content="reverse engineering VPN client, enterprise VPN security, vendor product security testing, 802.1X, SSL VPN, privilege escalation IPC, responsible disclosure, vulnerability research" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-reverse-engineering-vpn.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Reverse-Engineering an Enterprise VPN Client" />
+<meta property="og:description" content="VPN clients run with the highest privileges on the box and speak protocols nobody documents. That makes them one of the most rewarding — and most overlooked — targets in a security review." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-reverse-engineering-vpn.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Reverse-Engineering an Enterprise VPN Client" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Reverse-Engineering an Enterprise VPN Client" />
+<meta name="twitter:description" content="A field methodology for tearing down a privileged VPN client — and what procurement should take from it." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-reverse-engineering-vpn.html#article",
+      "headline": "Reverse-Engineering an Enterprise VPN Client",
+      "description": "A field methodology for tearing down a privileged VPN client — static triage, dynamic observation, the authentication handshake, the IPC privilege boundary, and responsible disclosure.",
+      "datePublished": "2026-06-09",
+      "inLanguage": "en",
+      "keywords": ["reverse engineering","VPN client","vendor product security testing","802.1X","responsible disclosure"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-reverse-engineering-vpn.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · research</p>
+      <h1 class="reveal">Reverse-Engineering an Enterprise VPN Client</h1>
+      <p class="page-sub reveal">VPN clients run with the highest privileges on the box and speak protocols nobody documents. That makes them one of the most rewarding — and most overlooked — targets in a security review.</p>
+      <p class="article-meta reveal">Research &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~8 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">Why VPN clients are worth the effort</h2>
+      <p>A corporate VPN client is a near-perfect target. It runs as root or SYSTEM, it handles authentication material, it opens raw network interfaces, and it usually speaks a proprietary handshake the vendor never documented. It is installed on every remote endpoint and trusted by default. Break the client and you often break the trust boundary the entire remote-access model depends on — which is exactly why it deserves scrutiny <em>before</em> it ships to a fleet, not after.</p>
+
+      <h2 class="reveal">The methodology: static, then dynamic</h2>
+      <p>Two passes. The first reads the binary at rest; the second watches it run.</p>
+      <ul>
+        <li><strong>Static triage.</strong> Symbols, strings, and a disassembler such as Ghidra to map the binary — locate the crypto, the config parser, and any privileged helper process.</li>
+        <li><strong>Dynamic observation.</strong> Run it in an isolated lab, capture the traffic, hook the interesting functions, and compare what actually crosses the wire against what the datasheet claims.</li>
+      </ul>
+      <p>The fastest way to start is almost embarrassingly simple — ask the binary what it leaks about itself:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>bash</i></div>
+        <pre class="term-body"><code># triage: what does the client tell you for free?
+strings -n 8 vpnclient | grep -Ei 'password|token|secret|BEGIN.*KEY|http://|verify=0'</code></pre>
+      </div>
+      <p>A single hardcoded <code>http://</code> update URL, a <code>verify=0</code> flag, or a private key baked into the binary is often the whole finding — discovered before you have written a line of exploit code.</p>
+
+      <h2 class="reveal">Reading the handshake</h2>
+      <p>Two questions drive any VPN review: how does the client authenticate, and does it verify the server it is talking to? The interesting failures cluster in predictable places:</p>
+      <ul>
+        <li>TLS with certificate validation disabled, or pinned to a wildcard that any sibling host can present.</li>
+        <li>802.1X / EAP flows that trust the network segment before the encrypted tunnel is actually established.</li>
+        <li>Credentials or session tokens cached in world-readable files or predictable temp paths.</li>
+      </ul>
+      <p>Each of these turns a "secure" remote-access product into a man-in-the-middle or credential-theft opportunity — none of which is visible from the marketing page.</p>
+
+      <h2 class="reveal">The privilege boundary is where the bugs live</h2>
+      <p>Most clients split a low-privileged GUI from a high-privileged background service, talking to each other over a local socket or named pipe. If that service trusts anything the GUI sends without validating <em>who</em> is sending it, a normal local user becomes root or SYSTEM. That IPC boundary — not the crypto — is where the highest-impact bugs usually hide, because it is the part the vendor tested least.</p>
+
+      <h2 class="reveal">Rebuilding it in the open</h2>
+      <p>The most rigorous way to prove you understand a protocol is to reimplement it from observation. That is why I built an open-source client for the H3C SSL VPN — a Qt6/KF6 front end with full 802.1X support — reconstructed from the observed handshake rather than the vendor's code. A clean reimplementation does three useful things: it documents an undocumented protocol, it removes an opaque privileged binary from the trust chain, and it gives defenders something they can actually read and audit instead of trusting on faith.</p>
+
+      <h2 class="reveal">Disclose responsibly</h2>
+      <p>Findings against a shipping product go to the vendor first, with a reproducible proof of concept and a reasonable timeline before anything is published. Research is only worth doing if it makes the ecosystem safer — not if it burns the organizations that depend on the product while they are still waiting on a fix. Coordinated disclosure is the difference between security research and something else entirely.</p>
+
+      <h2 class="reveal">What procurement should take from this</h2>
+      <p>If you are about to deploy an appliance or a client that will run privileged on every endpoint, someone should tear it down <strong>before</strong> you trust it — not after the incident. That is precisely what a vendor product security review delivers: a go/no-go decision grounded in how the thing actually behaves under a hostile eye, backed by protocol and binary analysis, rather than a datasheet and a logo. The cost of the review is always smaller than the cost of the breach it prevents.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Weighing a vendor product or appliance? <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

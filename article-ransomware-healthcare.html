@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Rise in Ransomware Targeting Healthcare | Cyber Sec</title>
+<meta name="description" content="Why healthcare keeps getting hit, how these intrusions actually unfold from initial access to double extortion, and the controls that break the chain." />
+<meta name="keywords" content="ransomware healthcare, double extortion, medical device security, phishing, edge exploitation, network segmentation, incident response" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-ransomware-healthcare.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Rise in Ransomware Targeting Healthcare" />
+<meta property="og:description" content="Why healthcare keeps getting hit, how these intrusions actually unfold from initial access to double extortion, and the controls that break the chain." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-ransomware-healthcare.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Rise in Ransomware Targeting Healthcare" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Rise in Ransomware Targeting Healthcare" />
+<meta name="twitter:description" content="Why healthcare keeps getting hit, how the intrusions unfold, and the controls that break the chain." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-ransomware-healthcare.html#article",
+      "headline": "Rise in Ransomware Targeting Healthcare",
+      "description": "Why healthcare keeps getting hit, how these intrusions actually unfold from initial access to double extortion, and the controls that break the chain.",
+      "datePublished": "2026-07-01",
+      "inLanguage": "en",
+      "keywords": ["ransomware","healthcare","double extortion","segmentation","incident response"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-ransomware-healthcare.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · advisory</p>
+      <h1 class="reveal">Rise in Ransomware Targeting Healthcare</h1>
+      <p class="page-sub reveal">Why healthcare keeps getting hit, how the intrusions actually unfold, and the controls that break the chain.</p>
+      <p class="article-meta reveal">Advisory &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~6 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">Why healthcare is a target</h2>
+      <p>Ransomware crews are rational actors, and healthcare checks every box on their list. It is not bad luck that hospitals keep appearing in the headlines — it is the predictable result of a threat model that rewards attackers for hitting organizations where downtime is measured in patient outcomes.</p>
+      <p>Several factors compound to make the sector attractive:</p>
+      <ul>
+        <li><strong>Uptime pressure that pushes payment.</strong> When systems tied to patient care go dark, the pressure to pay and restore is enormous. Attackers know a hospital cannot simply take a week to rebuild from backups the way a marketing agency might.</li>
+        <li><strong>Legacy and unpatchable devices.</strong> Imaging systems, infusion pumps, and lab equipment often run software the vendor stopped updating years ago — and which cannot be patched without recertifying the device.</li>
+        <li><strong>Rich, sensitive data.</strong> Medical records combine identity, financial, and health information, which raises the leverage of a data-theft threat.</li>
+        <li><strong>Complex vendor ecosystems.</strong> A single facility may depend on dozens of third-party systems and remote-support connections, each one a potential way in.</li>
+      </ul>
+
+      <h2 class="reveal">How the intrusion unfolds</h2>
+      <p>The specifics vary, but the shape of these intrusions is remarkably consistent. Understanding the sequence is what lets you break it, because every stage is an opportunity to detect and stop the attacker before encryption ever begins.</p>
+      <ul>
+        <li><strong>Initial access.</strong> A phishing email that harvests a credential, an exposed remote-desktop service reachable from the internet, or the exploitation of an unpatched edge device — a VPN concentrator or perimeter appliance.</li>
+        <li><strong>Foothold.</strong> The attacker establishes persistence and quietly surveys the environment, often for days or weeks.</li>
+        <li><strong>Lateral movement.</strong> On a flat network — where clinical, administrative, and device systems all share one broadcast domain — a single compromised host reaches nearly everything. Stolen credentials and native admin tools carry the attacker across the estate without tripping obvious alarms.</li>
+        <li><strong>Data theft.</strong> Before anything is encrypted, the attacker exfiltrates sensitive records to use as leverage.</li>
+        <li><strong>Encryption and double extortion.</strong> Systems are encrypted to halt operations, and the stolen data becomes a second threat: pay, or the records are published. That is the double-extortion model — two forms of pressure from one intrusion.</li>
+      </ul>
+
+      <h2 class="reveal">The legacy-device problem</h2>
+      <p>Much of the sector's advice — patch everything, keep systems current — collides with a hard reality: a large share of clinical equipment cannot be patched or taken offline. The device may run an operating system that reached end of life years ago. It may be certified as a medical device in a specific configuration that a patch would legally invalidate. It may simply be needed for patient care every hour of the day.</p>
+      <p>You cannot fix these devices, and you cannot remove them. So the strategy has to change: if a device cannot be made safe, it must be <em>isolated</em>. Segmentation is not a nice-to-have for legacy medical equipment — it is the primary control that keeps an unpatchable box from becoming the pivot point for the whole intrusion.</p>
+
+      <h2 class="reveal">Controls that break the chain</h2>
+      <p>No single control stops ransomware; the goal is to break the chain at as many points as possible so that any one failure does not become a catastrophe. The measures that consistently matter:</p>
+      <ul>
+        <li><strong>Segment clinical and operational-technology networks.</strong> Put medical devices and OT on isolated segments with tightly controlled paths in and out, so a compromised office workstation cannot reach an infusion pump.</li>
+        <li><strong>Patch and harden exposed edge.</strong> The internet-facing VPN, firewall, and remote-access services are the doors attackers knock on first. Keep them current, remove the ones you don't need, and never leave remote desktop exposed to the open internet.</li>
+        <li><strong>Phishing-resistant authentication.</strong> Strong multi-factor authentication on every account, especially remote access and administration, removes the single most common entry point — a stolen password.</li>
+        <li><strong>Tested, offline backups.</strong> Backups that are isolated from the production network and proven to restore are what let you say no to a ransom demand. Untested backups are a hope, not a control.</li>
+        <li><strong>Detection engineering.</strong> High-fidelity detections for lateral movement and credential abuse catch the attacker during the days-long window between foothold and encryption.</li>
+        <li><strong>A rehearsed incident-response plan.</strong> The middle of an incident is the wrong time to figure out who decides, who to call, and how to operate with systems down. Rehearse it before you need it.</li>
+      </ul>
+
+      <h2 class="reveal">Where to start</h2>
+      <p>If you can only act on one thing, make it segmentation combined with tested offline backups — together they cap how far an intrusion spreads and how much leverage it gains. From there, the fastest way to know whether these controls actually hold is to test them under realistic conditions rather than assume they work. An intrusion will find the gaps eventually; it is far cheaper to find them first.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Test your defenses before they do <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

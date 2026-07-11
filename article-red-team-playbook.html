@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Red Team Operations Playbook | Cyber Sec</title>
+<meta name="description" content="How to plan, run, and actually learn from a red team engagement — objective-driven adversary emulation, rules of engagement, and the purple-team turn that tunes your detections." />
+<meta name="keywords" content="red team playbook, adversary emulation, purple team, MITRE ATT&CK, rules of engagement, detection validation, social engineering" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-red-team-playbook.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Red Team Operations Playbook" />
+<meta property="og:description" content="How to plan, run, and actually learn from a red team engagement — objective-driven adversary emulation, rules of engagement, and the purple-team turn that tunes your detections." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-red-team-playbook.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Red Team Operations Playbook" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Red Team Operations Playbook" />
+<meta name="twitter:description" content="Plan, run, and learn from a red team engagement — objectives over checklists, purple over theater." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-red-team-playbook.html#article",
+      "headline": "Red Team Operations Playbook",
+      "description": "How to plan, run, and actually learn from a red team engagement — objective-driven adversary emulation, rules of engagement, and the purple-team turn that tunes your detections.",
+      "datePublished": "2026-02-18",
+      "inLanguage": "en",
+      "keywords": ["red team","adversary emulation","purple team","MITRE ATT&CK"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-red-team-playbook.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · playbook</p>
+      <h1 class="reveal">Red Team Operations Playbook</h1>
+      <p class="page-sub reveal">How to plan, run, and actually learn from a red team engagement — objectives over checklists, and purple over theater.</p>
+      <p class="article-meta reveal">Playbook &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~7 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">A red team is not a bigger pentest</h2>
+      <p>The most common mistake we see is treating a red team engagement as a penetration test with a scarier name. They are different exercises with different goals. A pentest is coverage-driven: enumerate an environment, find as many vulnerabilities as possible, and report them so they can be fixed. A red team is objective-driven: pick a specific, high-value outcome an adversary would actually pursue, and find out whether the organization can stop, detect, and respond to someone chasing it.</p>
+      <p>Both are valuable. But if you ask a red team to "find all the bugs," you have commissioned an expensive pentest and learned almost nothing about how your defenders perform under pressure. The whole point of the exercise is the second question, not the first.</p>
+
+      <h2 class="reveal">Define the objective</h2>
+      <p>Before any tooling comes out, we answer one question with the client: what would actually hurt? Not "which hosts are vulnerable," but "what outcome would constitute a genuine crisis for this business." The objective might be exfiltrating the customer database, reaching a payment system, obtaining domain admin, or accessing a specific executive's mailbox.</p>
+      <p>A good objective is concrete, singular, and painful. "Improve our security posture" is not an objective. "Retrieve the file <code>merger-terms.docx</code> from the finance share and prove you had it" is. The sharper the crown-jewel target, the more honest the answer you get about your defenses.</p>
+
+      <h2 class="reveal">Authorization and rules of engagement</h2>
+      <p>Nothing starts until the rules of engagement are signed. This is not bureaucracy — it is what separates a red team from a crime. The document we agree on covers, at minimum:</p>
+      <ul>
+        <li><strong>Scope.</strong> Which systems, networks, buildings, and people are in play, and which are explicitly off-limits.</li>
+        <li><strong>Safe words.</strong> An agreed signal that lets an operator caught in a physical or social scenario prove they are authorized without blowing the exercise on the spot.</li>
+        <li><strong>Deconfliction.</strong> A named point of contact who can confirm, at any hour, whether suspicious activity is us or a real intruder.</li>
+        <li><strong>Legal sign-off.</strong> Written authorization from someone with the standing to grant it, plus handling rules for any sensitive data we touch.</li>
+      </ul>
+      <p>Get this wrong and even a flawless operation becomes a liability. Get it right and everyone can act decisively, because the boundaries are known.</p>
+
+      <h2 class="reveal">Choose an adversary and emulate</h2>
+      <p>Generic hacking teaches generic lessons. Threat-informed emulation teaches you whether you can withstand the adversary who is actually likely to target you. We pick a realistic threat profile based on the client's sector and exposure, then model its tradecraft — its preferred initial-access methods, its tooling style, its patience.</p>
+      <p>Mapping the plan to MITRE ATT&amp;CK keeps the emulation honest and gives the blue team a shared vocabulary. Every technique we intend to use lines up against a tactic and an ID, so the after-action conversation is about specific, named behaviors rather than vague impressions of "getting in."</p>
+
+      <h2 class="reveal">The execution arc</h2>
+      <p>Execution follows the arc a real intrusion does, patient and deliberate rather than loud:</p>
+      <ul>
+        <li><strong>Recon.</strong> Map the external footprint, the people, and the technology before touching anything.</li>
+        <li><strong>Initial access.</strong> Get a foot in the door — a phishing pretext, an exposed service, or a physical entry where the scope allows it.</li>
+        <li><strong>Foothold.</strong> Establish reliable, low-noise access that survives a reboot and a nervous defender.</li>
+        <li><strong>Escalation.</strong> Move from an ordinary account to the privileges the objective requires.</li>
+        <li><strong>Lateral movement.</strong> Pivot across the environment toward the crown jewels, quietly.</li>
+        <li><strong>Objective.</strong> Reach the defined goal and prove it, then stop — the exercise ends at the objective, not at "as much damage as possible."</li>
+      </ul>
+      <p>Where social engineering and physical entry are in scope, they run inside this same arc. Tailgating past a reception desk or a convincing pretext on the phone is often a faster path to a foothold than any exploit, and testing it tells you something no network scan ever will.</p>
+
+      <h2 class="reveal">The purple turn</h2>
+      <p>The best value in a red team engagement usually comes after the objective is reached. This is the purple turn: we sit down with the blue team and replay the operation step by step. For each action we took, we ask what fired, what should have fired, and what stayed silent.</p>
+      <p>Then we tune. A detection that missed the lateral movement gets rewritten and re-tested against the same technique until it catches it. A gap in logging gets closed. The goal is not to win — it is to leave the defenders measurably better at spotting the next real intruder, with detections proven against genuine adversary behavior rather than assumed to work.</p>
+
+      <h2 class="reveal">Measure what matters</h2>
+      <p>A red team report that only says "we got in" is a failure of measurement. The metrics that tell you whether the exercise was worth it are about detection and response, not just access:</p>
+      <ul>
+        <li><strong>Time to detect.</strong> How long from our first action to the first alert a human actually noticed.</li>
+        <li><strong>Detections fired.</strong> Which of our techniques triggered something, and which passed unseen.</li>
+        <li><strong>Gaps remediated.</strong> How many of the exposed blind spots were closed and re-tested by the end.</li>
+      </ul>
+      <p>All of it lands in the after-action review — a frank, blameless session where red and blue walk the timeline together. That review, not the moment of compromise, is where an organization gets stronger. A red team that emulates a real adversary, proves a real objective, and hands the defenders a tuned set of detections has done its job. Anything less is theater.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Plan a red or purple team engagement <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

@@ -1,19 +1,22 @@
-# SID — Security Innovation &amp; Development (website)
+# Sentinel Cyber Solutions (website)
 
-A fast, static, SEO-optimised site for **SID — Security Innovation & Development**,
-the offensive-security practice of Stephan Botes. No build step, no dependencies —
+A fast, static, SEO-optimised site for **Sentinel Cyber Solutions**,
+an enterprise cybersecurity firm. No build step, no dependencies —
 plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 
 ```
 .
 ├── index.html            # home (semantic HTML + full meta/JSON-LD)
-├── facts.html            # "The Current Cyber Struggle" — industry problems + submit form
+├── about.html            # about the firm
+├── services.html         # service catalogue
+├── solutions.html        # industry-specific solutions
+├── contact.html          # contact page
+├── resources.html        # resources & insights
 ├── assets/
-│   ├── styles.css        # all styling (dark "tactical" theme; shared by both pages)
+│   ├── styles.css        # all styling (dark "tactical" theme)
 │   ├── main.js           # reveals, mobile nav, terminal typing, mailto forms
-│   ├── favicon.svg       # reticle monogram
-│   ├── og-image.png      # 1200×630 social share card (+ og-image.svg source)
-│   └── stephan-botes.jpg # about photo
+│   ├── favicon.svg       # favicon
+│   └── og-image.png      # 1200×630 social share card
 ├── robots.txt
 ├── sitemap.xml
 ├── .nojekyll             # serve files as-is (skip Jekyll)
@@ -25,42 +28,37 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 
 ## 1. Deploy to GitHub Pages (5 minutes)
 
-1. Create a new repository, e.g. **`s-b-repo/stephanbotes-site`**
-   (or name it **`s-b-repo.github.io`** to serve at the root domain).
+1. Create a new repository for your site.
 2. Put these files in the repo root and push:
    ```bash
-   cd stephan-botes-security
-   git init && git add . && git commit -m "Launch security site"
+   git init && git add . && git commit -m "Launch site"
    git branch -M main
-   git remote add origin https://github.com/s-b-repo/stephanbotes-site.git
+   git remote add origin https://github.com/YOUR-ORG/YOUR-REPO.git
    git push -u origin main
    ```
-3. On GitHub: **Settings → Pages → Build and deployment → Source: “Deploy from a
-   branch” → Branch: `main` / `(root)` → Save.**
-4. Your site goes live in ~1 minute at
-   `https://s-b-repo.github.io/stephanbotes-site/`
-   (or `https://s-b-repo.github.io/` if you used the `*.github.io` repo name).
+3. On GitHub: **Settings → Pages → Build and deployment → Source: "Deploy from a
+   branch" → Branch: `main` / `(root)` → Save.**
+4. Your site goes live in ~1 minute.
 
 ### Custom domain (optional, recommended for SEO/branding)
-1. Buy a domain (e.g. `stephanbotes.dev`).
+1. Buy a domain (e.g. `sentinelcybersolutions.com`).
 2. `mv CNAME.example CNAME` and put your bare domain inside it.
 3. In your DNS, add the GitHub Pages records (A records to GitHub's IPs +
-   a `www` CNAME to `s-b-repo.github.io`) — see GitHub's
-   *“Managing a custom domain”* docs.
+   a `www` CNAME to your GitHub Pages domain) — see GitHub's
+   *"Managing a custom domain"* docs.
 4. Settings → Pages → Custom domain → enter the domain → **Enforce HTTPS**.
 
 ---
 
-## 2. ⚠️ Set your real URL (do this once)
+## 2. Set your real URL (do this once)
 
-The SEO tags use the placeholder **`https://stephanbotes.dev`**. Replace it with
-your real URL in three files so Open Graph, canonical and the sitemap are correct:
+The SEO tags use **`https://sentinelcybersolutions.com`**. If you deploy to a
+different domain, replace it in all files:
 
 ```bash
 # from the project root — change the URL to your actual site:
-grep -rl 'stephanbotes.dev' . | xargs sed -i 's#https://stephanbotes.dev#https://YOUR-REAL-URL#g'
+grep -rl 'sentinelcybersolutions.com' . | xargs sed -i 's#https://sentinelcybersolutions.com#https://YOUR-REAL-URL#g'
 ```
-Files affected: `index.html`, `sitemap.xml`, `robots.txt`.
 
 Then submit the site to **Google Search Console** and **Bing Webmaster Tools**
 and add the sitemap (`/sitemap.xml`) for indexing.
@@ -70,14 +68,14 @@ and add the sitemap (`/sitemap.xml`) for indexing.
 ## 3. Contact form
 
 By default the form **opens the visitor's email app** with a pre-filled message
-to `stephanbotesIT@proton.me` — works instantly on GitHub Pages with no backend.
+to `contact@sentinelcybersolutions.com` — works instantly on GitHub Pages with no backend.
 
 Want submissions delivered without the visitor needing an email client? Wire up a
 free form backend (no server required):
 
 1. Create a free form at **[Formspree](https://formspree.io)** or
    **[Web3Forms](https://web3forms.com)** and copy your endpoint URL.
-2. In `index.html`, set it on the form tag:
+2. In each page's form tag, set the `data-endpoint` attribute:
    ```html
    <form class="contact-form card reveal" id="brief-form"
          data-endpoint="https://formspree.io/f/yourid">
@@ -88,23 +86,23 @@ That's it — `main.js` will POST submissions there as JSON and show a success m
 
 ## 4. Editing content
 
-- **Services / certifications / repos**: edit the matching `<section>` in
-  `index.html` — they're plain, well-commented HTML.
+- **Services / solutions / about**: edit the matching `<section>` in each HTML
+  file — they're plain, well-commented HTML.
 - **Colours / fonts**: change the CSS variables at the top of `assets/styles.css`
-  (`--acc` is the lime signal colour; fonts are loaded from Google Fonts in the
+  (`--acc` is the accent colour; fonts are loaded from Google Fonts in the
   `<head>`).
-- **Social card**: edit `assets/og-image.svg` and re-export:
+- **Social card**: edit the source SVG and re-export:
   ```bash
   magick -density 144 -background "#080c0e" assets/og-image.svg -resize 1200x630 assets/og-image.png
   ```
 
 ---
 
-## 5. SEO checklist (already done ✅)
+## 5. SEO checklist (already done)
 
 - Descriptive `<title>` + meta description + canonical
-- Open Graph + Twitter Card with a 1200×630 image
-- JSON-LD structured data: `Person` + `ProfessionalService` + `WebSite`
+- Open Graph + Twitter Card with a 1200x630 image
+- JSON-LD structured data: `Organization` + `ProfessionalService` + `WebSite`
 - Semantic landmarks, alt text, skip link, `aria` labels, reduced-motion support
 - `robots.txt` + `sitemap.xml`
 - Mobile-responsive, fast (no frameworks), accessible colour contrast

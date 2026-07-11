@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Building a Detection Engineering Program | Cyber Sec</title>
+<meta name="description" content="From raw logs to alerts that actually fire — a threat-driven, build-and-own approach to detection engineering with Wazuh/Elastic, detection-as-code, and validation." />
+<meta name="keywords" content="detection engineering, SIEM, Wazuh, Elastic, detection as code, log pipeline, alert tuning, DFIR automation, MITRE ATT&CK" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-detection-engineering-program.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Building a Detection Engineering Program" />
+<meta property="og:description" content="From raw logs to alerts that actually fire — a threat-driven, build-and-own approach to detection engineering with Wazuh/Elastic, detection-as-code, and validation." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-detection-engineering-program.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Building a Detection Engineering Program" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Building a Detection Engineering Program" />
+<meta name="twitter:description" content="From raw logs to alerts that actually fire — detection you build once and own." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-detection-engineering-program.html#article",
+      "headline": "Building a Detection Engineering Program",
+      "description": "From raw logs to alerts that actually fire — a threat-driven, build-and-own approach to detection engineering with Wazuh/Elastic, detection-as-code, and validation.",
+      "datePublished": "2026-05-28",
+      "inLanguage": "en",
+      "keywords": ["detection engineering","SIEM","Wazuh","detection as code","DFIR"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-detection-engineering-program.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · guide</p>
+      <h1 class="reveal">Building a Detection Engineering Program</h1>
+      <p class="page-sub reveal">From raw logs to alerts that actually fire — a project-based approach to detection you build once and own.</p>
+      <p class="article-meta reveal">Guide &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~7 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">The alert-fatigue trap</h2>
+      <p>Most detection stacks we inherit have the same problem: a dashboard lit up like a slot machine, thousands of alerts a day, and an analyst who long ago learned to ignore all of them. When everything is an alert, nothing is. The default posture of many tools — turn on every rule, forward every log — produces a wall of noise that hides the one event that mattered. Real intrusions sail through because the signal was buried under a hundred benign "possible" hits nobody had time to triage.</p>
+      <p>A detection engineering program flips that logic. Instead of collecting everything and hoping a rule catches something, we start from the threats we actually face and build a small set of high-fidelity detections that earn their place. Every alert should be worth waking someone up for.</p>
+
+      <h2 class="reveal">Start from threats, not tools</h2>
+      <p>The temptation is to buy a platform and switch on its rule packs. That gets the vendor's idea of a threat, not yours. We start the other way around: what does an intrusion against <em>this</em> organization plausibly look like? Which techniques would an attacker use against your identity provider, your edge, your endpoints, your build pipeline?</p>
+      <p>We map that to MITRE ATT&amp;CK — not as a checkbox exercise, but as a way to prioritize. Techniques you are genuinely exposed to get a detection; techniques that don't apply to your environment don't waste an analyst's attention. The output is a coverage map: for each technique that matters, either a detection exists, a detection is planned, or we've made a conscious decision to accept the gap.</p>
+
+      <h2 class="reveal">The log pipeline that feeds it</h2>
+      <p>A detection is only as good as the data underneath it. Before writing a single rule, we make sure the right sources land in the SIEM, normalized into a shape rules can query. The sources that consistently earn their keep:</p>
+      <ul>
+        <li><strong>Authentication and identity</strong> — sign-ins, MFA events, privilege changes. Most intrusions touch identity somewhere.</li>
+        <li><strong>Endpoint telemetry</strong> — process creation, command lines, parent-child relationships, script-block logging.</li>
+        <li><strong>Edge and network</strong> — VPN, firewall, and proxy logs that show what crossed the perimeter.</li>
+        <li><strong>Cloud and control-plane audit trails</strong> — API calls and configuration changes to the systems that run everything else.</li>
+      </ul>
+      <p>We build this on tooling you can run and own — <strong>Wazuh</strong> or the <strong>Elastic</strong> stack — with normalization done at ingest so a field means the same thing regardless of which source produced it. A rule that has to special-case five log formats is a rule that will break.</p>
+
+      <h2 class="reveal">Detection as code</h2>
+      <p>Detections are software, and we treat them that way. Every rule lives in version control, gets peer-reviewed before it ships, and carries a test that proves it fires on the behaviour it's meant to catch. No more editing rules directly in a web console where the last change is a mystery and a typo takes production down silently.</p>
+      <p>A rule in this model is a small, readable artifact — here an illustrative Sigma-style detection for a suspicious credential-dumping pattern:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>sigma</i></div>
+        <pre class="term-body"><code>title: LSASS Access From Non-System Process
+status: experimental
+logsource:
+    category: process_access
+    product: windows
+detection:
+    selection:
+        TargetImage|endswith: '\lsass.exe'
+        GrantedAccess|contains:
+            - '0x1010'
+            - '0x1410'
+    filter_known:
+        SourceImage|endswith:
+            - '\wininit.exe'
+            - '\csrss.exe'
+    condition: selection and not filter_known
+falsepositives:
+    - EDR and backup agents that legitimately read process memory
+level: high</code></pre>
+      </div>
+      <p>Because it's text in a repository, we can diff it, review it, roll it back, and run it against recorded data before it ever touches the live pipeline.</p>
+
+      <h2 class="reveal">Tuning: every rule earns its keep</h2>
+      <p>A raw rule is a starting point, not a finished detection. The work is in the tuning — driving false positives toward zero without blinding the rule to the real thing. We tie each rule to an <em>expected behaviour</em>: what legitimate activity looks like the attack, and how we tell them apart. The backup agent that reads process memory, the admin tool that spawns PowerShell — those get filtered explicitly, in the rule, with a comment saying why.</p>
+      <p>The discipline is simple: a rule that fires on benign activity more often than malicious activity is a broken rule, and it gets fixed or retired. An alert an analyst can't act on is worse than no alert at all.</p>
+
+      <h2 class="reveal">Validate: does it actually fire?</h2>
+      <p>The most dangerous detection is the one everyone assumes works. Before we call a rule done, we prove it. Atomic tests replay the exact technique in a controlled way; a red-team replay walks the full behaviour end to end. If the rule doesn't light up, we find out why — wrong log source, a field that isn't collected, a condition that's too tight — and fix it. Detections that were never tested are just optimism written in YAML.</p>
+
+      <h2 class="reveal">DFIR automation on top</h2>
+      <p>A firing alert is the beginning of the work, not the end. We wire enrichment into the pipeline so that when a rule triggers, the analyst gets context automatically — the user, the host, recent activity, threat-intel matches — instead of pivoting through five consoles by hand. For well-understood scenarios, response playbooks handle the routine first moves: isolate a host, disable an account, pull a memory image. The goal is to compress the time between detection and containment, which is the number that actually decides how bad an incident gets.</p>
+
+      <h2 class="reveal">Build and own it</h2>
+      <p>When we build a detection program, it's yours. The rules, the pipeline configuration, the coverage map, the playbooks — documented and handed over so your team can run and extend them without us. It runs on tooling you control, not a subscription that stops working the day you stop paying. Detection engineering done right is an asset you keep, not a service you rent.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Have us build your detection stack <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

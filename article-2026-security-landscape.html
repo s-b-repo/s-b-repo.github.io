@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>The 2026 Enterprise Security Landscape | Cyber Sec</title>
+<meta name="description" content="The trends that actually moved enterprise risk in 2026 — identity-first attacks, exposed edge appliances, ransomware-as-a-service, and supply-chain exposure — with the defensive priorities that matter." />
+<meta name="keywords" content="2026 security landscape, enterprise threat trends, edge appliance exploitation, ransomware-as-a-service, identity attacks, attack surface, supply chain security" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-2026-security-landscape.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="The 2026 Enterprise Security Landscape" />
+<meta property="og:description" content="The trends that actually moved enterprise risk in 2026 — identity-first attacks, exposed edge appliances, ransomware-as-a-service, and supply-chain exposure — with the defensive priorities that matter." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-2026-security-landscape.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — The 2026 Enterprise Security Landscape" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The 2026 Enterprise Security Landscape" />
+<meta name="twitter:description" content="The trends that moved enterprise risk in 2026 — and the defensive priorities that matter." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-2026-security-landscape.html#article",
+      "headline": "The 2026 Enterprise Security Landscape",
+      "description": "The trends that actually moved enterprise risk in 2026 — identity-first attacks, exposed edge appliances, ransomware-as-a-service, and supply-chain exposure — with the defensive priorities that matter.",
+      "datePublished": "2026-01-15",
+      "inLanguage": "en",
+      "keywords": ["security landscape","threat trends","edge exploitation","ransomware","attack surface"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-2026-security-landscape.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · report</p>
+      <h1 class="reveal">The 2026 Enterprise Security Landscape</h1>
+      <p class="page-sub reveal">The trends that actually moved risk this year — from identity-first attacks to exposed edge appliances — and what to do about them.</p>
+      <p class="article-meta reveal">Report &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~7 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">The year in one sentence</h2>
+      <p>If we had to compress 2026 into a single line, it would be this: attackers industrialised the easy path. The headline-grabbing zero-day still exists, but it is not what breaks most organisations. What breaks them is a stolen credential, an unpatched appliance on the public internet, or a criminal crew renting tooling built by someone smarter than they are. None of that is exotic. It is the predictable exploitation of gaps that were already there, done faster and at greater scale than before.</p>
+      <p>Every trend below is a variation on that theme. The good news is that a threat which industrialises the easy path is a threat you can measure and shrink — if you look at your own environment the way the attacker does.</p>
+
+      <h2 class="reveal">Identity is the perimeter now</h2>
+      <p>The firewall stopped being the edge years ago; in 2026 the login is the edge. When we test an enterprise, the fastest route in is almost never a memory-corruption exploit — it is an account. The patterns we see over and over:</p>
+      <ul>
+        <li><strong>Credential theft and reuse</strong> — passwords harvested from infostealers or prior breaches, replayed against exposed portals that never enforced anything stronger.</li>
+        <li><strong>MFA push-bombing</strong> — spamming a user with approval prompts until one gets tapped out of fatigue or annoyance.</li>
+        <li><strong>Token and session theft</strong> — stealing an already-authenticated session so the second factor never even comes up.</li>
+        <li><strong>Help-desk social engineering</strong> — calling support to reset a factor or a password, because the human process is weaker than the technical control it protects.</li>
+      </ul>
+      <p>The uncomfortable takeaway is that most "sophisticated" intrusions we investigate started with a legitimate login. If your identity layer can be talked or phished around, the rest of your stack is decoration.</p>
+
+      <h2 class="reveal">The edge is the soft underbelly</h2>
+      <p>Internet-facing appliances — VPN concentrators, firewalls, mail gateways, file-transfer boxes — are the single most reliable way into an enterprise, and 2026 did nothing to change that. They sit at the boundary, they run vendor code you cannot audit, and they are patched last because taking them down feels risky.</p>
+      <p>In our engagements we routinely find EOL software still carrying production traffic — we have walked into environments running SharePoint 2007 in production, and it is not a museum piece, it is business-critical. We find edge device configurations exposed to anyone who asks, and we have pulled full FortiGate configs off the wire that mapped the internal network for us. The appliance you forgot about is the one the attacker found first. Every device on your perimeter is either patched and monitored, or it is an open invitation.</p>
+
+      <h2 class="reveal">Ransomware went corporate</h2>
+      <p>Ransomware in 2026 is a business with a supply chain, not a lone operator with a payload. The ransomware-as-a-service model splits the work: one group builds and maintains the tooling, affiliates rent it and do the intrusions, and the profits get shared. That specialisation is exactly why volume and competence both went up.</p>
+      <p>The playbook has matured alongside it. Double and triple extortion — encrypt the data, threaten to leak it, and then pressure customers or regulators as well — means "we have good backups" is no longer a complete answer. And the crews are patient: dwell-then-detonate is standard, where the affiliate lives quietly in the network for days or weeks, maps it, kills the backups, and only then triggers encryption everywhere at once. By the time you see the ransom note, the attacker has already won every prior round.</p>
+
+      <h2 class="reveal">The supply chain is everyone's problem</h2>
+      <p>You can secure every line of code you wrote and still get breached through code you merely trusted. In 2026 the supply chain is a first-class attack surface across three layers:</p>
+      <ul>
+        <li><strong>Dependencies</strong> — the open-source libraries you pull in transitively, any one of which can be poisoned upstream.</li>
+        <li><strong>Build and delivery systems</strong> — the CI/CD pipelines and signing infrastructure that, if compromised, ship malware with your own signature on it.</li>
+        <li><strong>Third-party appliances and vendors</strong> — the boxes and services you bought, whose vulnerabilities become yours the moment you plug them in.</li>
+      </ul>
+      <p>The through-line is trust you never explicitly granted. Knowing what is actually running in your environment — and where it came from — is now a security control, not an inventory chore.</p>
+
+      <h2 class="reveal">Offense got AI leverage</h2>
+      <p>We are deliberately not going to hype this, because most of the "AI cyberweapon" talk is noise. But there is a real, boring effect worth naming: automation lowered the cost of the attacker's grunt work. Phishing lures are cleaner and better-localised than the broken-English attempts of a few years ago. Tooling gets written and adapted faster. Reconnaissance that used to take an operator a day gets scripted down to minutes.</p>
+      <p>None of this invented a new class of attack. It made the existing ones cheaper and more scalable — which is precisely why defenders cannot afford to move at the old pace. If the offence automated its easy path, the defence has to automate its baseline hygiene too.</p>
+
+      <h2 class="reveal">What to prioritise in 2026</h2>
+      <p>The defensive list is short, unglamorous, and effective. In rough order of return on effort:</p>
+      <ul>
+        <li><strong>Shrink and patch the exposed edge.</strong> Inventory everything internet-facing, retire the EOL boxes, and patch appliances on the same clock you patch anything else.</li>
+        <li><strong>Move to phishing-resistant authentication.</strong> If a factor can be pushed, replayed, or reset over the phone, it is not protecting you. Hardware-backed, phishing-resistant auth closes the identity-first attack path.</li>
+        <li><strong>Build detection you own.</strong> Alerts mapped to how attackers actually behave in your environment beat a pile of vendor defaults nobody tuned.</li>
+        <li><strong>Test like an attacker.</strong> The only honest measure of your attack surface is someone authorised trying to break in and telling you exactly how far they got.</li>
+      </ul>
+      <p>Every trend this year rewarded the same defensive posture: know your exposure, harden the login, watch your own network, and validate all of it under adversarial pressure rather than on a spreadsheet.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">See how we test your real attack surface <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

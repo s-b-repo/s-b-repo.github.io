@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Incident Response Tabletop Exercises | Cyber Sec</title>
+<meta name="description" content="Your incident-response plan is a hypothesis until someone tests it. How to run a tabletop that surfaces decision and communication gaps — with four ready-to-run scenarios." />
+<meta name="keywords" content="incident response tabletop, IR exercise, ransomware scenario, tabletop injects, incident response plan, crisis simulation" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-ir-tabletop-exercises.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Incident Response Tabletop Exercises" />
+<meta property="og:description" content="Your incident-response plan is a hypothesis until someone tests it. How to run a tabletop that surfaces decision and communication gaps — with four ready-to-run scenarios." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-ir-tabletop-exercises.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Incident Response Tabletop Exercises" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Incident Response Tabletop Exercises" />
+<meta name="twitter:description" content="Run a tabletop that finds the gaps in your IR plan before an attacker does." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-ir-tabletop-exercises.html#article",
+      "headline": "Incident Response Tabletop Exercises",
+      "description": "Your incident-response plan is a hypothesis until someone tests it. How to run a tabletop that surfaces decision and communication gaps — with four ready-to-run scenarios.",
+      "datePublished": "2026-04-08",
+      "inLanguage": "en",
+      "keywords": ["incident response","tabletop exercise","IR plan","crisis simulation"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-ir-tabletop-exercises.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · template</p>
+      <h1 class="reveal">Incident Response Tabletop Exercises</h1>
+      <p class="page-sub reveal">Your IR plan is a hypothesis until someone tests it. Here's how to run a tabletop that finds the gaps before an attacker does.</p>
+      <p class="article-meta reveal">Template &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~6 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">A plan nobody has rehearsed is fiction</h2>
+      <p>Most organizations have an incident-response plan. It lives in a shared drive, it was written to satisfy an auditor, and the last time anyone opened it was the day it was signed off. On paper it looks complete: escalation paths, contact lists, decision trees. The problem is that a plan nobody has practiced is a set of assumptions, not a capability.</p>
+      <p>The night of a real incident is the worst possible time to discover that the on-call number rings a phone nobody carries anymore, that no one is sure who can authorize taking production offline, or that legal and communications have completely different ideas about what can be said publicly. A tabletop exercise surfaces those gaps in a conference room instead of in a breach.</p>
+
+      <h2 class="reveal">Why tabletops earn their place</h2>
+      <p>A tabletop is a facilitated, discussion-based walkthrough of a realistic incident. Nothing is actually attacked and no systems go down. That is exactly why they work:</p>
+      <ul>
+        <li><strong>They are cheap.</strong> A room, a facilitator, and a couple of hours of the right people's time — no tooling to buy, no production risk.</li>
+        <li><strong>They cause no downtime.</strong> Unlike a live drill, you are simulating decisions, so business operations continue untouched.</li>
+        <li><strong>They surface the gaps that hurt most.</strong> Decision gaps (who decides?), communication gaps (who tells whom?), and authority gaps (who is allowed to pull the trigger?) are the failures that turn a contained incident into a crisis, and they only show up when real people have to act under pressure.</li>
+      </ul>
+      <p>Technical controls fail loudly and get fixed. Decision and communication failures fail quietly, and a tabletop is the cheapest way we know to expose them.</p>
+
+      <h2 class="reveal">Who belongs in the room</h2>
+      <p>An incident is never contained to the security team, so a tabletop that only involves engineers tests the wrong thing. We aim for a cross-functional room:</p>
+      <ul>
+        <li><strong>An executive sponsor</strong> — someone senior enough to make the call on business-impacting decisions like taking a revenue system offline.</li>
+        <li><strong>IT and operations</strong> — the people who actually touch the systems, hold the credentials, and know what will break.</li>
+        <li><strong>Security</strong> — to drive the technical investigation and containment thinking.</li>
+        <li><strong>Legal</strong> — for regulatory notification, breach-disclosure obligations, and liability questions.</li>
+        <li><strong>Communications / PR</strong> — for customer, staff, and press messaging.</li>
+        <li><strong>A facilitator</strong> — ideally someone outside the reporting line who runs the clock, delivers the injects, and keeps the group honest.</li>
+      </ul>
+
+      <h2 class="reveal">The anatomy of a tabletop</h2>
+      <p>A good exercise has a shape. It opens with a <strong>scenario</strong> — a short, plausible starting situation. From there the facilitator introduces <strong>timed injects</strong>: new pieces of information delivered at intervals that escalate the situation and force the group to react. Each inject should demand a <strong>forced decision</strong> — not "what would you consider," but "what do you do right now, and who signs off." Laptops stay closed; the point is to test what people know and how they coordinate, not their ability to search a wiki. Throughout, someone captures every point of <strong>friction</strong>: every pause, every "who owns that?", every disagreement about authority. That friction log is the real output of the exercise.</p>
+
+      <h2 class="reveal">Four ready-to-run scenarios</h2>
+      <p>Any of these can fill a ninety-minute session. Start with the plausible opening, then feed in the injects one at a time:</p>
+      <ul>
+        <li><strong>Ransomware with double extortion.</strong> Inject 1: file servers are encrypting and a ransom note claims data was exfiltrated first. Inject 2: the attacker emails a sample of stolen records to a journalist. Inject 3: backups are found to be partially encrypted too. Decisions: pay or not, disclose or not, who authorizes each.</li>
+        <li><strong>Stolen administrator credentials.</strong> Inject 1: an admin account logs in from an unfamiliar location outside business hours. Inject 2: that account has created new privileged users and altered logging. Decisions: lock the account (and lock out the legitimate admin?), how far the blast radius reaches, when to force an organization-wide credential reset.</li>
+        <li><strong>Third-party / supply-chain compromise.</strong> Inject 1: a vendor whose software you run announces they were breached. Inject 2: you find their tool has broad access into your environment and suspicious outbound traffic. Decisions: cut the integration (and break what?), who calls the vendor, what you tell your own customers.</li>
+        <li><strong>Insider data theft.</strong> Inject 1: an employee who just resigned downloaded an unusual volume of sensitive files last week. Inject 2: HR confirms they are joining a competitor. Decisions: how to preserve evidence, whether to involve law enforcement, how to balance investigation against privacy and employment law.</li>
+      </ul>
+
+      <h2 class="reveal">Running it well</h2>
+      <p>The facilitator makes or breaks the exercise. Keep real-time pressure on — hold the clock, deliver injects whether or not the group has finished debating the last one, because attackers do not wait. Ban the phrase "we'd just…"; when someone says "we'd just restore from backup" or "we'd just call the vendor," stop and ask who, how, with what access, and how long it takes. Force real decisions rather than options: make the group commit to a course of action and name the person accountable for it. If a decision cannot be made in the room because the authority is unclear, that is not a failure of the exercise — that is the finding.</p>
+
+      <h2 class="reveal">The after-action is the whole point</h2>
+      <p>A tabletop that ends when the last inject is read has wasted everyone's morning. The value is in what you do next. Turn the friction log into concrete gaps, assign every gap a named owner, and give each one a deadline. "Nobody was sure who could authorize taking payments offline" becomes "define and document that authority — owned by the COO — by month-end." Then re-run the exercise a quarter later, ideally with a different scenario, and confirm the gaps actually closed. An IR plan gets better the same way any skill does: through repetition under realistic pressure.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Want a facilitated exercise? <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Supply Chain Security Assessment Framework | Cyber Sec</title>
+<meta name="description" content="A vendor-agnostic method for evaluating third-party and dependency risk — inventory and SBOM, build provenance, dependency review, and appliance testing with reproducible evidence." />
+<meta name="keywords" content="supply chain security, SBOM, SLSA, dependency review, third-party risk, build provenance, open-source audit, vendor product testing" />
+<meta name="author" content="Stephan Botes" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://sentinelcybersolutions.com/article-supply-chain-assessment.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Supply Chain Security Assessment Framework" />
+<meta property="og:description" content="A vendor-agnostic method for evaluating third-party and dependency risk — inventory and SBOM, build provenance, dependency review, and appliance testing with reproducible evidence." />
+<meta property="og:url" content="https://sentinelcybersolutions.com/article-supply-chain-assessment.html" />
+<meta property="og:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Supply Chain Security Assessment Framework" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Supply Chain Security Assessment Framework" />
+<meta name="twitter:description" content="A vendor-agnostic method for evaluating what you inherit from a dependency or an appliance." />
+<meta name="twitter:image" content="https://sentinelcybersolutions.com/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .article-meta{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;color:var(--faint);margin:.9rem 0 0;text-transform:uppercase}
+  .article-meta b{color:var(--acc);font-weight:500}
+  .code-box{margin:1.7rem 0;max-width:64ch}
+  .code-box .term-body{white-space:pre}
+  .article-foot{margin-top:2.6rem;display:flex;gap:.8rem;flex-wrap:wrap;align-items:center}
+  .article-back{font-family:var(--font-mono);font-size:.8rem}
+  @media (max-width:600px){.code-box .term-body{white-space:pre-wrap}}
+</style>
+
+<!-- Structured data: BlogPosting -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://sentinelcybersolutions.com/article-supply-chain-assessment.html#article",
+      "headline": "Supply Chain Security Assessment Framework",
+      "description": "A vendor-agnostic method for evaluating third-party and dependency risk — inventory and SBOM, build provenance, dependency review, and appliance testing with reproducible evidence.",
+      "datePublished": "2026-03-22",
+      "inLanguage": "en",
+      "keywords": ["supply chain security","SBOM","SLSA","dependency review","third-party risk"],
+      "author": { "@type": "Person", "name": "Stephan Botes", "url": "https://github.com/s-b-repo" },
+      "publisher": { "@id": "https://sentinelcybersolutions.com/#org" },
+      "mainEntityOfPage": "https://sentinelcybersolutions.com/article-supply-chain-assessment.html"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://sentinelcybersolutions.com/#org",
+      "name": "Cyber Sec",
+      "url": "https://sentinelcybersolutions.com/"
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html" aria-current="page">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="resources.html" aria-current="page">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <article>
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// resources · framework</p>
+      <h1 class="reveal">Supply Chain Security Assessment Framework</h1>
+      <p class="page-sub reveal">A vendor-agnostic method for answering one question: what are you actually inheriting when you pull in a dependency or an appliance?</p>
+      <p class="article-meta reveal">Framework &nbsp;·&nbsp; By <b>Stephan Botes</b> &nbsp;·&nbsp; ~7 min read</p>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <div class="wrap">
+      <h2 class="reveal">You don't ship your code — you ship everyone's</h2>
+      <p>Look at what actually runs in production and your own code is a thin layer on top of a mountain of other people's work. Direct dependencies pull in transitive ones you never chose. Your build pipeline runs compilers, package managers, and CI runners you didn't write. The appliance in the rack ships firmware you can't read. Every one of those is a way in that has nothing to do with the quality of the code your team writes.</p>
+      <p>A supply chain assessment starts from that reality. The question is not "is our code secure" — it's "what are we inheriting, and can we prove it's what we think it is?"</p>
+
+      <h2 class="reveal">The threat model you're actually facing</h2>
+      <p>Before you can assess anything, you need a clear picture of how a supply chain gets compromised. The recurring patterns are:</p>
+      <ul>
+        <li><strong>A compromised package.</strong> A legitimate library gets a malicious update pushed under a real maintainer's name, or a squatted name lands in your lockfile by typo.</li>
+        <li><strong>A hijacked or malicious maintainer.</strong> Account takeover, a handoff to a bad actor, or a burnt-out maintainer who accepts a poisoned contribution.</li>
+        <li><strong>Build tampering.</strong> The source is clean, but the artifact that ships isn't — the compromise lives in the CI runner or the release step, not the repo.</li>
+        <li><strong>A vulnerable transitive dependency.</strong> A flaw three levels deep in a package you never chose to install, that you can't patch directly.</li>
+        <li><strong>A backdoored or negligent appliance.</strong> A vendor product with an undocumented account, a hardcoded key, or unpatched components you have no visibility into.</li>
+      </ul>
+
+      <h2 class="reveal">Step 1 — Inventory &amp; SBOM</h2>
+      <p>You cannot secure what you cannot list. The foundation of every assessment is a complete Software Bill of Materials — the full, resolved set of components that actually end up in the build, not just the dependencies you declared. Transitive packages, pinned versions, and vendored code all belong on the list.</p>
+      <p>We generate the SBOM directly from the built artifact, then scan it against known-vulnerability databases so the inventory doubles as a risk snapshot:</p>
+      <div class="hero-term code-box reveal">
+        <div class="term-bar"><span></span><span></span><span></span><i>bash</i></div>
+        <pre class="term-body"><code># generate an SBOM from a built image, then scan it
+syft packages myimage:latest -o spdx-json &gt; sbom.json
+grype sbom:sbom.json --fail-on high</code></pre>
+      </div>
+      <p>An SBOM you generate once and never revisit is a snapshot of the day it was made. To stay useful it has to be regenerated on every build and stored as an artifact you can query later.</p>
+
+      <h2 class="reveal">Step 2 — Provenance &amp; build integrity</h2>
+      <p>Knowing what's in the build is only half of it. You also need to know that the artifact you're running is the one that came from the source you reviewed. That's provenance:</p>
+      <ul>
+        <li><strong>SLSA levels.</strong> Work up the ladder — from "there is a build process" to "the build is scripted, tamper-resistant, and produces signed provenance you can verify."</li>
+        <li><strong>Signed artifacts.</strong> Releases carry a signature tied to an identity, so a swapped binary fails verification instead of running silently.</li>
+        <li><strong>Reproducible builds.</strong> Two independent builds of the same source produce byte-identical output, which is the strongest evidence that the artifact matches the code.</li>
+      </ul>
+
+      <h2 class="reveal">Step 3 — Dependency &amp; license review</h2>
+      <p>Automated scanners catch known CVEs. They do not catch the malicious update that hasn't been reported yet, the abandoned package quietly rotting, or the license that makes the whole thing unusable. For the components that matter most, someone has to read the code that everyone else assumes is safe — the parts that handle input, run at build time, or execute with elevated privileges. This is where a real assessment separates itself from a scan.</p>
+
+      <h2 class="reveal">Step 4 — Third-party &amp; appliance testing</h2>
+      <p>When the "dependency" is a whole product — an appliance, a vendor agent, a black box you're about to trust with production traffic — you test it before you trust it. Black-box testing probes it the way an attacker would, with no inside knowledge. White-box testing, where the vendor cooperates and shares detail, goes deeper and faster. Either way, the goal is the same: understand what it exposes, what it phones home, and what it does when you feed it something it didn't expect — before it's in the critical path, not after.</p>
+
+      <h2 class="reveal">Step 5 — Ongoing monitoring</h2>
+      <p>The supply chain doesn't hold still. A package that was clean at assessment time gets a CVE next month; a vendor ships firmware with a fresh flaw. Because you already have an SBOM, new advisories can be matched against your exact component list automatically — you learn that a newly disclosed flaw affects you because the vulnerable version is in <em>your</em> inventory, not because it made the news.</p>
+
+      <h2 class="reveal">Reproducible evidence, upstream-ready fixes</h2>
+      <p>Everything we hand back is reproducible. A finding comes with the exact command, input, and version that produced it, so your team can confirm it independently rather than taking our word for it. And where the fix belongs upstream — a patch to an open-source dependency, a report to a vendor — we write it in a form that's ready to submit, so the fix lands at the root instead of being papered over in your own tree. That's the difference between a report you file and a risk you actually retire.</p>
+
+      <div class="article-foot">
+        <a class="btn btn-primary" href="contact.html">Audit what you depend on <span aria-hidden="true">&rarr;</span></a>
+        <a class="article-back" href="resources.html">&larr; Back to resources</a>
+      </div>
+    </div>
+  </section>
+  </article>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
