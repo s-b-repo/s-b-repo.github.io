@@ -41,7 +41,7 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 4. Your site goes live in ~1 minute.
 
 ### Custom domain (optional, recommended for SEO/branding)
-1. Buy a domain (e.g. `sentinelcybersolutions.com`).
+1. Buy a domain (e.g. `cybersec.org.za`).
 2. `mv CNAME.example CNAME` and put your bare domain inside it.
 3. In your DNS, add the GitHub Pages records (A records to GitHub's IPs +
    a `www` CNAME to your GitHub Pages domain) — see GitHub's
@@ -52,12 +52,12 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 
 ## 2. Set your real URL (do this once)
 
-The SEO tags use **`https://sentinelcybersolutions.com`**. If you deploy to a
+The SEO tags use **`https://cybersec.org.za`**. If you deploy to a
 different domain, replace it in all files:
 
 ```bash
 # from the project root — change the URL to your actual site:
-grep -rl 'sentinelcybersolutions.com' . | xargs sed -i 's#https://sentinelcybersolutions.com#https://YOUR-REAL-URL#g'
+grep -rl 'cybersec.org.za' . | xargs sed -i 's#https://cybersec.org.za#https://YOUR-REAL-URL#g'
 ```
 
 Then submit the site to **Google Search Console** and **Bing Webmaster Tools**
