@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Store — Security Tooling, Detection Packs &amp; Playbooks | Cyber Sec</title>
+<meta name="description" content="The Cyber Sec store — offensive tooling, detection & response packs, playbooks, and productized assessment packages. Sold for authorized security testing, research, and education only." />
+<meta name="keywords" content="security tools store, offensive tooling, red team tools, detection rules, SIEM kit, security playbooks, penetration testing packages, cybersecurity products" />
+<meta name="author" content="Cyber Sec" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://cybersec.org.za/store.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Store — Security Tooling, Detection Packs &amp; Playbooks | Cyber Sec" />
+<meta property="og:description" content="Offensive tooling, detection & response packs, playbooks, and productized assessment packages. For authorized security testing and education only." />
+<meta property="og:url" content="https://cybersec.org.za/store.html" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Store" />
+<meta property="og:locale" content="en" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Store — Cyber Sec" />
+<meta name="twitter:description" content="Offensive tooling, detection packs, playbooks & assessment packages. Authorized use only." />
+<meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="assets/styles.css" />
+
+<style>
+  .store-notice{margin:1.6rem 0 0;padding:1.15rem 1.35rem;border:1px solid var(--acc);border-left-width:3px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(43,127,255,.09),rgba(0,0,0,.4));font-size:.95rem;line-height:1.65;color:var(--text)}
+  .store-notice strong{color:var(--acc)}
+  .store-notice .warn{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.4rem}
+  .cat-nav{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.8rem 0 0}
+  .cat-nav a{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.05em;text-transform:uppercase;padding:.5rem .95rem;
+    border:1px solid var(--line);border-radius:999px;color:var(--muted);transition:border-color .2s,color .2s}
+  .cat-nav a:hover{border-color:var(--acc);color:var(--acc)}
+  .prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:1.9rem}
+  .prod{display:flex;flex-direction:column;padding:1.5rem 1.5rem 1.4rem}
+  .prod-top{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.9rem}
+  .prod-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);
+    border:1px solid var(--line);border-radius:5px;padding:.28rem .5rem;white-space:nowrap}
+  .prod-price{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--text);white-space:nowrap}
+  .prod-price small{font-size:.68rem;color:var(--faint);font-weight:500}
+  .prod h3{font-size:1.14rem;margin:0 0 .5rem;color:var(--text)}
+  .prod p{color:var(--muted);font-size:.9rem;line-height:1.6;margin:0 0 1rem}
+  .prod-feat{list-style:none;padding:0;margin:0 0 1.2rem;display:flex;flex-wrap:wrap;gap:.4rem}
+  .prod-feat li{font-family:var(--font-mono);font-size:.66rem;color:var(--muted);background:var(--ink-2);
+    border:1px solid var(--line-soft);border-radius:5px;padding:.26rem .5rem}
+  .prod-buy{margin-top:auto;justify-content:center;font-size:.84rem;width:100%}
+  .store-terms{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:70ch}
+  .store-terms strong{color:var(--text)}
+  @media (max-width:480px){.prod-grid{grid-template-columns:1fr}}
+</style>
+
+<!-- Structured data: CollectionPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cybersec.org.za/store.html",
+      "url": "https://cybersec.org.za/store.html",
+      "name": "Cyber Sec Store",
+      "description": "Offensive tooling, detection & response packs, playbooks, and productized assessment packages — sold for authorized security testing, research, and education only.",
+      "isPartOf": { "@id": "https://cybersec.org.za/#website" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cybersec.org.za/#org",
+      "name": "Cyber Sec",
+      "url": "https://cybersec.org.za/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cybersec.org.za/#website",
+      "url": "https://cybersec.org.za/",
+      "name": "Cyber Sec",
+      "publisher": { "@id": "https://cybersec.org.za/#org" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html" aria-current="page">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="store.html" aria-current="page">Store</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ───────────────────────── hero ───────────────────────── -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// store</p>
+      <h1 class="reveal">The <span class="hl">Arsenal.</span></h1>
+      <p class="page-sub reveal">Tooling, detection packs, playbooks, and productized engagements — built from the same work we ship on client engagements. Everything here is for <strong>authorized security testing and education</strong>.</p>
+
+      <div class="store-notice reveal" role="note">
+        <span class="warn">⚠ Authorized use only — liability notice</span>
+        Every product on this page is sold for <strong>lawful, authorized</strong> security testing, research, and education. <strong>You are solely responsible for how you use it.</strong> Cyber Sec accepts <strong>no liability</strong> for any misuse, damage, data loss, service disruption, or legal consequence arising from your use of these products. By purchasing or downloading, you confirm you have explicit <strong>written authorization</strong> to test any system you target and that you will comply with all applicable laws. All products are provided <strong>as-is, without warranty</strong>.
+      </div>
+
+      <nav class="cat-nav reveal" aria-label="Product categories">
+        <a href="#offensive">Offensive Tooling</a>
+        <a href="#defense">Detection &amp; Response</a>
+        <a href="#playbooks">Playbooks &amp; Training</a>
+        <a href="#assessments">Assessment Packages</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 1 · Offensive Tooling ───────────────────────── -->
+  <section class="section" id="offensive" aria-labelledby="offensive-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// category 01</p>
+        <h2 id="offensive-h">Offensive Tooling</h2>
+        <p class="section-sub">Dual-use tooling for authorized red-team and research engagements. Memory-safe, maintainable, and yours to run under your own rules of engagement.</p>
+      </header>
+
+      <div class="prod-grid">
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">$299<small>/yr</small></span></div>
+          <h3>Rustsploit Pro</h3>
+          <p>Modular, memory-safe exploitation framework in Rust — priority modules, updates, and a commercial license for your team.</p>
+          <ul class="prod-feat"><li>Rust · memory-safe</li><li>Priority modules</li><li>Commercial license</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Rustsploit%20Pro">Request license <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">$149</span></div>
+          <h3>Recon Framework</h3>
+          <p>Async reconnaissance and attack-surface mapping in Rust/Go — fast, scriptable, and built to fan out without falling over.</p>
+          <ul class="prod-feat"><li>Async</li><li>Attack-surface</li><li>Exportable</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Recon%20Framework">Request access <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">$349</span></div>
+          <h3>Covert C2</h3>
+          <p>Encrypted command-and-control with covert channels for authorized red-team operations and detection-validation research.</p>
+          <ul class="prod-feat"><li>Encrypted</li><li>Covert channels</li><li>Red-team</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Covert%20C2">Request access <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">$129</span></div>
+          <h3>WAF Bypass Engine</h3>
+          <p>Payload-mutation and evasion module pack for testing the WAFs and filters guarding your own applications.</p>
+          <ul class="prod-feat"><li>Payload mutation</li><li>Evasion</li><li>Module pack</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20WAF%20Bypass%20Engine">Request access <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 2 · Detection & Response ───────────────────────── -->
+  <section class="section section-alt" id="defense" aria-labelledby="defense-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// category 02</p>
+        <h2 id="defense-h">Detection &amp; Response</h2>
+        <p class="section-sub">Blue-team packs you deploy, tune, and own — no managed subscription required. Built to catch what scanners and defaults miss.</p>
+      </header>
+
+      <div class="prod-grid">
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">$199</span></div>
+          <h3>Wazuh Auto-Deploy Kit</h3>
+          <p>One-command stand-up of a hardened Wazuh/Elastic SIEM — sensible defaults, dashboards, and a documented pipeline.</p>
+          <ul class="prod-feat"><li>Wazuh</li><li>Elastic</li><li>Hardened</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Wazuh%20Auto-Deploy%20Kit">Get the kit <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Updated quarterly</span><span class="prod-price">$49<small>/mo</small></span></div>
+          <h3>Detection Rule Pack</h3>
+          <p>Curated Sigma/Wazuh detection rules mapped to MITRE ATT&amp;CK, tested against real techniques and refreshed every quarter.</p>
+          <ul class="prod-feat"><li>Sigma</li><li>ATT&amp;CK</li><li>Quarterly updates</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Detection%20Rule%20Pack">Subscribe <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">$179</span></div>
+          <h3>Log Pipeline Toolkit</h3>
+          <p>Ingestion and normalization pipelines for heterogeneous log sources — templates, parsers, and enrichment out of the box.</p>
+          <ul class="prod-feat"><li>Ingestion</li><li>Normalization</li><li>Templates</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Log%20Pipeline%20Toolkit">Get the toolkit <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">$99</span></div>
+          <h3>Phishing Defence Pack</h3>
+          <p>SpamAssassin content rules and mail-gateway config templates to cut phishing and spoofing at the edge.</p>
+          <ul class="prod-feat"><li>SpamAssassin</li><li>Postfix</li><li>Anti-spoof</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Phishing%20Defence%20Pack">Get the pack <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 3 · Playbooks & Training ───────────────────────── -->
+  <section class="section" id="playbooks" aria-labelledby="playbooks-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// category 03</p>
+        <h2 id="playbooks-h">Playbooks &amp; Training</h2>
+        <p class="section-sub">Field-tested methodology, not theory — the same playbooks and runbooks we work from, packaged for your team.</p>
+      </header>
+
+      <div class="prod-grid">
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">PDF</span><span class="prod-price">$79</span></div>
+          <h3>Red Team Operations Playbook</h3>
+          <p>Full methodology, rules-of-engagement templates, and MITRE ATT&amp;CK mapping for planning and running an engagement.</p>
+          <ul class="prod-feat"><li>PDF</li><li>ROE templates</li><li>ATT&amp;CK</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Red%20Team%20Operations%20Playbook">Buy playbook <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Video + labs</span><span class="prod-price">$199</span></div>
+          <h3>Detection Engineering Course</h3>
+          <p>Build a detection program end-to-end — from log pipeline to detection-as-code — with hands-on labs and lifetime access.</p>
+          <ul class="prod-feat"><li>Video</li><li>Labs</li><li>Lifetime access</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20Detection%20Engineering%20Course">Enrol <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Runbook</span><span class="prod-price">$39</span></div>
+          <h3>CVE Triage Runbook</h3>
+          <p>A repeatable workflow for deciding whether the CVE of the week is actually your emergency — exposure, exploitability, and smart patching.</p>
+          <ul class="prod-feat"><li>EPSS</li><li>Checklists</li><li>Templates</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20CVE%20Triage%20Runbook">Buy runbook <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Kit</span><span class="prod-price">$59</span></div>
+          <h3>IR Tabletop Kit</h3>
+          <p>Facilitator guide plus four ready-to-run incident-response scenarios with timed injects to test your plan for real.</p>
+          <ul class="prod-feat"><li>Facilitator guide</li><li>4 scenarios</li><li>Injects</li></ul>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Store%20enquiry%20-%20IR%20Tabletop%20Kit">Buy kit <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 4 · Assessment Packages ───────────────────────── -->
+  <section class="section section-alt" id="assessments" aria-labelledby="assessments-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// category 04</p>
+        <h2 id="assessments-h">Assessment Packages</h2>
+        <p class="section-sub">Productized engagements — fixed scope, fixed price, evidence-based. Each is scoped in writing before any work begins.</p>
+      </header>
+
+      <div class="prod-grid">
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $2,500</span></div>
+          <h3>Web App Pentest — Fixed Scope</h3>
+          <p>A single application, OWASP-based methodology, with a plain-language report and one round of retesting after fixes.</p>
+          <ul class="prod-feat"><li>OWASP</li><li>Report + retest</li><li>Fixed scope</li></ul>
+          <a class="btn btn-primary prod-buy" href="contact.html">Book <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $3,500</span></div>
+          <h3>Vendor Product Review</h3>
+          <p>Black-box and white-box assessment of a third-party product or appliance, ending in a clear go/no-go for procurement.</p>
+          <ul class="prod-feat"><li>Black/white-box</li><li>Go/no-go</li><li>Procurement</li></ul>
+          <a class="btn btn-primary prod-buy" href="contact.html">Book <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $1,800</span></div>
+          <h3>Code Audit — Sprint</h3>
+          <p>A time-boxed, manual security review of a module or service — line-level findings with severity, impact, and reproducible PoCs.</p>
+          <ul class="prod-feat"><li>Manual review</li><li>Time-boxed</li><li>PoCs</li></ul>
+          <a class="btn btn-primary prod-buy" href="contact.html">Book <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $4,000</span></div>
+          <h3>Detection Engineering — Build &amp; Handover</h3>
+          <p>We design, build, tune, and hand over your monitoring stack — Wazuh/Elastic SIEM, pipelines, and DFIR automation, documented and yours to run.</p>
+          <ul class="prod-feat"><li>Build + handover</li><li>Wazuh/Elastic</li><li>Documented</li></ul>
+          <a class="btn btn-primary prod-buy" href="contact.html">Book <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── terms / disclaimer ───────────────────────── -->
+  <section class="section" id="terms" aria-labelledby="terms-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// the fine print</p>
+        <h2 id="terms-h">Terms &amp; liability</h2>
+      </header>
+      <p class="store-terms reveal"><strong>Authorized, lawful use only.</strong> These products are offensive- and defensive-security tools and knowledge, sold for legitimate security testing, research, and education. <strong>You alone are responsible for how you use them.</strong> You must have explicit written authorization for any system, network, or application you test. Using these products against systems you do not own or lack permission to test may be illegal.</p>
+      <p class="store-terms reveal"><strong>No liability.</strong> To the maximum extent permitted by law, Cyber Sec and Stephan Botes accept no liability for any direct, indirect, incidental, or consequential damage, data loss, service disruption, financial loss, or legal consequence arising from the purchase, download, or use — or misuse — of any product sold here. Everything is provided <strong>as-is and without warranty</strong> of any kind.</p>
+      <p class="store-terms reveal">By purchasing or downloading, you accept these terms. Questions about scope, licensing, or authorization? <a href="contact.html">Get in touch</a> before you buy.</p>
+      <div class="tools-foot reveal" style="margin-top:1.6rem">
+        <a class="btn btn-primary" href="contact.html">Talk to us first <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
