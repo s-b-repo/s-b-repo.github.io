@@ -133,6 +133,21 @@ its origin to the CSP in every HTML file.** `frame-ancestors` is deliberately ab
 ignored in a `<meta>` tag and only logs a console warning; clickjacking protection needs a real
 header, which means moving off Pages or putting a CDN in front.
 
+### Cloudflare Web Analytics
+
+The domain sits behind Cloudflare, which injects its Web Analytics beacon into HTML
+responses. The beacon is not in this repo — it appears at the edge — so it broke silently
+the moment the CSP went in. Two origins are allowed for it:
+
+- `https://static.cloudflareinsights.com` in `script-src` — the loader
+- `https://cloudflareinsights.com` in `connect-src` — where the RUM payload is POSTed
+
+If you turn Web Analytics off in the Cloudflare dashboard, remove both again. Note the
+tradeoff is smaller than it looks: Cloudflare already terminates TLS for the whole site and
+therefore already sees every visitor, so the beacon discloses nothing to a party that did not
+already have it. That is *not* true of Google Fonts, which is a separate origin getting data
+it would otherwise never see.
+
 > Note: Google Fonts is loaded from `fonts.googleapis.com`, which discloses every visitor's IP
 > to Google. That is the kind of finding this site sells audits for. Self-hosting the three
 > font families would remove the third-party origin from the CSP and drop the render-blocking
