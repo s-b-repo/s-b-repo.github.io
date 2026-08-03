@@ -194,7 +194,16 @@ a visible amber marker:
 |---|---|
 | Registered company name | POPIA responsible party, ECTA s43(1)(a), PAIA head of body |
 | CIPC registration number | ECTA s43(1)(f) |
-| Designated Information Officer | POPIA s55/s56 — must also be registered with the Information Regulator |
+
+The Information Officer is **not** a placeholder. POPIA defines it by reference to PAIA's
+"head of a private body", which for a company is the CEO or equivalent, or whoever acts as
+such — so with a single director it is Stephan Botes by operation of law, not by appointment.
+No deputies are designated: POPIA s56 requires them only as far as needed to keep the body
+accessible for requests, and one published address already does that.
+
+Being the Information Officer and *registering* as one are separate. Section 55 and
+Regulation 4 require registration with the Regulator via its eServices portal before taking
+up the duties. **That obligation is unaffected by anything on this website.**
 
 **To publish once those are filled:** remove the `noindex` meta from all four, add them to
 `sitemap.xml`, add footer links, and run `python3 tools/stamp-assets.py`.

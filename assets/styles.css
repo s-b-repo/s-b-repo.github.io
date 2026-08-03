@@ -783,6 +783,7 @@ a:focus-visible, .btn:focus-visible {
 .legal-entity a,.legal-callout a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
 .legal-callout p{color:var(--muted);margin:0 0 .6rem}
 .legal-callout p:last-child{margin-bottom:0}
+.legal-sub{display:block;font-size:.79rem;color:var(--muted);line-height:1.5;margin-top:.25rem}
 .legal-note{font-size:.87rem;color:var(--muted);margin:1rem 0 0;line-height:1.6}
 
 .legal-table{width:100%;border-collapse:collapse;margin:1.4rem 0;font-size:.92rem;display:block;overflow-x:auto}
