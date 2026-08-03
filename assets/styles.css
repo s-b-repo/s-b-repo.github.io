@@ -1,5 +1,5 @@
 /* ============================================================
-   Sentinel Cyber Solutions — Enterprise Cybersecurity
+   Cyber Sec — Enterprise Cybersecurity
    Palette: "Sentinel Blue" — professional, serious, enterprise-grade
    Fonts: Chakra Petch + JetBrains Mono + IBM Plex Sans
    ============================================================ */
@@ -11,8 +11,9 @@
   --line:rgba(20,90,220,0.45);
   --line-soft:rgba(20,90,220,0.13);
   --text:#c0d6f0;
-  --muted:#5a84b8;
-  --faint:#3a5f8a;
+  --muted:#5a84b8;        /* 5.3:1 on --ink — passes AA for body text */
+  --faint:#7396c4;        /* was #3a5f8a (2.9:1) — failed AA on the small mono labels
+                             it is used for: hero stats, footer meta, article bylines */
   --acc:#1e80ff;          /* sentinel blue */
   --acc-deep:#0d4bb3;
   --acc-2:#00aadd;        /* cyan, sparing */
@@ -94,6 +95,10 @@ a{color:inherit;text-decoration:none}
 }
 .glitch::before,.glitch::after{
   content:attr(data-text);position:absolute;left:0;top:0;width:100%;height:100%;
+  /* data-text carries real newlines to mirror the <br> in the visible heading.
+     Without pre-line those collapse to spaces and the ghost layers render as one
+     long unwrapped line, offset from the text they are supposed to sit behind. */
+  white-space:pre-line;
 }
 .glitch::before{
   color:var(--acc-2);
@@ -333,6 +338,27 @@ h3{font-size:1.18rem;letter-spacing:0}
 .repo-link{font-family:var(--font-mono);font-size:.74rem;color:var(--faint);transition:color .2s}
 .repo:hover .repo-link{color:var(--acc)}
 .tools-foot{margin-top:2rem;text-align:center}
+.repo-link{word-break:break-word}
+
+/* ---- FAQ (mirrors the FAQPage JSON-LD on the home page — keep the two in step) ---- */
+.faq-list{display:grid;gap:.8rem;max-width:80ch}
+.faq{padding:0}
+.faq summary{
+  list-style:none;cursor:pointer;padding:1.15rem 3rem 1.15rem 1.4rem;position:relative;
+  font-family:var(--font-display);font-weight:600;font-size:1.05rem;color:var(--text);
+  transition:color .2s
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+";position:absolute;right:1.4rem;top:50%;transform:translateY(-50%);
+  font-family:var(--font-mono);font-size:1.2rem;color:var(--acc);transition:transform .25s
+}
+.faq[open] summary::after{content:"−"}
+.faq summary:hover{color:var(--acc)}
+.faq summary:focus-visible{outline:2px solid var(--acc);outline-offset:-2px;border-radius:var(--radius)}
+.faq p{color:var(--muted);margin:0;padding:0 1.4rem 1.3rem;font-size:.98rem;line-height:1.7}
+.faq p a{color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+.faq:hover{transform:none}
 
 /* ---- steps ---- */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:1.1rem;margin:0;padding:0;counter-reset:s}
@@ -408,7 +434,21 @@ h3{font-size:1.18rem;letter-spacing:0}
 /* ---- reveal animation ---- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.blip,.cursor{animation:none}}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  /* .glitch was left running: two infinite clip-path animations on the h1, which is
+     exactly the kind of flashing/jittering motion the preference asks us to stop
+     (WCAG 2.2.2). Hide the ghost layers outright rather than freezing them mid-clip. */
+  .glitch::before,.glitch::after{display:none}
+  .blip,.cursor,.hero-term::after{animation:none}
+  /* Static overlays that read as visual noise for motion-sensitive visitors. */
+  .grain,.scanlines{display:none}
+  /* Hover lifts and slides are motion too. */
+  .card,.card:hover,.svc:hover,.btn,.btn:hover,.btn-primary:hover,.btn-ghost:hover,.to-top{
+    transition:none;transform:none
+  }
+  .btn:hover span{transform:none}
+}
 
 /* ============================================================
    Facts page — "Current Cyber Struggle"
@@ -425,11 +465,11 @@ h3{font-size:1.18rem;letter-spacing:0}
 .struggle-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
 .struggle{padding:1.8rem 1.7rem}
 .struggle-tag{display:inline-block;font-family:var(--font-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--warn);border:1px solid rgba(255,107,74,.3);border-radius:6px;padding:.25rem .55rem;margin-bottom:1rem}
+  color:var(--warn);border:1px solid rgba(255,59,85,.3);border-radius:6px;padding:.25rem .55rem;margin-bottom:1rem}
 .struggle h3{font-size:1.32rem;margin:0 0 .7rem;line-height:1.15}
 .struggle p{color:var(--muted);margin:0;font-size:.96rem}
 .struggle p strong{color:var(--text)}
-.struggle:hover{border-color:rgba(255,107,74,.35)}
+.struggle:hover{border-color:rgba(255,59,85,.35)}
 .struggle .reticle::before,.struggle .reticle::after{border-color:var(--warn)}
 
 /* share / submit */
@@ -568,14 +608,20 @@ h3{font-size:1.18rem;letter-spacing:0}
   .team-grid{grid-template-columns:repeat(2,1fr)}
   .solution-grid{grid-template-columns:1fr}
 }
-@media (max-width:680px){
-  body{font-size:16px}
+/* Nav swaps to the hamburger at 900px, not 680px. Seven primary links plus the brand
+   need ~730px; between 681 and 880px the desktop nav overflowed the header and was
+   clipped by `overflow-x:hidden` on <body>, silently hiding the last link or two.
+   Keep this breakpoint in step with the matchMedia query in assets/main.js. */
+@media (max-width:900px){
   .nav{display:none}
   .nav-toggle{display:flex}
   .site-header.open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .site-header.open .nav-toggle span:nth-child(2){opacity:0}
   .site-header.open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   .mobile-nav[data-open="true"]{display:flex}
+}
+@media (max-width:680px){
+  body{font-size:16px}
   .svc-grid,.struggle-grid{grid-template-columns:1fr}
   .repo-grid,.cred-grid,.steps,.hero-stats,.svc-list.cols,.about-meta{grid-template-columns:1fr 1fr}
   .footer-inner{grid-template-columns:1fr;gap:1.6rem}
@@ -632,7 +678,7 @@ legend{font-family:var(--font-display);font-size:.88rem;font-weight:600;color:va
 .emergency-badge{
   display:inline-flex;align-items:center;gap:.45rem;
   font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--warn);border:1px solid rgba(255,107,74,.32);border-radius:6px;
+  color:var(--warn);border:1px solid rgba(255,59,85,.32);border-radius:6px;
   padding:.32rem .62rem;margin-bottom:1.2rem
 }
 .emergency-cta h2{font-size:clamp(1.5rem,2.8vw,2.2rem);margin:0 0 .8rem;color:var(--text)}
@@ -642,7 +688,7 @@ legend{font-family:var(--font-display);font-size:.88rem;font-weight:600;color:va
   font-weight:700;color:var(--warn);letter-spacing:.02em;
   transition:color .2s,text-shadow .2s
 }
-.emergency-phone:hover{color:#fbbf24;text-shadow:0 0 28px rgba(255,107,74,.35)}
+.emergency-phone:hover{color:#fbbf24;text-shadow:0 0 28px rgba(255,59,85,.35)}
 .emergency-sub{font-family:var(--font-mono);font-size:.78rem;color:var(--faint);margin:.5rem 0 0}
 
 @media (max-width:680px){

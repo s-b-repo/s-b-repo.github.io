@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<title>404 — Page not found | Cyber Sec</title>
+<meta name="description" content="That page does not exist. Head back to the Cyber Sec home page, services, or resources." />
+<!-- A 404 must never be indexed, and must never appear in the sitemap. -->
+<meta name="robots" content="noindex, follow" />
+<meta name="theme-color" content="#000000" />
+
+<!-- Absolute asset paths: GitHub Pages serves this file for a miss at any depth. -->
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="/assets/favicon.svg" />
+<link rel="mask-icon" href="/assets/favicon.svg" color="#2b7fff" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="/assets/styles.css" />
+
+<style>
+  .err-code{font-family:var(--font-display);font-weight:700;font-size:clamp(5rem,18vw,11rem);
+    line-height:1;color:var(--acc);text-shadow:0 0 40px var(--acc-glow),0 0 90px var(--acc-glow);margin:0}
+  .err-wrap{min-height:62vh;display:grid;place-items:center;text-align:center}
+  .err-links{display:flex;flex-wrap:wrap;gap:.7rem;justify-content:center;margin-top:2rem}
+</style>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="/index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/store.html">Store</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/facts.html">Facts</a>
+      <a class="nav-cta" href="/contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/store.html">Store</a>
+    <a href="/about.html">About</a>
+    <a href="/resources.html">Resources</a>
+    <a href="/facts.html">Facts</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="section">
+    <div class="wrap err-wrap">
+      <div>
+        <p class="kicker reveal">// 404 · not found</p>
+        <p class="err-code reveal">404</p>
+        <h1 class="reveal" style="font-size:clamp(1.7rem,4vw,2.6rem)">No route to that resource.</h1>
+        <p class="page-sub reveal" style="margin-inline:auto">The page you asked for isn't here — moved, renamed, or never existed. Nothing is broken on your end.</p>
+        <div class="err-links reveal">
+          <a class="btn btn-primary" href="/index.html">Back to home <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="/services.html">Services</a>
+          <a class="btn btn-ghost" href="/resources.html">Resources</a>
+          <a class="btn btn-ghost" href="/contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="/index.html">Home</a>
+      <a href="/services.html">Services</a>
+      <a href="/store.html">Store</a>
+      <a href="/about.html">About</a>
+      <a href="/resources.html">Resources</a>
+      <a href="/facts.html">Facts</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="/assets/main.js" defer></script>
+</body>
+</html>

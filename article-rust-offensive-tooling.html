@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Building Memory-Safe Offensive Tooling in Rust | Cyber Sec</title>
 <meta name="description" content="Why we write offensive security tooling in Rust — memory safety, fearless concurrency, single static binaries, and the patterns that keep custom tools reliable under fire during an engagement." />
@@ -21,7 +25,7 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cyber Sec — Building Memory-Safe Offensive Tooling in Rust" />
-<meta property="og:locale" content="en" />
+<meta property="og:locale" content="en_ZA" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Building Memory-Safe Offensive Tooling in Rust" />
@@ -227,6 +231,8 @@ async fn probe(addr: &amp;str) -&gt; bool {
     </nav>
     <div class="footer-meta">
       <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>
+      <a href="/.well-known/security.txt">security.txt</a>
       <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
     </div>
   </div>

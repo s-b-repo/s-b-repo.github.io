@@ -1,0 +1,18 @@
+# Cyber Sec — vulnerability disclosure policy (RFC 9116)
+# https://cybersec.org.za/.well-known/security.txt
+
+Contact: mailto:stephanbotesIT@proton.me
+Contact: https://cybersec.org.za/contact.html
+
+# Update this before the date passes — an expired security.txt is treated as invalid.
+Expires: 2027-08-03T00:00:00.000Z
+
+Preferred-Languages: en, af
+Canonical: https://cybersec.org.za/.well-known/security.txt
+
+# Reporting guidance
+# - Send a reproducible proof of concept: exact request, input, and version.
+# - Do not access, modify, or exfiltrate data belonging to anyone else.
+# - Do not run denial-of-service or spam tests against this host.
+# - We will acknowledge within 2 business days and agree a disclosure timeline with you.
+# Good-faith research reported this way will not be met with legal action.

@@ -1,19 +1,57 @@
 /* Cyber Sec — Enterprise Cybersecurity · interactions */
 (function () {
   "use strict";
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+  var reduce = motionQuery.matches;
+
+  /* Re-render on OS motion-preference change instead of latching the value at load. */
+  var onMotionChange = function () { window.location.reload(); };
+  if (motionQuery.addEventListener) motionQuery.addEventListener("change", onMotionChange);
+  else if (motionQuery.addListener) motionQuery.addListener(onMotionChange);
+
+  /* Backing-store scale. Capped so a 3x phone doesn't render a 3x full-screen canvas. */
+  function dpr(cap) {
+    return Math.min(window.devicePixelRatio || 1, cap);
+  }
+
+  /* Size a canvas for the current device pixel ratio and return the scale applied.
+     cssW/cssH are logical pixels; all drawing code keeps using logical coordinates. */
+  function fitCanvas(canvas, ctx, cssW, cssH, cap) {
+    var ratio = dpr(cap);
+    canvas.width = Math.round(cssW * ratio);
+    canvas.height = Math.round(cssH * ratio);
+    canvas.style.width = cssW + "px";
+    canvas.style.height = cssH + "px";
+    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    return ratio;
+  }
+
+  function debounce(fn, ms) {
+    var t;
+    return function () {
+      clearTimeout(t);
+      t = setTimeout(fn, ms);
+    };
+  }
 
   /* ── rotating wireframe earth globe ── */
   (function () {
     var canvas = document.getElementById("globe-canvas");
     if (!canvas || reduce) return;
     var ctx = canvas.getContext("2d");
+    var SIZE = 60;
     var R = 26, cx = 30, cy = 30;
     var angle = 0;
     var latLines = 7, lonLines = 10;
 
+    fitCanvas(canvas, ctx, SIZE, SIZE, 2);
+    window.addEventListener("resize", debounce(function () {
+      fitCanvas(canvas, ctx, SIZE, SIZE, 2);
+    }, 150));
+
     function drawGlobe() {
-      ctx.clearRect(0, 0, 60, 60);
+      ctx.clearRect(0, 0, SIZE, SIZE);
 
       ctx.strokeStyle = "rgba(30,128,255,0.85)";
       ctx.lineWidth = 1.5;
@@ -21,17 +59,17 @@
       ctx.arc(cx, cy, R, 0, Math.PI * 2);
       ctx.stroke();
 
-      var i, j, lat, lon;
+      var i, j, lat, lon, first, x, y, z, phi;
       for (i = 1; i < latLines; i++) {
         lat = -90 + (180 * i / latLines);
         ctx.beginPath();
-        var first = true;
+        first = true;
         for (j = 0; j <= 360; j += 3) {
           lon = (j + angle) * Math.PI / 180;
-          var phi = (90 - lat) * Math.PI / 180;
-          var x = R * Math.sin(phi) * Math.cos(lon);
-          var y = R * Math.cos(phi);
-          var z = R * Math.sin(phi) * Math.sin(lon);
+          phi = (90 - lat) * Math.PI / 180;
+          x = R * Math.sin(phi) * Math.cos(lon);
+          y = R * Math.cos(phi);
+          z = R * Math.sin(phi) * Math.sin(lon);
           if (z > -R * 0.15) {
             if (first) { ctx.moveTo(cx + x, cy - y); first = false; }
             else ctx.lineTo(cx + x, cy - y);
@@ -45,14 +83,18 @@
       for (i = 0; i < lonLines; i++) {
         lon = (360 * i / lonLines + angle) * Math.PI / 180;
         ctx.beginPath();
-        var first = true;
+        first = true;
         for (j = -90; j <= 90; j += 3) {
           lat = j * Math.PI / 180;
-          var x = R * Math.cos(lat) * Math.cos(lon);
-          var y = R * Math.sin(lat);
-          var z = R * Math.cos(lat) * Math.sin(lon);
-          if (first) { ctx.moveTo(cx + x, cy - y); first = false; }
-          else ctx.lineTo(cx + x, cy - y);
+          x = R * Math.cos(lat) * Math.cos(lon);
+          y = R * Math.sin(lat);
+          z = R * Math.cos(lat) * Math.sin(lon);
+          /* Cull the far side, same as the latitude rings — otherwise front and back
+             meridians draw at equal weight and the sphere reads as a flat mesh. */
+          if (z > -R * 0.15) {
+            if (first) { ctx.moveTo(cx + x, cy - y); first = false; }
+            else ctx.lineTo(cx + x, cy - y);
+          } else { first = true; }
         }
         ctx.strokeStyle = "rgba(30,128,255,0.35)";
         ctx.lineWidth = 0.7;
@@ -70,13 +112,11 @@
     var canvas = document.getElementById("bg-canvas");
     if (!canvas || reduce) return;
     var ctx = canvas.getContext("2d");
-    var W, H, time = 0;
+    var W = 0, H = 0, time = 0;
     var gridSweep = { active: false, startT: 0, duration: 4000 };
     var nodes = [];
 
-    function resize() {
-      W = canvas.width = window.innerWidth;
-      H = canvas.height = window.innerHeight;
+    function seedNodes() {
       nodes = [];
       for (var n = 0; n < 18; n++) {
         nodes.push({
@@ -86,7 +126,26 @@
         });
       }
     }
-    window.addEventListener("resize", resize);
+
+    function resize() {
+      var prevW = W, prevH = H;
+      W = window.innerWidth;
+      H = window.innerHeight;
+      fitCanvas(canvas, ctx, W, H, 1.5);
+      /* Keep the existing nodes and rescale them. Re-seeding on every resize made the
+         field jump each time a mobile browser showed or hid its address bar. */
+      if (!nodes.length || !prevW || !prevH) seedNodes();
+      else {
+        var sx = W / prevW, sy = H / prevH;
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].x *= sx;
+          nodes[i].y *= sy;
+        }
+      }
+    }
+    /* Debounced: resize fires continuously during a drag, and each call reallocates
+       the canvas backing store. */
+    window.addEventListener("resize", debounce(resize, 150));
     resize();
 
     function scheduleSweep() {
@@ -103,18 +162,16 @@
       ctx.strokeStyle = "rgba(20,100,220," + alpha + ")";
       ctx.lineWidth = 0.5;
       var x, y;
+      ctx.beginPath();
       for (x = 0; x < W; x += size) {
-        ctx.beginPath();
         ctx.moveTo(x, 0);
         ctx.lineTo(x, H);
-        ctx.stroke();
       }
       for (y = 0; y < H; y += size) {
-        ctx.beginPath();
         ctx.moveTo(0, y);
         ctx.lineTo(W, y);
-        ctx.stroke();
       }
+      ctx.stroke();
     }
 
     function drawWaves() {
@@ -154,8 +211,8 @@
       for (var i = 0; i < nodes.length; i++) {
         var n = nodes[i];
         n.x += n.vx; n.y += n.vy;
-        if (n.x < 0) n.x = W; if (n.x > W) n.x = 0;
-        if (n.y < 0) n.y = H; if (n.y > H) n.y = 0;
+        if (n.x < 0) n.x = W; else if (n.x > W) n.x = 0;
+        if (n.y < 0) n.y = H; else if (n.y > H) n.y = 0;
 
         ctx.beginPath();
         ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
@@ -183,7 +240,6 @@
       if (elapsed > gridSweep.duration) { gridSweep.active = false; return; }
 
       var prog = elapsed / gridSweep.duration;
-      var ease = prog < 0.3 ? prog / 0.3 : 1 - (prog - 0.3) / 0.7;
       var sweepX = prog * W;
       var sweepW = 160 + Math.sin(prog * Math.PI) * 80;
       var boxSize = 26;
@@ -222,8 +278,7 @@
       ctx.fillStyle = glow;
       ctx.fillRect(sweepX - sweepW, 0, sweepW * 2, H);
 
-      var particleCount = 50;
-      for (var p = 0; p < particleCount; p++) {
+      for (var p = 0; p < 50; p++) {
         var px = sweepX + (Math.random() - 0.5) * sweepW * 1.5;
         var py = Math.random() * H;
         ctx.fillStyle = "rgba(26,180,255," + (0.35 + Math.random() * 0.5) + ")";
@@ -287,22 +342,47 @@
   var toggle = document.querySelector(".nav-toggle");
   var mnav = document.getElementById("mobile-nav");
   if (toggle && mnav) {
-    toggle.addEventListener("click", function () {
-      var open = header.classList.toggle("open");
+    var setNav = function (open) {
+      header.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
       toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-      mnav.hidden = false;
       mnav.dataset.open = String(open);
+      /* Keep `hidden` in step with the visual state. Previously it was cleared on every
+         toggle, which left the closed menu exposed to screen readers and keyboard tabbing. */
+      mnav.hidden = !open;
+    };
+
+    toggle.addEventListener("click", function () {
+      setNav(mnav.hidden);
     });
-    mnav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () {
-        header.classList.remove("open");
-        mnav.dataset.open = "false";
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open menu");
-        mnav.hidden = true;
-      });
+
+    Array.prototype.forEach.call(mnav.querySelectorAll("a"), function (a) {
+      a.addEventListener("click", function () { setNav(false); });
     });
+
+    /* Escape closes and returns focus to the toggle. */
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && !mnav.hidden) {
+        setNav(false);
+        toggle.focus();
+      }
+    });
+
+    /* Click outside closes. */
+    document.addEventListener("click", function (e) {
+      if (mnav.hidden) return;
+      if (mnav.contains(e.target) || toggle.contains(e.target)) return;
+      setNav(false);
+    });
+
+    /* Crossing the desktop breakpoint hides .mobile-nav via CSS but used to leave the
+       header in its `open` state, so the hamburger stayed as an X after rotating. */
+    var wide = window.matchMedia("(min-width: 901px)");   /* matches styles.css */
+    var onWide = function (e) { if (e.matches && !mnav.hidden) setNav(false); };
+    if (wide.addEventListener) wide.addEventListener("change", onWide);
+    else if (wide.addListener) wide.addListener(onWide);
+
+    setNav(false);
   }
 
   /* scroll reveal (staggered per section) */
@@ -344,42 +424,74 @@
 
   /* forms — mailto compose by default; Formspree/Web3Forms if data-endpoint set.
      Works for any <form data-mailto="addr" data-subject="…"> (contact + facts). */
+
+  /* Anything past this and the mailto: URL starts getting truncated by mail clients
+     and by Windows' ~2048-character shell limit. */
+  var MAILTO_BODY_LIMIT = 1500;
+
   var forms = document.querySelectorAll("form[data-mailto]");
   Array.prototype.forEach.call(forms, function (form) {
     var status = form.querySelector(".form-status");
     var to = form.getAttribute("data-mailto") || "stephanbotesIT@proton.me";
     var subjectBase = form.getAttribute("data-subject") || "Website enquiry";
 
+    /* Honeypot: a real person never fills this in, a scraper bot fills everything.
+       Hidden from sight, from screen readers, and from autofill. */
+    var pot = document.createElement("div");
+    pot.setAttribute("aria-hidden", "true");
+    pot.style.cssText = "position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden";
+    pot.innerHTML = '<label>Leave this field empty' +
+      '<input type="text" name="website" tabindex="-1" autocomplete="off"></label>';
+    form.appendChild(pot);
+
     function collect() {
       var data = {};
       Array.prototype.forEach.call(form.elements, function (el) {
-        if (el.name && el.type !== "submit" && el.type !== "button") data[el.name] = (el.value || "").trim();
+        if (!el.name || el.type === "submit" || el.type === "button") return;
+        /* An unchecked box used to be submitted with its value anyway, so a form
+           could report consent that was never given. */
+        if ((el.type === "checkbox" || el.type === "radio") && !el.checked) return;
+        data[el.name] = (el.value || "").trim();
       });
       return data;
     }
 
     form.addEventListener("submit", function (e) {
-      if (!form.checkValidity()) return; // let the browser show validation UI
       e.preventDefault();
+
+      if (!form.reportValidity()) return;
+
       var data = collect();
+      if (data.website) return;          // honeypot tripped — drop it silently
+      delete data.website;
+
       var endpoint = (form.getAttribute("data-endpoint") || "").trim();
 
       if (endpoint) {
         if (status) status.textContent = "Sending…";
+        /* Without a timeout a hung endpoint leaves "Sending…" on screen forever
+           with no way for the visitor to know it failed. */
+        var ctrl = typeof AbortController !== "undefined" ? new AbortController() : null;
+        var timer = ctrl ? setTimeout(function () { ctrl.abort(); }, 15000) : null;
+
         fetch(endpoint, {
           method: "POST",
           headers: { "Accept": "application/json", "Content-Type": "application/json" },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
+          signal: ctrl ? ctrl.signal : undefined
         }).then(function (r) {
-          if (r.ok) { form.reset(); if (status) status.textContent = "Sent — I'll be in touch shortly."; }
-          else throw new Error();
+          if (!r.ok) throw new Error("HTTP " + r.status);
+          form.reset();
+          if (status) status.textContent = "Sent — I'll be in touch shortly.";
         }).catch(function () {
           if (status) status.textContent = "Couldn't send. Email " + to + " directly.";
+        }).then(function () {
+          if (timer) clearTimeout(timer);
         });
         return;
       }
 
-      /* default: open the user's mail client with a prefilled message */
+      /* default: open the visitor's mail client with a prefilled message */
       var who = data.name ? " (" + data.name + ")" : "";
       var subject = data.engagement ? subjectBase + " — " + data.engagement + who : subjectBase + who;
       var body = "";
@@ -387,10 +499,19 @@
         if (k !== "message") body += k.charAt(0).toUpperCase() + k.slice(1) + ": " + data[k] + "\n";
       });
       body += "\n" + (data.message || "") + "\n";
+
+      var truncated = body.length > MAILTO_BODY_LIMIT;
+      if (truncated) body = body.slice(0, MAILTO_BODY_LIMIT) + "\n\n[…message truncated — please paste the rest]";
+
       window.location.href = "mailto:" + to +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(body);
-      if (status) status.textContent = "Opening your email app… if nothing happens, email " + to + " directly.";
+
+      if (status) {
+        status.textContent = truncated
+          ? "Opening your email app — your message was long, so please check nothing was cut off before sending."
+          : "Opening your email app… if nothing happens, email " + to + " directly.";
+      }
     });
   });
 })();

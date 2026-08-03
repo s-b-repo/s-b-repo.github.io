@@ -6,21 +6,28 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 
 ```
 .
-├── index.html            # home (semantic HTML + full meta/JSON-LD)
-├── about.html            # about the firm
+├── index.html            # home — services, case studies, open-source proof, FAQ
+├── about.html            # about the practice
 ├── services.html         # service catalogue
+├── store.html            # productized tooling & engagements
 ├── contact.html          # contact page
 ├── resources.html        # resources & insights
+├── facts.html            # "current cyber struggle" + submission form
 ├── article-*.html        # 12 full resource articles
+├── 404.html              # GitHub Pages custom 404 (noindex, absolute asset paths)
 ├── assets/
 │   ├── styles.css        # all styling (dark "tactical" theme)
-│   ├── main.js           # reveals, mobile nav, terminal typing, mailto forms
+│   ├── main.js           # canvases, reveals, mobile nav, terminal typing, forms
 │   ├── favicon.svg       # favicon
 │   └── og-image.png      # 1200×630 social share card
+├── .well-known/
+│   └── security.txt      # RFC 9116 disclosure policy — keep Expires in the future
 ├── robots.txt
-├── sitemap.xml
+├── sitemap.xml           # must list every indexable page (19 URLs)
 ├── .nojekyll             # serve files as-is (skip Jekyll)
-├── CNAME.example         # rename to CNAME for a custom domain
+├── CNAME                 # custom domain
+├── CNAME.example
+├── LICENSE               # MIT
 └── README.md
 ```
 
@@ -98,12 +105,48 @@ That's it — `main.js` will POST submissions there as JSON and show a success m
 
 ---
 
-## 5. SEO checklist (already done)
+## 5. Things that will silently rot
+
+A few files carry values that go stale and produce no error when they do:
+
+- **`.well-known/security.txt` → `Expires:`** — an expired `security.txt` is treated as
+  invalid by tooling. Bump it once a year.
+- **`sitemap.xml`** — hand-maintained. Adding a page without adding a `<url>` entry is
+  invisible until you notice the page never gets indexed (`facts.html` was missing this way).
+  Quick check: `ls *.html | wc -l` should equal `grep -c '<url>' sitemap.xml` + 1 for `404.html`.
+- **The FAQ on `index.html`** exists twice — once as visible `<details>` markup and once as
+  `FAQPage` JSON-LD. Google requires the answers to be visible on the page, so **edit both
+  or neither**.
+- **Nav breakpoint** — `900px` in `assets/styles.css` and `(min-width: 901px)` in
+  `assets/main.js` must stay in step, or the hamburger and the desktop nav disagree.
+
+---
+
+## 6. Security headers
+
+GitHub Pages cannot send response headers, so every page carries a
+`<meta http-equiv="Content-Security-Policy">` instead. It allows only same-origin scripts,
+Google Fonts for CSS/fonts, and `formspree.io` / `api.web3forms.com` for form POSTs.
+
+**If you add a third-party script, widget, or analytics tag, it will be blocked until you add
+its origin to the CSP in every HTML file.** `frame-ancestors` is deliberately absent — it is
+ignored in a `<meta>` tag and only logs a console warning; clickjacking protection needs a real
+header, which means moving off Pages or putting a CDN in front.
+
+> Note: Google Fonts is loaded from `fonts.googleapis.com`, which discloses every visitor's IP
+> to Google. That is the kind of finding this site sells audits for. Self-hosting the three
+> font families would remove the third-party origin from the CSP and drop the render-blocking
+> request at the same time.
+
+---
+
+## 7. SEO checklist (already done)
 
 - Descriptive `<title>` + meta description + canonical
 - Open Graph + Twitter Card with a 1200x630 image
 - JSON-LD structured data: `Organization` + `ProfessionalService` + `WebSite`
 - Semantic landmarks, alt text, skip link, `aria` labels, reduced-motion support
+- Custom `404.html`, `security.txt`, CSP + referrer policy, AA colour contrast
 - `robots.txt` + `sitemap.xml`
 - Mobile-responsive, fast (no frameworks), accessible colour contrast
 

@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Cyber Sec | Pentesting Tools, Code Audits &amp; Vulnerability Research</title>
 <meta name="description" content="Custom pentesting tools, vulnerability research and exploit development, code and open-source audits, vendor product testing, and detection engineering. Cyber Sec — evidence-based reporting and fixed-scope engagements." />
@@ -21,7 +25,7 @@
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cyber Sec — Enterprise Cybersecurity" />
-<meta property="og:locale" content="en" />
+<meta property="og:locale" content="en_ZA" />
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
@@ -54,6 +58,7 @@
       "email": "stephanbotesIT@proton.me",
       "description": "Cybersecurity practice delivering custom pentesting tools, vulnerability research and exploit development, code and open-source audits, vendor product security testing, and project-based detection engineering.",
       "areaServed": "Worldwide",
+      "sameAs": ["https://github.com/s-b-repo"],
       "knowsAbout": ["Custom Pentesting Tools","Vulnerability Research & Exploit Development","Offensive Security","Code Audits","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out","Reverse Engineering","SIEM","Exploit Development"]
     },
     {
@@ -63,7 +68,7 @@
       "url": "https://cybersec.org.za/",
       "email": "stephanbotesIT@proton.me",
       "areaServed": "Worldwide",
-      "priceRange": "Project-based",
+      "priceRange": "$$$",
       "serviceType": ["Custom Pentesting Tools","Vulnerability Research & Exploit Development","Code Audits","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out"],
       "makesOffer": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Pentesting Tools", "description": "Bespoke offensive tooling and exploit development built for your environment and engagement." } },
@@ -87,10 +92,10 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "What penetration testing services does Cyber Sec offer?",
+          "name": "What services does Cyber Sec offer?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cyber Sec offers full-scope penetration testing including network, web application, mobile, API, cloud infrastructure, and social engineering assessments. We also provide red team operations, purple team exercises, and custom exploit development tailored to your environment."
+            "text": "Six focused service lines: custom pentesting tools, vulnerability research and exploit development, code audits, open-source security audits, vendor product security testing, and detection engineering and SOC build-out. Every engagement is scoped and authorized in writing before any work begins."
           }
         },
         {
@@ -114,7 +119,15 @@
           "name": "Who does Cyber Sec work with?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Cyber Sec works with software teams, product vendors, and organisations that need hands-on offensive security and detection engineering. Every engagement is scoped to your specific stack and threat model."
+            "text": "Software teams, product vendors, and organisations that need hands-on offensive security and detection engineering. Every engagement is scoped to your specific stack and threat model."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I see Cyber Sec's work before hiring them?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Over 300 public repositories are on GitHub at github.com/s-b-repo — including Rustsploit, a Rust exploitation framework; clean-room reverse engineering of an enterprise SSL VPN client; published I2P and gSOAP proof-of-concept exploits; and SOC and detection tooling. The tooling described on this site is the tooling published there."
           }
         },
         {
@@ -303,8 +316,8 @@ Predict before the breach.">Defend your enterprise.<br><span class="hl">Predict 
       <div class="svc-grid">
         <div class="card svc reveal">
           <span class="reticle" aria-hidden="true"></span>
-          <h3>Certified &amp; Vetted Team</h3>
-           <p>All consultants hold industry-recognized certifications with verifiable experience across finance, healthcare, defense, and critical infrastructure sectors.</p>
+          <h3>Verifiable, Not Just Certified</h3>
+           <p>CompTIA Security+, Network+, A+, CSIS and CIOS, plus Fortra Clearswift and Azure Fundamentals — and, more usefully, <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">300+ public repositories</a> you can read before you sign anything.</p>
         </div>
 
         <div class="card svc reveal">
@@ -376,6 +389,121 @@ Predict before the breach.">Defend your enterprise.<br><span class="hl">Predict 
     </div>
   </section>
 
+  <!-- ───────────────────────── open source / proof ───────────────────────── -->
+  <section class="section section-alt" id="open-source" aria-labelledby="oss-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// the receipts</p>
+        <h2 id="oss-h">Don't take our word for it. Read the code.</h2>
+        <p class="section-sub">Every service on this page is backed by tooling that is already public. Over <strong>300 repositories</strong> on GitHub — frameworks, exploits, reverse-engineering work and detection tooling. This is the same code we build engagements on.</p>
+      </header>
+
+      <div class="repo-grid">
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-rust">Rust</span></div>
+          <h3>rustsploit</h3>
+          <p>Modular exploitation framework. Began as a Rust rewrite of routersploit and grew well past it — the backbone of our custom tooling work.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/rustsploit" target="_blank" rel="noopener noreferrer">s-b-repo/rustsploit →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-rust">Rust</span></div>
+          <h3>larpnation</h3>
+          <p>Rustsploit fork with a WAF-bypass engine, io_uring expansion, SQLite backend, SOCKS proxying and 147+ additional modules.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/larpnation" target="_blank" rel="noopener noreferrer">s-b-repo/larpnation →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-c">C++ / Python</span></div>
+          <h3>iNode-VPN</h3>
+          <p>Clean-room reimplementation of the H3C SSL VPN client — protocol reversed from the wire, then rebuilt as fully open source.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/iNode-VPN" target="_blank" rel="noopener noreferrer">s-b-repo/iNode-VPN →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>i2p-zero-exploits</h3>
+          <p>Published proof-of-concept exploits from independent I2P research, disclosed March 2026. Reproducible, not theoretical.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/i2p-zero-exploits-2026-15-03" target="_blank" rel="noopener noreferrer">s-b-repo/i2p-zero-exploits-2026-15-03 →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>gsoap-poc-exploits-2.7</h3>
+          <p>Working PoCs against gSOAP 2.7 — the kind of embedded-stack vulnerability research that vendor product testing turns up.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/gsoap-poc-exploits-2.7" target="_blank" rel="noopener noreferrer">s-b-repo/gsoap-poc-exploits-2.7 →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>p2soc</h3>
+          <p>SOC video wall on a Raspberry Pi 5 — Wazuh, Zabbix and Grafana panels with Vaultwarden-backed auto-login and an autossh jump tunnel.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/p2soc" target="_blank" rel="noopener noreferrer">s-b-repo/p2soc →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>nfsmw-2005-re</h3>
+          <p>Long-form reverse engineering: 27 subsystems mapped, 6,511 functions named, 85.2% of attribute hashes cracked, working mod SDK.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/nfsmw-2005-re" target="_blank" rel="noopener noreferrer">s-b-repo/nfsmw-2005-re →</a>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-blue">Research</span></div>
+          <h3>cardsz</h3>
+          <p>RFID/NFC card security assessment guide — Proxmark3 methodology for Mifare, HID, iCLASS and NTAG, used on physical engagements.</p>
+          <a class="repo-link" href="https://github.com/s-b-repo/cardsz" target="_blank" rel="noopener noreferrer">s-b-repo/cardsz →</a>
+        </article>
+      </div>
+
+      <div class="tools-foot reveal">
+        <a class="btn btn-ghost" href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">Browse all repositories <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FAQ ───────────────────────── -->
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// common questions</p>
+        <h2 id="faq-h">Questions we get asked first.</h2>
+      </header>
+
+      <div class="faq-list">
+        <details class="card faq reveal">
+          <summary>What services does Cyber Sec offer?</summary>
+          <p>Six focused service lines: custom pentesting tools, vulnerability research and exploit development, code audits, open-source security audits, vendor product security testing, and detection engineering and SOC build-out. Every engagement is scoped and authorized in writing before any work begins.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Does Cyber Sec do vulnerability research and exploit development?</summary>
+          <p>Yes. Original research — zero-day discovery, reverse engineering, and protocol analysis — plus reproducible proof-of-concept exploits against the software you build or depend on, with responsible disclosure where third parties are involved.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Can Cyber Sec build our detection and SOC monitoring stack?</summary>
+          <p>Yes, on a project basis. We design, build, tune, and hand over your monitoring stack — Wazuh or Elastic SIEM, log-ingestion pipelines, and DFIR automation fitted to your environment. It is built, documented, and yours to run — not a managed subscription.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Who does Cyber Sec work with?</summary>
+          <p>Software teams, product vendors, and organisations that need hands-on offensive security and detection engineering. Every engagement is scoped to your specific stack and threat model.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>How does the code audit process work?</summary>
+          <p>Code audits are manual, line-level security reviews — not automated scans. We identify vulnerabilities, logic flaws, and supply-chain risks, then deliver prioritized findings with business impact analysis and concrete remediation steps. Re-testing after fixes are applied is included.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Can I see your work before hiring you?</summary>
+          <p>Yes — that is the point of the section above. Over 300 public repositories at <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>, including Rustsploit, clean-room reverse engineering of an enterprise SSL VPN client, published I2P and gSOAP proof-of-concept exploits, and SOC tooling. The tooling described on this site is the tooling published there.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ───────────────────────── CTA ───────────────────────── -->
   <section class="section" aria-labelledby="cta-h">
     <div class="wrap">
@@ -428,6 +556,8 @@ Predict before the breach.">Defend your enterprise.<br><span class="hl">Predict 
     <div class="footer-meta">
       <!--<a href="mailto:contact@cybersec.org.za">contact@cybersec.org.za</a>-->
       <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>
+      <a href="/.well-known/security.txt">security.txt</a>
       <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
     </div>
   </div>
