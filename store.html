@@ -9,7 +9,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Store — Security Tooling, Support &amp; Customisation | Cyber Sec</title>
-<meta name="description" content="Cyber Sec security tooling — Rustsploit, Larpnation, Razor EDR, Wazuh and recon tools. Source is public; support, improvements and customisation are paid, from $149. Authorized security testing only." />
+<meta name="description" content="Cyber Sec security tooling — Rustsploit, Larpnation, Razor EDR, Wazuh and recon tools. Source is public for most tools; support, improvements and customisation are paid, from $149. Authorized security testing only." />
 <meta name="keywords" content="rustsploit, offensive security tooling, red team tools, open source EDR, wazuh deployment, security tool support, custom exploit modules, penetration testing services" />
 <meta name="author" content="Cyber Sec" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -65,6 +65,9 @@
   .prod-src{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--faint);
     margin:auto 0 .85rem;word-break:break-word;transition:color .2s}
   .prod-src:hover{color:var(--acc)}
+  /* non-link variant, for tools whose source is not published */
+  .prod-src-closed{color:var(--faint);opacity:.85}
+  .prod-src-closed:hover{color:var(--faint)}
   .prod-src + .prod-buy{margin-top:0}
   .prod h3{font-size:1.14rem;margin:0 0 .5rem;color:var(--text)}
   .prod p{color:var(--muted);font-size:.9rem;line-height:1.6;margin:0 0 1rem}
@@ -179,7 +182,7 @@
       <header class="section-head reveal">
         <p class="kicker">// category 01 · tooling</p>
         <h2 id="offensive-h">Offensive Tooling</h2>
-        <p class="section-sub">Dual-use tooling for authorized red-team and research engagements, written mostly in Rust. Read the source on GitHub first; support, improvements and custom modules are priced per tool.</p>
+        <p class="section-sub">Dual-use tooling for authorized red-team and research engagements, written mostly in Rust. Most of it is public — read the source before you commit. Support, improvements and custom modules are priced per tool.</p>
       </header>
 
       <div class="prod-grid">
@@ -193,11 +196,11 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Private build</span><span class="prod-price">from $499<small>licence &amp; support</small></span></div>
           <h3>Larpnation</h3>
           <p>Rustsploit fork with a WAF-bypass engine, io_uring expansion, SQLite backend, SOCKS proxying, 147+ additional modules and self-healing error handling.</p>
           <ul class="prod-feat"><li>WAF bypass</li><li>io_uring</li><li>147+ modules</li></ul>
-          <a class="prod-src" href="https://github.com/s-b-repo/larpnation" target="_blank" rel="noopener noreferrer">Source: s-b-repo/larpnation ↗</a>
+          <span class="prod-src prod-src-closed">Source: private build — provided under licence</span>
           <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Larpnation%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
