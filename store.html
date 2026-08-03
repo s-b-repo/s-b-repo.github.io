@@ -8,9 +8,9 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-<title>Store — Open-Source Security Tooling &amp; Engagements | Cyber Sec</title>
-<meta name="description" content="The Cyber Sec store — offensive tooling, detection & response packs, playbooks, and productized assessment packages. Sold for authorized security testing, research, and education only." />
-<meta name="keywords" content="security tools store, offensive tooling, red team tools, detection rules, SIEM kit, security playbooks, penetration testing packages, cybersecurity products" />
+<title>Store — Security Tooling, Support &amp; Customisation | Cyber Sec</title>
+<meta name="description" content="Cyber Sec security tooling — Rustsploit, Larpnation, Razor EDR, Wazuh and recon tools. Source is public; support, improvements and customisation are paid, from $149. Authorized security testing only." />
+<meta name="keywords" content="rustsploit, offensive security tooling, red team tools, open source EDR, wazuh deployment, security tool support, custom exploit modules, penetration testing services" />
 <meta name="author" content="Cyber Sec" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://cybersec.org.za/store.html" />
@@ -18,8 +18,8 @@
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cyber Sec" />
-<meta property="og:title" content="Store — Open-Source Security Tooling &amp; Engagements | Cyber Sec" />
-<meta property="og:description" content="Free open-source offensive and defensive tooling. Paid: deployment, custom modules, support, and fixed-scope engagements." />
+<meta property="og:title" content="Store — Security Tooling, Support &amp; Customisation | Cyber Sec" />
+<meta property="og:description" content="Offensive and defensive security tooling with public source. Paid support, improvements and customisation from $149 — plus fixed-scope engagements." />
 <meta property="og:url" content="https://cybersec.org.za/store.html" />
 <meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -29,7 +29,7 @@
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Store — Cyber Sec" />
-<meta name="twitter:description" content="Offensive tooling, detection packs, playbooks & assessment packages. Authorized use only." />
+<meta name="twitter:description" content="Security tooling with public source. Paid support, improvements &amp; customisation. Authorized use only." />
 <meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
 
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
@@ -56,9 +56,16 @@
   .prod-top{display:flex;align-items:center;justify-content:space-between;gap:.6rem;margin-bottom:.9rem}
   .prod-tag{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.08em;text-transform:uppercase;color:var(--acc);
     border:1px solid var(--line);border-radius:5px;padding:.28rem .5rem;white-space:nowrap}
-  .prod-price{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--text);white-space:nowrap}
-  /* margin-left: prices are now words ("Free open source"), not "$299/yr" — they need a gap */
-  .prod-price small{font-size:.68rem;color:var(--faint);font-weight:500;margin-left:.35em}
+  .prod-price{font-family:var(--font-display);font-weight:700;font-size:1.3rem;color:var(--text);white-space:nowrap;text-align:right;line-height:1.15}
+  /* The qualifier is a phrase ("support & customisation"), not "/yr" — stack it under the figure. */
+  .prod-price small{display:block;font-family:var(--font-mono);font-size:.58rem;color:var(--faint);
+    font-weight:500;letter-spacing:.08em;text-transform:uppercase;margin-top:.25rem;white-space:nowrap}
+  /* margin-top:auto pins the source line + CTA together at the card foot, so cards of
+     differing copy length still line their buttons up. */
+  .prod-src{display:block;font-family:var(--font-mono);font-size:.7rem;color:var(--faint);
+    margin:auto 0 .85rem;word-break:break-word;transition:color .2s}
+  .prod-src:hover{color:var(--acc)}
+  .prod-src + .prod-buy{margin-top:0}
   .prod h3{font-size:1.14rem;margin:0 0 .5rem;color:var(--text)}
   .prod p{color:var(--muted);font-size:.9rem;line-height:1.6;margin:0 0 1rem}
   .prod-feat{list-style:none;padding:0;margin:0 0 1.2rem;display:flex;flex-wrap:wrap;gap:.4rem}
@@ -80,7 +87,7 @@
       "@id": "https://cybersec.org.za/store.html",
       "url": "https://cybersec.org.za/store.html",
       "name": "Cyber Sec Store",
-      "description": "Open-source offensive tooling, detection and response software, and field references — free on GitHub. Paid work: deployment and hardening, custom module development, support retainers, and fixed-scope assessment engagements.",
+      "description": "Offensive tooling, detection and response software, and field references from Cyber Sec. Source is published on GitHub; support, improvements and customisation are paid per tool, alongside deployment, custom module development and fixed-scope assessment engagements.",
       "isPartOf": { "@id": "https://cybersec.org.za/#website" }
     },
     {
@@ -150,7 +157,7 @@
     <div class="wrap">
       <p class="kicker reveal">// store</p>
       <h1 class="reveal">The <span class="hl">Arsenal.</span></h1>
-      <p class="page-sub reveal">The tooling is <strong>open source and free</strong> — read it, run it, fork it. What we sell is the work around it: deploying it in your environment, building the modules you need, and the engagements it was written for. Everything here is for <strong>authorized security testing and education</strong>.</p>
+      <p class="page-sub reveal">The source is public — read it before you commit to anything. What you pay for is <strong>the engineer who wrote it</strong>: support, improvements, and customisation for your environment, plus the engagements the tooling was built for. Everything here is for <strong>authorized security testing and education</strong>.</p>
 
       <div class="store-notice reveal" role="note">
         <span class="warn">⚠ Authorized use only — liability notice</span>
@@ -170,42 +177,46 @@
   <section class="section" id="offensive" aria-labelledby="offensive-h">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="kicker">// category 01 · open source</p>
+        <p class="kicker">// category 01 · tooling</p>
         <h2 id="offensive-h">Offensive Tooling</h2>
-        <p class="section-sub">Dual-use tooling for authorized red-team and research engagements, written mostly in Rust. Public on GitHub — there is no paywall between you and the source.</p>
+        <p class="section-sub">Dual-use tooling for authorized red-team and research engagements, written mostly in Rust. Read the source on GitHub first; support, improvements and custom modules are priced per tool.</p>
       </header>
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
           <h3>Rustsploit</h3>
           <p>Modular exploitation framework in Rust. Started as a routersploit rewrite and grew well past it — the backbone of our custom tooling work.</p>
           <ul class="prod-feat"><li>Rust</li><li>Modular</li><li>★58 on GitHub</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/rustsploit" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/rustsploit" target="_blank" rel="noopener noreferrer">Source: s-b-repo/rustsploit ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Rustsploit%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
           <h3>Larpnation</h3>
           <p>Rustsploit fork with a WAF-bypass engine, io_uring expansion, SQLite backend, SOCKS proxying, 147+ additional modules and self-healing error handling.</p>
           <ul class="prod-feat"><li>WAF bypass</li><li>io_uring</li><li>147+ modules</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/larpnation" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/larpnation" target="_blank" rel="noopener noreferrer">Source: s-b-repo/larpnation ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Larpnation%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Research</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Research</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>Arcticfox C3</h3>
           <p>Async networking and codec framework in Rust — synchronises control content over GitHub, GitLab and paste services. Built to study covert channels that need no dedicated C2 host, and to validate whether your detection sees them.</p>
           <ul class="prod-feat"><li>Rust</li><li>Covert channels</li><li>Detection validation</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/arcticfox-c3" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/arcticfox-c3" target="_blank" rel="noopener noreferrer">Source: s-b-repo/arcticfox-c3 ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Arcticfox%20C3%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>Rustforce</h3>
           <p>Fast, modular credential-testing toolkit in Rust covering FTP, SSH and Telnet, bundled with IP-generation and proxy download/test utilities.</p>
           <ul class="prod-feat"><li>Rust</li><li>FTP · SSH · Telnet</li><li>Proxy-aware</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/rustforce" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/rustforce" target="_blank" rel="noopener noreferrer">Source: s-b-repo/rustforce ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Rustforce%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -215,42 +226,46 @@
   <section class="section section-alt" id="defense" aria-labelledby="defense-h">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="kicker">// category 02 · open source</p>
+        <p class="kicker">// category 02 · tooling</p>
         <h2 id="defense-h">Detection &amp; Response</h2>
-        <p class="section-sub">Blue-team tooling you deploy, tune, and own — no managed subscription required. The same building blocks we use on detection engineering builds.</p>
+        <p class="section-sub">Blue-team tooling you deploy, tune, and own — no managed subscription required. The same building blocks we use on detection engineering builds, with paid support and tuning when you want it done properly.</p>
       </header>
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>Wazuh Installer</h3>
           <p>Scripted stand-up of a Wazuh deployment — the boring part of a SIEM rollout, automated so you can get to tuning.</p>
           <ul class="prod-feat"><li>Wazuh</li><li>Docker</li><li>Scripted</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/docker-wazuh-installer-py" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/docker-wazuh-installer-py" target="_blank" rel="noopener noreferrer">Source: s-b-repo/docker-wazuh-installer-py ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Wazuh%20Installer%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>Elastacat</h3>
           <p>Automated Elastic + TheHive/Cortex installer — the log-pipeline and case-management side of a working detection stack.</p>
           <ul class="prod-feat"><li>Elastic</li><li>Ingestion</li><li>Automated setup</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/elastacat" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/elastacat" target="_blank" rel="noopener noreferrer">Source: s-b-repo/elastacat ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Elastacat%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
           <h3>Razor</h3>
           <p>Open-source EDR for Linux. Rule-based plus ML detection over process and user behaviour, with automatic quarantine and process termination.</p>
           <ul class="prod-feat"><li>Linux EDR</li><li>Behavioural</li><li>Auto-response</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/razor" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/razor" target="_blank" rel="noopener noreferrer">Source: s-b-repo/razor ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Razor%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>p2soc — SOC Video Wall</h3>
           <p>Turns a Raspberry Pi 5 into a SOC video wall: a draggable 2×2 kiosk of auto-logging-in Wazuh, Zabbix and Grafana panels, secrets in Vaultwarden, autossh jump tunnel.</p>
           <ul class="prod-feat"><li>Raspberry Pi 5</li><li>Wazuh · Zabbix · Grafana</li><li>GPLv3</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/p2soc" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/p2soc" target="_blank" rel="noopener noreferrer">Source: s-b-repo/p2soc ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=p2soc%20-%20SOC%20Video%20Wall%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -260,42 +275,46 @@
   <section class="section" id="recon" aria-labelledby="recon-h">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="kicker">// category 03 · open source</p>
+        <p class="kicker">// category 03 · tooling</p>
         <h2 id="recon-h">Recon &amp; Reference</h2>
-        <p class="section-sub">Scanning tools and field references — the published methodology we actually work from, not a repackaged PDF.</p>
+        <p class="section-sub">Scanning tools and field references — the published methodology we actually work from, not a repackaged PDF. Paid tiers cover walkthroughs, extensions, and adapting them to your estate.</p>
       </header>
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Recon</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Recon</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
           <h3>Recon Toolkit</h3>
           <p><strong>Quicmap</strong> for QUIC/HTTP-3 port scanning and service fingerprinting, <strong>Stalkroute</strong> for deep path tracing, <strong>worldroute</strong> for bulk host recon, <strong>smfp</strong> for SMTP/FTP sweeps.</p>
           <ul class="prod-feat"><li>QUIC / HTTP-3</li><li>Bulk recon</li><li>Rust · Python</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/Quicmap" target="_blank" rel="noopener noreferrer">Start with Quicmap <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/Quicmap" target="_blank" rel="noopener noreferrer">Source: s-b-repo/Quicmap ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Recon%20Toolkit%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
           <h3>Advanced Shodan Queries</h3>
           <p>A curated collection of Shodan search queries for attack-surface discovery — the interesting, the funny, and the genuinely alarming.</p>
           <ul class="prod-feat"><li>Attack surface</li><li>OSINT</li><li>★10 on GitHub</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/advanced-shodan-requests" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/advanced-shodan-requests" target="_blank" rel="noopener noreferrer">Source: s-b-repo/advanced-shodan-requests ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Advanced%20Shodan%20Queries%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Methodology</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Methodology</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
           <h3>Cardsz — RFID/NFC Assessment</h3>
           <p>Full Proxmark3 methodology for physical access control: Mifare, HID, iCLASS and NTAG. The guide behind the badge-cloning half of a physical engagement.</p>
           <ul class="prod-feat"><li>Proxmark3</li><li>Mifare · HID · iCLASS</li><li>Physical security</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/cardsz" target="_blank" rel="noopener noreferrer">View repository <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/cardsz" target="_blank" rel="noopener noreferrer">Source: s-b-repo/cardsz ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Cardsz%20-%20RFID/NFC%20Assessment%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">Free<small>open source</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
           <h3>Hardening &amp; Field Guides</h3>
           <p><strong>windows-hardening</strong> PowerShell baselines, a <strong>MITM proxy</strong> interception guide, a <strong>detailed nmap</strong> cheatsheet, and a <strong>GitHub dorks</strong> collection for supply-chain recon.</p>
           <ul class="prod-feat"><li>Windows hardening</li><li>Nmap</li><li>Dorking</li></ul>
-          <a class="btn btn-primary prod-buy" href="https://github.com/s-b-repo/windows-hardening" target="_blank" rel="noopener noreferrer">Start with hardening <span aria-hidden="true">→</span></a>
+          <a class="prod-src" href="https://github.com/s-b-repo/windows-hardening" target="_blank" rel="noopener noreferrer">Source: s-b-repo/windows-hardening ↗</a>
+          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Hardening%20and%20Field%20Guides%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -307,7 +326,7 @@
       <header class="section-head reveal">
         <p class="kicker">// category 04 · what we charge for</p>
         <h2 id="engagements-h">Paid Work</h2>
-        <p class="section-sub">The tools above are free. This is what you pay for: getting them running in your environment, extending them for your targets, and the engagements they were built to support. Fixed scope, fixed price, agreed in writing before any work begins.</p>
+        <p class="section-sub">Bigger than a single tool: rolling the stack out across an estate, building something new from scratch, or a full assessment. Fixed scope, fixed price, agreed in writing before any work begins.</p>
       </header>
 
       <div class="prod-grid">
@@ -379,6 +398,7 @@
       </header>
       <p class="store-terms reveal"><strong>Authorized, lawful use only.</strong> The tooling listed here is offensive- and defensive-security software, published for legitimate security testing, research, and education. <strong>You alone are responsible for how you use it.</strong> You must have explicit written authorization for any system, network, or application you test. Using these tools against systems you do not own or lack permission to test may be illegal.</p>
       <p class="store-terms reveal"><strong>No liability.</strong> To the maximum extent permitted by law, Cyber Sec and Stephan Botes accept no liability for any direct, indirect, incidental, or consequential damage, data loss, service disruption, financial loss, or legal consequence arising from the download or use — or misuse — of any tool listed here. Everything is provided <strong>as-is and without warranty</strong> of any kind.</p>
+      <p class="store-terms reveal"><strong>What the per-tool fee buys.</strong> Prices shown are a starting point for a single tool and cover installation and configuration help, bug fixes and improvements prioritised for you, and customisation to your environment and rules of engagement. Anything larger is quoted per scope. The source stays published either way — you are paying for the work and the time, not for access.</p>
       <p class="store-terms reveal">Paid work is scoped, priced and authorized in writing before it starts. Questions about scope, licensing, or authorization? <a href="contact.html">Get in touch</a> first.</p>
       <div class="tools-foot reveal" style="margin-top:1.6rem">
         <a class="btn btn-primary" href="contact.html">Talk to us first <span aria-hidden="true">→</span></a>
