@@ -77,6 +77,17 @@
   .prod-buy{margin-top:auto;justify-content:center;font-size:.84rem;width:100%}
   .store-terms{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:70ch}
   .store-terms strong{color:var(--text)}
+  .ccy-bar{display:flex;align-items:center;flex-wrap:wrap;gap:.6rem;margin:1.6rem 0 0}
+  .ccy-bar label{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+  .ccy-bar select{font-family:var(--font-mono);font-size:.78rem;color:var(--text);background:var(--ink-2);
+    border:1px solid var(--line);border-radius:8px;padding:.42rem 1.9rem .42rem .7rem;cursor:pointer;
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 6'%3E%3Cpath fill='%231e80ff' d='M0 0l5 6 5-6z'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right .65rem center;background-size:8px}
+  .ccy-bar select:hover{border-color:var(--acc)}
+  .ccy-bar select:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+  .ccy-note{font-family:var(--font-mono);font-size:.68rem;color:var(--faint);margin:0;flex:1 1 100%;line-height:1.5}
+  @media (min-width:700px){.ccy-note{flex:0 1 auto}}
   @media (max-width:480px){.prod-grid{grid-template-columns:1fr}}
 </style>
 
@@ -167,6 +178,12 @@
         Everything on this page is published for <strong>lawful, authorized</strong> security testing, research, and education. <strong>You are solely responsible for how you use it.</strong> Cyber Sec accepts <strong>no liability</strong> for any misuse, damage, data loss, service disruption, or legal consequence arising from your use of these tools. By downloading or commissioning work, you confirm you have explicit <strong>written authorization</strong> to test any system you target and that you will comply with all applicable laws. All tooling is provided <strong>as-is, without warranty</strong>.
       </div>
 
+      <div class="ccy-bar reveal">
+        <label for="ccy-select">Show prices in</label>
+        <select id="ccy-select" aria-describedby="ccy-note"></select>
+        <p id="ccy-note" class="ccy-note">Prices in US dollars. Every engagement is quoted and invoiced in USD.</p>
+      </div>
+
       <nav class="cat-nav reveal" aria-label="Categories">
         <a href="#offensive">Offensive Tooling</a>
         <a href="#defense">Detection &amp; Response</a>
@@ -187,7 +204,7 @@
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; customisation</small></span></div>
           <h3>Rustsploit</h3>
           <p>Modular exploitation framework in Rust. Started as a routersploit rewrite and grew well past it — the backbone of our custom tooling work.</p>
           <ul class="prod-feat"><li>Rust</li><li>Modular</li><li>★58 on GitHub</li></ul>
@@ -196,7 +213,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Private build</span><span class="prod-price">from $499<small>licence &amp; support</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Private build</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>licence &amp; support</small></span></div>
           <h3>Larpnation</h3>
           <p>Rustsploit fork with a WAF-bypass engine, io_uring expansion, SQLite backend, SOCKS proxying, 147+ additional modules and self-healing error handling.</p>
           <ul class="prod-feat"><li>WAF bypass</li><li>io_uring</li><li>147+ modules</li></ul>
@@ -205,7 +222,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Research</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Research</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>Arcticfox C3</h3>
           <p>Async networking and codec framework in Rust — synchronises control content over GitHub, GitLab and paste services. Built to study covert channels that need no dedicated C2 host, and to validate whether your detection sees them.</p>
           <ul class="prod-feat"><li>Rust</li><li>Covert channels</li><li>Detection validation</li></ul>
@@ -214,7 +231,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Authorized use only</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>Rustforce</h3>
           <p>Fast, modular credential-testing toolkit in Rust covering FTP, SSH and Telnet, bundled with IP-generation and proxy download/test utilities.</p>
           <ul class="prod-feat"><li>Rust</li><li>FTP · SSH · Telnet</li><li>Proxy-aware</li></ul>
@@ -236,7 +253,7 @@
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>Wazuh Installer</h3>
           <p>Scripted stand-up of a Wazuh deployment — the boring part of a SIEM rollout, automated so you can get to tuning.</p>
           <ul class="prod-feat"><li>Wazuh</li><li>Docker</li><li>Scripted</li></ul>
@@ -245,7 +262,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>Elastacat</h3>
           <p>Automated Elastic + TheHive/Cortex installer — the log-pipeline and case-management side of a working detection stack.</p>
           <ul class="prod-feat"><li>Elastic</li><li>Ingestion</li><li>Automated setup</li></ul>
@@ -254,7 +271,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $499<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; customisation</small></span></div>
           <h3>Razor</h3>
           <p>Open-source EDR for Linux. Rule-based plus ML detection over process and user behaviour, with automatic quarantine and process termination.</p>
           <ul class="prod-feat"><li>Linux EDR</li><li>Behavioural</li><li>Auto-response</li></ul>
@@ -263,7 +280,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>p2soc — SOC Video Wall</h3>
           <p>Turns a Raspberry Pi 5 into a SOC video wall: a draggable 2×2 kiosk of auto-logging-in Wazuh, Zabbix and Grafana panels, secrets in Vaultwarden, autossh jump tunnel.</p>
           <ul class="prod-feat"><li>Raspberry Pi 5</li><li>Wazuh · Zabbix · Grafana</li><li>GPLv3</li></ul>
@@ -285,7 +302,7 @@
 
       <div class="prod-grid">
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Recon</span><span class="prod-price">from $299<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Recon</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
           <h3>Recon Toolkit</h3>
           <p><strong>Quicmap</strong> for QUIC/HTTP-3 port scanning and service fingerprinting, <strong>Stalkroute</strong> for deep path tracing, <strong>worldroute</strong> for bulk host recon, <strong>smfp</strong> for SMTP/FTP sweeps.</p>
           <ul class="prod-feat"><li>QUIC / HTTP-3</li><li>Bulk recon</li><li>Rust · Python</li></ul>
@@ -294,7 +311,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price"><span class="amt" data-usd="149">from $149</span><small>support &amp; customisation</small></span></div>
           <h3>Advanced Shodan Queries</h3>
           <p>A curated collection of Shodan search queries for attack-surface discovery — the interesting, the funny, and the genuinely alarming.</p>
           <ul class="prod-feat"><li>Attack surface</li><li>OSINT</li><li>★10 on GitHub</li></ul>
@@ -303,7 +320,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Methodology</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Methodology</span><span class="prod-price"><span class="amt" data-usd="149">from $149</span><small>support &amp; customisation</small></span></div>
           <h3>Cardsz — RFID/NFC Assessment</h3>
           <p>Full Proxmark3 methodology for physical access control: Mifare, HID, iCLASS and NTAG. The guide behind the badge-cloning half of a physical engagement.</p>
           <ul class="prod-feat"><li>Proxmark3</li><li>Mifare · HID · iCLASS</li><li>Physical security</li></ul>
@@ -312,7 +329,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price">from $149<small>support &amp; customisation</small></span></div>
+          <div class="prod-top"><span class="prod-tag">Reference</span><span class="prod-price"><span class="amt" data-usd="149">from $149</span><small>support &amp; customisation</small></span></div>
           <h3>Hardening &amp; Field Guides</h3>
           <p><strong>windows-hardening</strong> PowerShell baselines, a <strong>MITM proxy</strong> interception guide, a <strong>detailed nmap</strong> cheatsheet, and a <strong>GitHub dorks</strong> collection for supply-chain recon.</p>
           <ul class="prod-feat"><li>Windows hardening</li><li>Nmap</li><li>Dorking</li></ul>
@@ -358,7 +375,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $2,500</span></div>
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price"><span class="amt" data-usd="2500">from $2,500</span></span></div>
           <h3>Web App Pentest — Fixed Scope</h3>
           <p>A single application, OWASP-based methodology, with a plain-language report and one round of retesting after fixes.</p>
           <ul class="prod-feat"><li>OWASP</li><li>Report + retest</li><li>Fixed scope</li></ul>
@@ -366,7 +383,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $3,500</span></div>
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price"><span class="amt" data-usd="3500">from $3,500</span></span></div>
           <h3>Vendor Product Review</h3>
           <p>Black-box and white-box assessment of a third-party product or appliance, ending in a clear go/no-go for procurement.</p>
           <ul class="prod-feat"><li>Black/white-box</li><li>Go/no-go</li><li>Procurement</li></ul>
@@ -374,7 +391,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $1,800</span></div>
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price"><span class="amt" data-usd="1800">from $1,800</span></span></div>
           <h3>Code Audit — Sprint</h3>
           <p>A time-boxed, manual security review of a module or service — line-level findings with severity, impact, and reproducible PoCs.</p>
           <ul class="prod-feat"><li>Manual review</li><li>Time-boxed</li><li>PoCs</li></ul>
@@ -382,7 +399,7 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price">from $4,000</span></div>
+          <div class="prod-top"><span class="prod-tag">Engagement</span><span class="prod-price"><span class="amt" data-usd="4000">from $4,000</span></span></div>
           <h3>Detection Engineering — Build &amp; Handover</h3>
           <p>We design, build, tune, and hand over your monitoring stack — Wazuh/Elastic SIEM, pipelines, and DFIR automation, documented and yours to run.</p>
           <ul class="prod-feat"><li>Build + handover</li><li>Wazuh/Elastic</li><li>Documented</li></ul>
@@ -437,6 +454,7 @@
 
 <a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
 
+<script src="assets/rates.js" defer></script>
 <script src="assets/main.js" defer></script>
 </body>
 </html>

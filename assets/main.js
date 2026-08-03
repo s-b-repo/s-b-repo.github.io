@@ -422,6 +422,118 @@
     }
   }
 
+  /* ── indicative price localisation (store page only) ──
+     Region comes from the browser's own IANA time zone. No geo-IP lookup: that would
+     mean shipping every visitor's address to a third party, which is exactly the kind
+     of finding this site sells audits for, and it would need a CSP exception too.
+     Time zone is approximate — a VPN or a traveller reads wrong — so the picker below
+     is the real answer and the guess is only the default. */
+  (function () {
+    var amounts = document.querySelectorAll(".amt[data-usd]");
+    if (!amounts.length) return;
+
+    var RATES = (window.CS_RATES && window.CS_RATES.rates) || null;
+    if (!RATES) return;                       // rates.js missing — leave the USD markup alone
+
+    var ZONE_CCY = {
+      "Africa/Johannesburg": "ZAR", "Africa/Windhoek": "ZAR", "Africa/Maseru": "ZAR", "Africa/Mbabane": "ZAR",
+      "Europe/London": "GBP", "Europe/Belfast": "GBP", "Europe/Zurich": "CHF",
+      "Asia/Dubai": "AED", "Asia/Singapore": "SGD",
+      "Asia/Kolkata": "INR", "Asia/Calcutta": "INR",
+      "Pacific/Auckland": "NZD"
+    };
+    var EURO = ["Dublin","Paris","Berlin","Madrid","Rome","Amsterdam","Brussels","Vienna","Lisbon",
+                "Helsinki","Athens","Ljubljana","Bratislava","Tallinn","Riga","Vilnius","Luxembourg",
+                "Malta","Nicosia","Zagreb","Podgorica","Andorra","Monaco","San_Marino","Vatican"];
+    var CAD_ZONES = ["Toronto","Vancouver","Edmonton","Winnipeg","Halifax","St_Johns","Regina","Montreal","Whitehorse","Yellowknife"];
+
+    function guess() {
+      var tz = "";
+      try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+      if (ZONE_CCY[tz]) return ZONE_CCY[tz];
+      if (tz.indexOf("Australia/") === 0) return "AUD";
+      var city = tz.split("/")[1] || "";
+      if (tz.indexOf("Europe/") === 0 && EURO.indexOf(city) > -1) return "EUR";
+      if (tz.indexOf("America/") === 0 && CAD_ZONES.indexOf(city) > -1) return "CAD";
+      /* Last resort: the locale's region, e.g. en-ZA. Less reliable than the zone —
+         plenty of people run a US-English browser outside the US. */
+      var region = (navigator.language || "").split("-")[1];
+      var BY_REGION = { ZA:"ZAR", GB:"GBP", IE:"EUR", DE:"EUR", FR:"EUR", ES:"EUR", IT:"EUR", NL:"EUR",
+                        AU:"AUD", NZ:"NZD", CA:"CAD", CH:"CHF", AE:"AED", SG:"SGD", IN:"INR" };
+      return (region && BY_REGION[region]) || "USD";
+    }
+
+    /* Converted figures are estimates, so present them as estimates — a price like
+       "R8,227" implies a precision the exchange rate does not have. */
+    function tidy(v) {
+      var step = v < 1000 ? 10 : v < 10000 ? 50 : v < 100000 ? 500 : 1000;
+      return Math.ceil(v / step) * step;       // round up: these are "from" prices
+    }
+
+    function fmt(v, ccy, display) {
+      return new Intl.NumberFormat(navigator.language || "en", {
+        style: "currency", currency: ccy, currencyDisplay: display,
+        minimumFractionDigits: 0, maximumFractionDigits: 0
+      }).format(v);
+    }
+
+    function money(v, ccy) {
+      try {
+        var out = fmt(v, ccy, "narrowSymbol");
+        /* AUD, CAD, NZD and SGD all narrow to a bare "$", so an Australian would read
+           "$710" as US dollars on a page whose list price genuinely is USD. Fall back
+           to the ISO code whenever the symbol is an unqualified dollar sign. */
+        if (ccy !== "USD" && out.indexOf("$") > -1) out = fmt(v, ccy, "code");
+        return out;
+      } catch (e) {
+        try { return fmt(v, ccy, "code"); }
+        catch (e2) { return ccy + " " + v.toLocaleString("en"); }
+      }
+    }
+
+    var note = document.getElementById("ccy-note");
+    /* persist only on an explicit pick. Storing the auto-detected guess too would
+       freeze the first guess forever — a visitor who travels, or whose zone was
+       misread once, would keep seeing the wrong currency with no way to re-detect. */
+    function render(ccy, persist) {
+      var rate = RATES[ccy];
+      if (!rate) { ccy = "USD"; rate = 1; }
+      Array.prototype.forEach.call(amounts, function (el) {
+        var usd = parseFloat(el.getAttribute("data-usd"));
+        if (ccy === "USD") {
+          el.textContent = "from " + money(usd, "USD");
+          el.removeAttribute("title");
+        } else {
+          el.textContent = "≈ " + money(tidy(usd * rate), ccy);
+          el.setAttribute("title", "Indicative. List price is USD " + usd.toLocaleString("en") + ".");
+        }
+      });
+      if (note) {
+        note.textContent = ccy === "USD"
+          ? "Prices in US dollars. Every engagement is quoted and invoiced in USD."
+          : "Indicative conversion at " + (window.CS_RATES.updated || "recent") +
+            " rates, rounded up. Quoted and invoiced in USD.";
+      }
+      if (persist) { try { localStorage.setItem("cs-ccy", ccy); } catch (e) {} }
+    }
+
+    var saved = null;
+    try { saved = localStorage.getItem("cs-ccy"); } catch (e) {}
+    var initial = (saved && RATES[saved]) ? saved : guess();
+
+    var sel = document.getElementById("ccy-select");
+    if (sel) {
+      Object.keys(RATES).forEach(function (c) {
+        var o = document.createElement("option");
+        o.value = c; o.textContent = c;
+        sel.appendChild(o);
+      });
+      sel.value = initial;
+      sel.addEventListener("change", function () { render(sel.value, true); });
+    }
+    render(initial, false);
+  })();
+
   /* forms — mailto compose by default; Formspree/Web3Forms if data-endpoint set.
      Works for any <form data-mailto="addr" data-subject="…"> (contact + facts). */
 
