@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<!-- ════════════════════════════════════════════════════════════════════
+     SITE URL — replace https://cybersec.org.za everywhere
+     (this file, sitemap.xml, robots.txt) with your real domain.
+     ════════════════════════════════════════════════════════════════════ -->
+<title>Responsible Disclosure Policy | Cyber Sec</title>
+<meta name="description" content="How to report a security vulnerability to Cyber Sec: scope, safe harbour under the Cybercrimes Act and ECTA, what we ask of researchers, and our response timelines." />
+<meta name="author" content="Cyber Sec" />
+<!-- Unlinked and noindex until the company details placeholders are completed. -->
+<meta name="robots" content="noindex, nofollow" />
+<link rel="canonical" href="https://cybersec.org.za/disclosure.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Responsible Disclosure Policy | Cyber Sec" />
+<meta property="og:description" content="How to report a security vulnerability to Cyber Sec: scope, safe harbour under the Cybercrimes Act and ECTA, what we ask of researchers, and our response timelines." />
+<meta property="og:url" content="https://cybersec.org.za/disclosure.html" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_ZA" />
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="alternate icon" href="assets/favicon.svg" />
+<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+
+<!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
+
+<link rel="stylesheet" href="assets/styles.css?v=30c89be4" />
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ───────────────────────── header ───────────────────────── -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// legal · disclosure</p>
+      <h1 class="reveal">Responsible <span class="hl">Disclosure.</span></h1>
+      <p class="page-sub reveal">Found something in ours? Here is how to tell us, what protection you have while doing it, and what we commit to in return.</p>
+      <p class="legal-updated reveal">Last updated 3 August 2026</p>
+    </div>
+  </section>
+
+  <section class="content-section legal">
+    <div class="wrap">
+      <p>We test other people's systems for a living, so it would be poor form to make it hard to
+      report a problem in ours. This policy sets out what we consider in scope, what we ask you not
+      to do, and what we commit to in return.</p>
+
+      <div class="legal-callout">
+        <h3>Report to</h3>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a></dd>
+          <dt>Machine-readable</dt><dd><a href="/.well-known/security.txt">/.well-known/security.txt</a> (RFC 9116)</dd>
+          <dt>Acknowledgement</dt><dd>Within 2 business days</dd>
+        </dl>
+      </div>
+
+      <h2>1. Safe harbour</h2>
+      <p>If you make a good-faith effort to comply with this policy while researching a
+      vulnerability in an asset listed in scope below, we will:</p>
+      <ul>
+        <li>not pursue or support civil action against you;</li>
+        <li>not report you to law enforcement, and will make clear that your actions were authorised
+        under this policy if a third party does;</li>
+        <li>treat your research as authorised access for the purposes of the
+        <em>Cybercrimes Act 19 of 2020</em> and section 86 of the
+        <em>Electronic Communications and Transactions Act 25 of 2002</em>; and</li>
+        <li>work with you on disclosure rather than against you.</li>
+      </ul>
+      <p>This authorisation is limited to systems we actually control. We cannot grant safe harbour
+      over anyone else's infrastructure — including our hosting and CDN providers, whose own
+      policies apply to them.</p>
+
+      <h2>2. In scope</h2>
+      <ul>
+        <li><code>cybersec.org.za</code> and its subdomains</li>
+        <li>Public source repositories under
+        <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>,
+        including vulnerabilities in the tooling itself</li>
+        <li>Our published <code>security.txt</code>, DNS configuration and email authentication
+        records (SPF, DKIM, DMARC)</li>
+      </ul>
+
+      <h2>3. Out of scope</h2>
+      <ul>
+        <li><strong>Client systems.</strong> Never test a system because you saw it mentioned here.
+        Our clients have not authorised you, and we cannot authorise you on their behalf.</li>
+        <li>Third-party infrastructure we merely use: GitHub Pages, Cloudflare, Proton. Report
+        those to the provider directly.</li>
+        <li>Denial of service, volumetric or stress testing of any kind.</li>
+        <li>Social engineering, phishing or physical intrusion against us or anyone associated
+        with us.</li>
+        <li>Reports produced solely by running an automated scanner, with no demonstrated impact.</li>
+        <li>Missing hardening headers, weak TLS ciphers or similar configuration observations
+        with no exploitable consequence. Tell us anyway if you like, but they are not
+        vulnerabilities.</li>
+        <li>Vulnerabilities requiring a rooted or physically compromised device, or an
+        already-compromised browser.</li>
+      </ul>
+
+      <h2>4. What we ask</h2>
+      <ul>
+        <li>Give us a reproducible proof of concept: the exact request, input and version.</li>
+        <li>Use only accounts and data you own or that we have provided.</li>
+        <li>Do not access, modify, delete or exfiltrate anyone else's data. If you encounter
+        personal information, stop, do not save a copy, and tell us what you saw in general terms.</li>
+        <li>Do not degrade the service. Rate-limit yourself.</li>
+        <li>Do not leave persistence — no backdoors, no test accounts, no uploaded files. If you
+        must create something to demonstrate the issue, tell us so we can remove it.</li>
+        <li>Give us a reasonable window to fix the issue before publishing.</li>
+      </ul>
+
+      <h2>5. What we commit to</h2>
+      <table class="legal-table">
+        <thead><tr><th>Stage</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Acknowledge your report</td><td>2 business days</td></tr>
+          <tr><td>Initial assessment and triage</td><td>5 business days</td></tr>
+          <tr><td>Fix or documented mitigation plan</td><td>30 days for a confirmed issue</td></tr>
+          <tr><td>Coordinated public disclosure</td><td>90 days, or sooner by agreement</td></tr>
+        </tbody>
+      </table>
+      <p>We will keep you informed, tell you honestly if we disagree that something is a
+      vulnerability and why, and credit you by name or handle when the fix ships — unless you
+      would rather we did not.</p>
+
+      <h2>6. No bounty</h2>
+      <p>We do not operate a paid bug bounty. This is a disclosure policy, not a commercial
+      programme. What we offer is a fast, technically competent response from the person who wrote
+      the code, public credit, and a genuine fix.</p>
+
+      <h2>7. Vulnerabilities we find in your software</h2>
+      <p>The same standard runs the other way. When our own research turns up a vulnerability in
+      third-party software, we disclose it privately to the vendor first, allow a reasonable
+      remediation period before any publication, never sell findings to a broker, and publish proof
+      of concept code only once a fix is available or the vendor has clearly declined to act. Where
+      an engagement uncovers an issue in a product a client depends on, we write the report in a
+      form the client can hand to the vendor directly.</p>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code audits · OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <!--<a href="mailto:contact@cybersec.org.za">contact@cybersec.org.za</a>-->
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js?v=033945e9" defer></script>
+</body>
+</html>

@@ -182,7 +182,34 @@ introduces. Not worth it.
 
 ---
 
-## 7. SEO checklist (already done)
+## 7. Legal pages — INCOMPLETE, do not link publicly yet
+
+`privacy.html` (POPIA), `terms.html` (ECTA s43), `disclosure.html`, `paia.html` (s51).
+
+They are deliberately **`noindex`, absent from `sitemap.xml`, and not linked from the footer**,
+because three facts are still placeholders. Search the pages for `legal-todo` — each renders as
+a visible amber marker:
+
+| Placeholder | Needed for |
+|---|---|
+| Registered company name | POPIA responsible party, ECTA s43(1)(a), PAIA head of body |
+| CIPC registration number | ECTA s43(1)(f) |
+| Designated Information Officer | POPIA s55/s56 — must also be registered with the Information Regulator |
+
+**To publish once those are filled:** remove the `noindex` meta from all four, add them to
+`sitemap.xml`, add footer links, and run `python3 tools/stamp-assets.py`.
+
+Two known gaps recorded on purpose:
+- **No physical address.** ECTA s43(1)(c) requires one from anyone offering goods or services
+  online. The pages say so openly rather than pretending otherwise.
+- **Not reviewed by an attorney.** Each page carries a "not legal advice" notice.
+
+Also confirm the current PAIA prescribed fees before relying on `paia.html` — the manual
+deliberately does not quote amounts, since they are revised by regulation.
+
+---
+
+## 8. SEO checklist (already done)
 
 - Descriptive `<title>` + meta description + canonical
 - Open Graph + Twitter Card with a 1200x630 image
