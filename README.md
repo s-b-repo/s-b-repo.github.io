@@ -119,6 +119,9 @@ A few files carry values that go stale and produce no error when they do:
   or neither**.
 - **Nav breakpoint** — `900px` in `assets/styles.css` and `(min-width: 901px)` in
   `assets/main.js` must stay in step, or the hamburger and the desktop nav disagree.
+- **The `lite` device gate** in `assets/main.js` and the `@media (pointer:coarse) and
+  (max-width:1023px)` rule hiding `#bg-canvas` describe the same set of devices. Change one
+  and change the other, or phones will composite a full-screen canvas nothing draws to.
 
 ---
 
@@ -148,10 +151,28 @@ therefore already sees every visitor, so the beacon discloses nothing to a party
 already have it. That is *not* true of Google Fonts, which is a separate origin getting data
 it would otherwise never see.
 
-> Note: Google Fonts is loaded from `fonts.googleapis.com`, which discloses every visitor's IP
-> to Google. That is the kind of finding this site sells audits for. Self-hosting the three
-> font families would remove the third-party origin from the CSP and drop the render-blocking
-> request at the same time.
+---
+
+## Fonts
+
+Self-hosted from `assets/fonts/`, declared by the `@font-face` block at the top of
+`assets/styles.css`. Nothing is fetched from Google — `fonts.googleapis.com` and
+`fonts.gstatic.com` are gone from both the markup and the CSP.
+
+**IBM Plex Sans and JetBrains Mono are variable fonts.** Google returns the *same file* for
+every weight you ask for, so one file each covers the whole axis (`font-weight: 100 700` and
+`400 800` respectively). Requesting three weights of each naively yields three identical
+45KB and 31KB files — 150KB of pure duplication. Chakra Petch is static, hence two files.
+Chakra Petch 500 was in the old URL but used nowhere, so it is not shipped.
+
+To regenerate (e.g. to add a weight), fetch the CSS with a modern browser UA so Google
+serves woff2, keep only the `latin` `@font-face` blocks, download those URLs into
+`assets/fonts/`, and **checksum the results before adding new `@font-face` rules** — matching
+md5s mean it is one variable font, not several static ones.
+
+Deliberately *not* done: subsetting to only the glyphs the site currently uses. Measured at
+just 14% (94.7KB → 81.0KB) and it makes the fonts silently break on any character future copy
+introduces. Not worth it.
 
 ---
 

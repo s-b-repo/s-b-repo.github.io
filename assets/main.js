@@ -35,6 +35,18 @@
     };
   }
 
+  /* Devices that should not pay for the decorative animation.
+     Measured on a 6x-throttled 390x844 phone: the two canvas loops dragged scrolling
+     from ~60fps to ~14. The full-screen background is skipped outright here and the
+     globe is drawn once instead of animated, which costs a single frame. */
+  var lite = (function () {
+    try {
+      if (window.matchMedia("(pointer: coarse)").matches && window.innerWidth < 1024) return true;
+      if ((navigator.hardwareConcurrency || 8) <= 4) return true;
+    } catch (e) {}
+    return false;
+  })();
+
   /* ── rotating wireframe earth globe ── */
   (function () {
     var canvas = document.getElementById("globe-canvas");
@@ -102,15 +114,16 @@
       }
 
       angle = (angle + 0.35) % 360;
-      requestAnimationFrame(drawGlobe);
+      if (!lite) requestAnimationFrame(drawGlobe);
     }
+    /* On a lite device this paints one static wireframe sphere and stops. */
     drawGlobe();
   })();
 
   /* ── background wave + wireframe + grid sweep ── */
   (function () {
     var canvas = document.getElementById("bg-canvas");
-    if (!canvas || reduce) return;
+    if (!canvas || reduce || lite) return;
     var ctx = canvas.getContext("2d");
     var W = 0, H = 0, time = 0;
     var gridSweep = { active: false, startT: 0, duration: 4000 };
