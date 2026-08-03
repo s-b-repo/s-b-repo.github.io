@@ -119,6 +119,12 @@ A few files carry values that go stale and produce no error when they do:
   or neither**.
 - **Nav breakpoint** — `900px` in `assets/styles.css` and `(min-width: 901px)` in
   `assets/main.js` must stay in step, or the hamburger and the desktop nav disagree.
+- **Asset stamps.** The domain is behind Cloudflare: HTML is `cf-cache-status: DYNAMIC`
+  (never cached) but assets return `HIT` with `max-age=14400`. For four hours after a
+  deploy, visitors otherwise get new HTML paired with old CSS/JS — which is how moving
+  `@font-face` into `styles.css` briefly left the live site rendering in system fonts.
+  **Run `python3 tools/stamp-assets.py` after touching anything in `assets/` and before
+  committing.** It is idempotent.
 - **The `lite` device gate** in `assets/main.js` and the `@media (pointer:coarse) and
   (max-width:1023px)` rule hiding `#bg-canvas` describe the same set of devices. Change one
   and change the other, or phones will composite a full-screen canvas nothing draws to.
