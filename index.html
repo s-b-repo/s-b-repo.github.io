@@ -352,11 +352,11 @@ Predict before the breach.">Defend your enterprise.<br><span class="hl">Predict 
       <article class="card svc svc-feature reveal">
         <span class="reticle" aria-hidden="true"></span>
         <div class="svc-feature-copy">
-          <span class="svc-badge"><span class="blip"></span> National Government · 9-Day Engagement</span>
+          <span class="svc-badge"><span class="blip"></span> Public Sector · 9-Day Engagement</span>
           <span class="svc-num">01</span>
           <h3>Full-scope penetration test — external, internal, wireless, physical</h3>
-          <p>Full-scope penetration test of a national government department. Found <strong>36 vulnerabilities — 18 critical</strong>, including SharePoint 2007 still running in production (EOL 2017, 18 years old). Retrieved citizen SA ID numbers and personal records from an unsecured server — a <strong>POPIA breach</strong> requiring mandatory disclosure to the Information Regulator.</p>
-          <p>Achieved <strong>domain admin</strong> via EternalBlue against an unpatched Windows 7 server, extracted 5 staff credentials. Bypassed weapons screening at reception, tailgated through the secure entrance, and reached a private office undetected. The Wi-Fi ran WEP encryption with an open guest network. DMARC was monitoring-only — departmental emails fully spoofable. <strong>Not one alert was raised.</strong></p>
+          <p>Full-scope penetration test of a public-sector organisation. Found <strong>36 vulnerabilities — 18 critical</strong>, including a collaboration platform running in production more than eight years past end-of-life. Retrieved national identity numbers and personal records from an unsecured server — a <strong>reportable personal-information breach</strong> under POPIA.</p>
+          <p>Achieved <strong>domain admin</strong> by exploiting a long-patched SMB vulnerability on a forgotten legacy Windows host, and extracted 5 staff credentials. Bypassed physical access control at reception and reached a restricted office undetected. The wireless network used obsolete encryption alongside an open guest SSID. DMARC was monitoring-only — outbound mail was fully spoofable. <strong>Not one alert was raised.</strong></p>
         </div>
         <ul class="svc-list svc-feature-list">
           <li>36 vulnerabilities — 18 critical, 9 high</li>
@@ -369,11 +369,11 @@ Predict before the breach.">Defend your enterprise.<br><span class="hl">Predict 
       <article class="card svc svc-feature reveal">
         <span class="reticle" aria-hidden="true"></span>
         <div class="svc-feature-copy">
-          <span class="svc-badge"><span class="blip"></span> National ISP / MSP · Gap Assessment</span>
+          <span class="svc-badge"><span class="blip"></span> Service Provider · Gap Assessment</span>
           <span class="svc-num">02</span>
           <h3>57 hosts. 50+ exposed VM images. 7 downstream orgs affected.</h3>
-          <p>White-box penetration test across 3 subnets of a national ISP and managed service provider. Extracted <strong>27 employee password hashes from 10 unique accounts</strong> across 8 mounted VMs — all sharing an identical SHA-512 hash. Pulled the full FortiGate FG200F configuration including <strong>17 encrypted credentials</strong>, an upstream water utility's AD LDAP bind, 9 VPN users, 3 RADIUS secrets, and 5 SSL private keys.</p>
-          <p>Discovered 50+ QCOW2 and 6 VMDK disk images on unauthenticated NFS shares — full Veeam backup repositories including a 2.6 TB Exchange email database. Mapped <strong>4 Active Directory domains with 21 Windows hosts — all enumerated without credentials</strong>. The exposure chain cascaded to 7 downstream organizations across government, transport, manufacturing, and export credit insurance.</p>
+          <p>White-box penetration test across 3 subnets of an internet and managed service provider. Extracted <strong>27 employee password hashes from 10 unique accounts</strong> across 8 mounted VMs — all sharing an identical hash. Pulled a complete perimeter firewall configuration including <strong>17 encrypted credentials</strong>, a customer's directory bind account, 9 VPN users, 3 RADIUS secrets, and 5 SSL private keys.</p>
+          <p>Discovered 50+ virtual disk images on unauthenticated NFS shares — complete backup repositories including a multi-terabyte corporate mail database. Mapped <strong>4 Active Directory domains with 21 Windows hosts — all enumerated without credentials</strong>. The exposure chain cascaded to <strong>7 downstream organisations</strong> across the public sector, transport, manufacturing and financial services.</p>
         </div>
         <ul class="svc-list svc-feature-list">
           <li>37 vulns — 12 critical, 11 high</li>
