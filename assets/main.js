@@ -2,6 +2,39 @@
 (function () {
   "use strict";
 
+  /* ── origin guard: flag & neutralise rehosted / fraudulent copies ── */
+  (function () {
+    try {
+      var official = ["cybersec.org.za", "www.cybersec.org.za"];
+      var h = location.hostname;
+      var dev = h === "localhost" || h === "127.0.0.1" || h === "" || /\.local$/.test(h);
+      if (dev || official.indexOf(h) !== -1) return;
+      var warn = function () {
+        var bar = document.createElement("div");
+        bar.setAttribute("role", "alert");
+        bar.style.cssText = "position:fixed;left:0;right:0;top:0;z-index:2147483647;" +
+          "background:#7a0010;color:#fff;font:600 14px/1.5 system-ui,-apple-system,sans-serif;" +
+          "padding:12px 16px;text-align:center;box-shadow:0 2px 20px rgba(0,0,0,.55)";
+        bar.innerHTML = "\u26A0 You are viewing an unofficial copy of this website. " +
+          "The official Cyber Sec site is <a href=\"https://cybersec.org.za/\" " +
+          "style=\"color:#fff;text-decoration:underline\">cybersec.org.za</a> \u2014 " +
+          "do not enter any personal information here.";
+        (document.body || document.documentElement).appendChild(bar);
+        /* Neutralise any forms a phishing clone may have copied verbatim. */
+        var forms = document.querySelectorAll("form");
+        for (var i = 0; i < forms.length; i++) {
+          forms[i].addEventListener("submit", function (e) {
+            e.preventDefault(); e.stopPropagation();
+          }, true);
+        }
+        /* Send visitors on to the genuine site. */
+        setTimeout(function () { location.replace("https://cybersec.org.za/"); }, 6000);
+      };
+      if (document.body) warn();
+      else document.addEventListener("DOMContentLoaded", warn);
+    } catch (e) {}
+  })();
+
   var motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
   var reduce = motionQuery.matches;
 
