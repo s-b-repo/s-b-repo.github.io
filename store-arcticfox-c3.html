@@ -167,7 +167,7 @@
         <p class="kicker">// what it is</p>
         <h2 id="ov-h">A C3 that hides in services you already trust</h2>
       </header>
-      <p class="lede reveal" style="max-width:74ch">Arcticfox C3 is an asynchronous networking and codec framework in Rust that carries command-and-control content over services you already trust — GitHub, GitLab and paste sites — instead of a dedicated, attacker-owned server. It exists to study a whole class of covert channels, and to test whether your detection actually sees them.</p>
+      <p class="lede reveal" style="max-width:74ch">Arcticfox C3 is an asynchronous networking and codec framework in Rust that carries command-and-control content over services you already trust — public code-hosting and paste services — instead of a dedicated, attacker-owned server. It exists to study a whole class of covert channels, and to test whether your detection actually sees them.</p>
       <p class="lede reveal" style="max-width:74ch">The framework builds to an <strong>arcticfox-mcp</strong> binary, so it plugs straight into an AI-driven engagement — it is one of the C3 backends bundled with OpenHack — as well as running standalone for red-team and detection-validation work.</p>
       <p class="lede reveal" style="max-width:74ch">Treat it as a detection-validation instrument: stand it up in a lab or an authorized engagement, run traffic through the third-party channels, and confirm your monitoring flags the pattern — or find out that it doesn’t.</p>
     </div>
@@ -184,7 +184,7 @@
       <div class="feat-grid">
         <article class="card feat-card reveal">
           <h3>Third-party C3 channels</h3>
-          <p>Synchronises control content over GitHub, GitLab and paste services — no dedicated C2 host to stand up or burn.</p>
+          <p>Synchronises control content over public code-hosting and paste services — no dedicated C2 host to stand up or burn.</p>
         </article>
         <article class="card feat-card reveal">
           <h3>Async Rust core</h3>
@@ -212,7 +212,7 @@
       <dl class="spec-list reveal">
         <dt>Language</dt><dd>Rust</dd>
         <dt>Binary</dt><dd>arcticfox-mcp</dd>
-        <dt>Channels</dt><dd>GitHub, GitLab and paste services</dd>
+        <dt>Channels</dt><dd>Public code-hosting and paste services</dd>
         <dt>Integrates with</dt><dd>OpenHack (as a C3 backend) and standalone use</dd>
         <dt>Intended use</dt><dd>Authorized red-team and detection-engineering work only</dd>
       </dl>
