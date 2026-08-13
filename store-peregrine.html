@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<title>Peregrine — Rust MoE Inference Engine | Cyber Sec</title>
+<meta name="description" content="Peregrine is a from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently to stream very large quantized models from disk. Support and integration from $499." />
+<meta name="keywords" content="peregrine, rust inference engine, mixture of experts, moe llm, io_uring inference, gpu cpu ssd concurrent, openai compatible server, quantized model streaming" />
+<meta name="author" content="Cyber Sec" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://cybersec.org.za/store-peregrine.html" />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="product" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Peregrine — Rust MoE Inference Engine | Cyber Sec" />
+<meta property="og:description" content="Peregrine is a from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently to stream very large quantized models from disk. Support and integration from $499." />
+<meta property="og:url" content="https://cybersec.org.za/store-peregrine.html" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Peregrine" />
+<meta property="og:locale" content="en_ZA" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Peregrine — Cyber Sec" />
+<meta name="twitter:description" content="Peregrine is a from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently to stream very large quantized models from disk. Support and integration from $499." />
+<meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
+
+<!-- Icons: the header globe, rendered to PNG -->
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
+
+<link rel="stylesheet" href="assets/styles.css?v=b34cf02b" />
+
+<style>
+  .store-notice{margin:1.8rem 0 0;padding:1.15rem 1.35rem;border:1px solid var(--acc);border-left-width:3px;border-radius:12px;
+    background:linear-gradient(135deg,rgba(43,127,255,.09),rgba(0,0,0,.4));font-size:.95rem;line-height:1.65;color:var(--text)}
+  .store-notice strong{color:var(--acc)}
+  .store-notice .warn{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);display:block;margin-bottom:.4rem}
+  .p-price-wrap{display:flex;align-items:baseline;gap:1.1rem;flex-wrap:wrap;margin:1.6rem 0 .2rem}
+  .p-price{font-family:var(--font-display);font-weight:700;font-size:1.9rem;color:var(--text);line-height:1.1;white-space:nowrap}
+  .p-price small{display:block;font-family:var(--font-mono);font-size:.6rem;color:var(--faint);letter-spacing:.08em;
+    text-transform:uppercase;margin-top:.32rem;font-weight:500}
+  .p-hero-actions{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;margin-top:1.5rem}
+  .p-tags{display:flex;flex-wrap:wrap;gap:.42rem;margin:1.2rem 0 0;padding:0}
+  .p-tags li{list-style:none;font-family:var(--font-mono);font-size:.66rem;color:var(--muted);background:var(--ink-2);
+    border:1px solid var(--line-soft);border-radius:5px;padding:.28rem .55rem}
+  .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.1rem;margin-top:1.7rem}
+  .feat-card{padding:1.35rem 1.4rem}
+  .feat-card h3{font-size:1.02rem;margin:0 0 .5rem;color:var(--text)}
+  .feat-card p{color:var(--muted);font-size:.88rem;line-height:1.6;margin:0}
+  .spec-list{display:grid;grid-template-columns:auto 1fr;column-gap:1.4rem;margin:1.5rem 0 0;font-size:.92rem;max-width:64ch}
+  .spec-list dt{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);
+    padding:.6rem 0;border-top:1px solid var(--line-soft)}
+  .spec-list dd{margin:0;color:var(--text);padding:.6rem 0;border-top:1px solid var(--line-soft);line-height:1.5}
+  .pay-list{list-style:none;padding:0;margin:1.3rem 0 0;display:grid;gap:.7rem;max-width:72ch}
+  .pay-list li{position:relative;padding-left:1.5rem;color:var(--muted);line-height:1.6;font-size:.93rem}
+  .pay-list li::before{content:"\25B9";position:absolute;left:0;color:var(--acc)}
+  .pay-list strong{color:var(--text)}
+  .store-terms{font-size:.88rem;color:var(--muted);line-height:1.7;max-width:72ch}
+  .store-terms strong{color:var(--text)}
+  .p-back{font-family:var(--font-mono);font-size:.76rem;letter-spacing:.04em;color:var(--muted)}
+  .p-back:hover{color:var(--acc)}
+</style>
+
+<!-- Structured data: Product -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Peregrine",
+  "description": "Peregrine is a from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently to stream very large quantized models from disk.",
+  "brand": { "@type": "Organization", "name": "Cyber Sec" },
+  "category": "AI infrastructure",
+  "url": "https://cybersec.org.za/store-peregrine.html",
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "USD",
+    "price": "499",
+    "availability": "https://schema.org/InStock",
+    "url": "https://cybersec.org.za/store-peregrine.html",
+    "seller": { "@type": "Organization", "name": "Cyber Sec" }
+  }
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html" aria-current="page">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="store.html" aria-current="page">Store</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ───────────────────────── hero ───────────────────────── -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal"><a class="p-back" href="store.html">&larr; Store</a> &nbsp;·&nbsp; // product</p>
+      <h1 class="reveal">Pere<span class="hl">grine.</span></h1>
+      <p class="page-sub reveal">A from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently — engineered to stream very large quantized models straight off disk.</p>
+
+      <ul class="p-tags reveal"><li>Rust</li><li>MoE inference</li><li>io_uring</li><li>CUDA (optional)</li><li>MIT</li></ul>
+
+      <div class="p-price-wrap reveal">
+        <span class="p-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; integration</small></span>
+      </div>
+
+      <div class="p-hero-actions reveal">
+        <a class="btn btn-primary" href="mailto:stephanbotesIT@proton.me?subject=Peregrine%20-%20purchase%20enquiry">Contact to purchase <span aria-hidden="true">&rarr;</span></a>
+        <a class="btn btn-ghost" href="contact.html">Ask a question</a>
+      </div>
+
+      <div class="store-notice reveal" role="note"><span class="warn">ℹ Research-grade infrastructure</span>Peregrine is a high-performance engineering project. It is provided <strong>as-is, without warranty</strong>; benchmark behaviour depends heavily on your hardware, model and tuning.</div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── overview ───────────────────────── -->
+  <section class="section section-alt" aria-labelledby="ov-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// what it is</p>
+        <h2 id="ov-h">One MoE layer, drained by GPU, CPU and SSD at once</h2>
+      </header>
+      <p class="lede reveal" style="max-width:74ch">Peregrine is a heterogeneous Mixture-of-Experts inference engine written from scratch in Rust. Its scheduler keeps a GPU lane, a CPU lane and an io_uring SSD-streaming lane all draining the same MoE layer simultaneously — so a model far larger than your VRAM still runs. The reference target is a 744-billion-parameter int4 model streamed directly from disk.</p>
+      <p class="lede reveal" style="max-width:74ch">It ships two binaries: <strong>peregrine</strong>, a stdio serve protocol with benchmark and automaton harnesses, and <strong>peregrine-serve</strong>, a native OpenAI-compatible HTTP server with continuous batching and a two-tier priority queue. Roughly fifty environment knobs tune I/O, scheduling and caching, and the numeric core is deliberately near-dependency-free.</p>
+      <p class="lede reveal" style="max-width:74ch">The whole engine is engineered for bit-identical output: hand-written SIMD int2/int4/int8 kernels are validated against scalar references, the parallel worker pool is bit-identical to the serial path, and a simpler two-lane streaming implementation is kept purely as a correctness oracle.</p>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── features ───────────────────────── -->
+  <section class="section" aria-labelledby="feat-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// capabilities</p>
+        <h2 id="feat-h">What it does</h2>
+        <p class="section-sub">Every claim here maps to a crate in the workspace — the design favours provable correctness over shortcuts.</p>
+      </header>
+      <div class="feat-grid">
+        <article class="card feat-card reveal">
+          <h3>Concurrent heterogeneous lanes</h3>
+          <p>GPU, CPU and an io_uring SSD lane drain the same MoE layer at the same time, instead of running in separate phases.</p>
+        </article>
+        <article class="card feat-card reveal">
+          <h3>Streams huge models from disk</h3>
+          <p>int4/int8 quantized weights streamed with O_DIRECT and a priority-weighted warm cache — run models larger than RAM or VRAM.</p>
+        </article>
+        <article class="card feat-card reveal">
+          <h3>OpenAI-compatible server</h3>
+          <p>peregrine-serve exposes /v1/chat/completions (SSE and non-streaming), /v1/models and /health, with bearer auth and per-request priorities.</p>
+        </article>
+        <article class="card feat-card reveal">
+          <h3>CUDA acceleration</h3>
+          <p>Optional fused-quant matmul, WMMA W4A16, SwiGLU and attention/RoPE kernels behind a cuda feature, with CUDA graph capture and replay.</p>
+        </article>
+        <article class="card feat-card reveal">
+          <h3>Token-exact kernels</h3>
+          <p>AVX2/AVX-VNNI integer dot-products checked against a scalar oracle; the parallel path is bit-identical to serial output.</p>
+        </article>
+        <article class="card feat-card reveal">
+          <h3>Tunable, dependency-light</h3>
+          <p>~50 environment knobs for I/O, scheduling and caching; the numeric core avoids heavy dependencies by design.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── specs ───────────────────────── -->
+  <section class="section section-alt" aria-labelledby="spec-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// under the hood</p>
+        <h2 id="spec-h">Specifications</h2>
+      </header>
+      <dl class="spec-list reveal">
+        <dt>Language</dt><dd>Rust (edition 2021) with vendored CUDA C++</dd>
+        <dt>Build</dt><dd>Cargo workspace — 11 crates, 2 binaries (peregrine, peregrine-serve)</dd>
+        <dt>Version</dt><dd>0.1.0</dd>
+        <dt>License</dt><dd>MIT</dd>
+        <dt>Platform</dt><dd>Linux (io_uring); optional NVIDIA CUDA for the GPU lane</dd>
+        <dt>Requirements</dt><dd>NVIDIA GPU + CUDA toolkit only for the optional cuda feature; CPU-only by default</dd>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── what the fee buys ───────────────────────── -->
+  <section class="section" aria-labelledby="pay-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// what you pay for</p>
+        <h2 id="pay-h">Support, not a paywall</h2>
+        <p class="section-sub">Peregrine’s source is open (MIT). The fee covers getting it running fast on your hardware and models.</p>
+      </header>
+      <ul class="pay-list reveal">
+        <li><strong>Deployment &amp; tuning</strong> — stood up on your hardware, with the environment knobs tuned to your model, storage and latency targets.</li>
+        <li><strong>Integration</strong> — wired into your stack behind its OpenAI-compatible API, or adapted to a bespoke serving path.</li>
+        <li><strong>Fixes &amp; improvements, prioritised for you</strong> — issues you hit move to the front of the queue.</li>
+        <li><strong>A direct line to the engineer who wrote it</strong> — no support tier relaying questions to a team you never meet.</li>
+      </ul>
+      <div class="reveal" style="margin-top:1.8rem">
+        <a class="btn btn-primary" href="mailto:stephanbotesIT@proton.me?subject=Peregrine%20-%20purchase%20enquiry">Contact to purchase <span aria-hidden="true">&rarr;</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── terms ───────────────────────── -->
+  <section class="section section-alt" id="terms" aria-labelledby="terms-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// the fine print</p>
+        <h2 id="terms-h">Terms &amp; liability</h2>
+      </header>
+      <p class="store-terms reveal"><strong>Provided as-is.</strong> To the maximum extent permitted by law, Cyber Sec and Stephan Botes accept no liability for any direct, indirect, incidental or consequential damage, data loss or service disruption arising from the use of this software. It is provided <strong>as-is and without warranty</strong> of any kind.</p>
+      <p class="store-terms reveal"><strong>What the fee buys.</strong> The price shown is a starting point and covers the engineer’s time — setup, integration, fixes, improvements and customisation. Where the source is public, you are paying for the work and the time, not for access.</p>
+      <p class="store-terms reveal">Questions about scope, licensing, or authorization? <a href="contact.html">Get in touch</a> first.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Custom pentesting tooling · vulnerability research · code &amp; OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="https://github.com/s-b-repo" target="_blank" rel="noopener noreferrer">github.com/s-b-repo</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/rates.js?v=1a9b76f9" defer></script>
+<script src="assets/main.js?v=033945e9" defer></script>
+</body>
+</html>

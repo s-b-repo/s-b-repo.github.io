@@ -9,8 +9,8 @@
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Store — Security Tooling, Support &amp; Customisation | Cyber Sec</title>
-<meta name="description" content="Cyber Sec security tooling — Rustsploit, Larpnation, Razor EDR, Wazuh and recon tools. Source is public for most tools; support, improvements and customisation are paid, from $149. Authorized security testing only." />
-<meta name="keywords" content="rustsploit, offensive security tooling, red team tools, open source EDR, wazuh deployment, security tool support, custom exploit modules, penetration testing services" />
+<meta name="description" content="Cyber Sec security tooling — OpenHack AI pentest agent, Peregrine inference engine, OnlyOffice MCP, Rustsploit, Razor EDR, Wazuh and recon tools. Source is public for most tools; support, improvements and customisation are paid, from $149. Authorized security testing only." />
+<meta name="keywords" content="openhack, ai pentest agent, peregrine inference engine, onlyoffice mcp, rustsploit, offensive security tooling, red team tools, open source EDR, wazuh deployment, security tool support, custom exploit modules, penetration testing services" />
 <meta name="author" content="Cyber Sec" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://cybersec.org.za/store.html" />
@@ -32,9 +32,9 @@
 <meta name="twitter:description" content="Security tooling with public source. Paid support, improvements &amp; customisation. Authorized use only." />
 <meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
 
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
-<link rel="alternate icon" href="assets/favicon.svg" />
-<link rel="mask-icon" href="assets/favicon.svg" color="#2b7fff" />
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
 
 <!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
 
@@ -186,6 +186,7 @@
         <a href="#offensive">Offensive Tooling</a>
         <a href="#defense">Detection &amp; Response</a>
         <a href="#recon">Recon &amp; Reference</a>
+        <a href="#ai">AI &amp; Automation</a>
         <a href="#engagements">Paid Work</a>
       </nav>
     </div>
@@ -211,12 +212,11 @@
         </article>
 
         <article class="card prod reveal">
-          <div class="prod-top"><span class="prod-tag">Private build</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>licence &amp; support</small></span></div>
-          <h3>Larpnation</h3>
-          <p>Rustsploit fork with a WAF-bypass engine, io_uring expansion, SQLite backend, SOCKS proxying, 147+ additional modules and self-healing error handling.</p>
-          <ul class="prod-feat"><li>WAF bypass</li><li>io_uring</li><li>147+ modules</li></ul>
-          <span class="prod-src prod-src-closed">Source: private build — provided under licence</span>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Larpnation%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <div class="prod-top"><span class="prod-tag">AI · authorized use</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; customisation</small></span></div>
+          <h3>OpenHack</h3>
+          <p>An AI-powered security-assessment agent for authorized pentesting. Multi-agent recon, exploitation and reporting — every action gated by a hash-signed rules-of-engagement harness.</p>
+          <ul class="prod-feat"><li>AI agent</li><li>Multi-agent</li><li>Signed ROE</li></ul>
+          <a class="btn btn-primary prod-buy" href="store-openhack.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -224,8 +224,7 @@
           <h3>Arcticfox C3</h3>
           <p>Async networking and codec framework in Rust — synchronises control content over GitHub, GitLab and paste services. Built to study covert channels that need no dedicated C2 host, and to validate whether your detection sees them.</p>
           <ul class="prod-feat"><li>Rust</li><li>Covert channels</li><li>Detection validation</li></ul>
-          <a class="prod-src" href="https://github.com/s-b-repo/arcticfox-c3" target="_blank" rel="noopener noreferrer">Source: s-b-repo/arcticfox-c3 ↗</a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Arcticfox%20C3%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-arcticfox-c3.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -338,11 +337,40 @@
     </div>
   </section>
 
-  <!-- ───────────────────────── 4 · Paid work ───────────────────────── -->
-  <section class="section section-alt" id="engagements" aria-labelledby="engagements-h">
+  <!-- ───────────────────────── 4 · AI & Automation ───────────────────────── -->
+  <section class="section section-alt" id="ai" aria-labelledby="ai-h">
     <div class="wrap">
       <header class="section-head reveal">
-        <p class="kicker">// category 04 · what we charge for</p>
+        <p class="kicker">// category 04 · ai &amp; automation</p>
+        <h2 id="ai-h">AI &amp; Automation</h2>
+        <p class="section-sub">AI-native infrastructure and automation — a heterogeneous inference engine and an AI document-automation server. Source is public; support, integration and customisation are priced per tool.</p>
+      </header>
+
+      <div class="prod-grid">
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">AI infrastructure</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; integration</small></span></div>
+          <h3>Peregrine</h3>
+          <p>A from-scratch Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently — engineered to stream very large quantized models straight off disk, behind an OpenAI-compatible API.</p>
+          <ul class="prod-feat"><li>Rust</li><li>MoE inference</li><li>io_uring</li></ul>
+          <a class="btn btn-primary prod-buy" href="store-peregrine.html">View &amp; buy <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card prod reveal">
+          <div class="prod-top"><span class="prod-tag">AI automation</span><span class="prod-price"><span class="amt" data-usd="299">from $299</span><small>support &amp; customisation</small></span></div>
+          <h3>OnlyOffice MCP Server</h3>
+          <p>A pure-Python Model Context Protocol server that lets an AI create, read, edit and convert Word, Excel and PowerPoint documents — with a defence-in-depth layer against document-borne attacks and prompt injection.</p>
+          <ul class="prod-feat"><li>Python</li><li>MCP · 77 tools</li><li>docx · xlsx · pptx</li></ul>
+          <a class="btn btn-primary prod-buy" href="store-onlyoffice-mcp.html">View &amp; buy <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── 5 · Paid work ───────────────────────── -->
+  <section class="section" id="engagements" aria-labelledby="engagements-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// category 05 · what we charge for</p>
         <h2 id="engagements-h">Paid Work</h2>
         <p class="section-sub">Bigger than a single tool: rolling the stack out across an estate, building something new from scratch, or a full assessment. Fixed scope, fixed price, agreed in writing before any work begins.</p>
       </header>
@@ -359,7 +387,7 @@
         <article class="card prod reveal">
           <div class="prod-top"><span class="prod-tag">Tooling service</span><span class="prod-price">Quoted<small>per scope</small></span></div>
           <h3>Custom Module Development</h3>
-          <p>Commission modules for Rustsploit or Larpnation — or a purpose-built tool — for your targets and rules of engagement. You keep the source.</p>
+          <p>Commission modules for Rustsploit or OpenHack — or a purpose-built tool — for your targets and rules of engagement. You keep the source.</p>
           <ul class="prod-feat"><li>Built to your ROE</li><li>Memory-safe</li><li>You keep the source</li></ul>
           <a class="btn btn-primary prod-buy" href="contact.html">Discuss a build <span aria-hidden="true">→</span></a>
         </article>
@@ -408,7 +436,7 @@
   </section>
 
   <!-- ───────────────────────── terms / disclaimer ───────────────────────── -->
-  <section class="section" id="terms" aria-labelledby="terms-h">
+  <section class="section section-alt" id="terms" aria-labelledby="terms-h">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="kicker">// the fine print</p>
