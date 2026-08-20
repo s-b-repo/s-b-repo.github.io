@@ -115,12 +115,12 @@
           <span class="res-date">9 pages</span>
         </div>
         <h3>Dynamic Context Runtime: Bounded Attention over Unbounded History</h3>
-        <p>Language models degrade as stale and superseded material piles up in their context. Making the window bigger does not fix it. This report describes a runtime that keeps history unbounded and attention bounded &mdash; storing everything as immutable spans and a typed provenance graph, then assembling a small working set each turn by solving a knapsack under an explicit token budget. It includes a zero-dependency Rust implementation and an ablation that names which mechanisms are actually carrying the result.</p>
+        <p>Language models degrade as stale and superseded material piles up in their context. Making the window bigger does not fix it. This report describes a runtime that keeps history unbounded and attention bounded &mdash; storing everything as immutable spans and a typed provenance graph, then assembling a small working set each turn by solving a knapsack under an explicit token budget. It includes a zero-dependency Rust implementation, an ablation that names which mechanisms are actually carrying the result, and a scaling table that holds at 4.19&nbsp;million tokens of history on a lexically varied corpus &mdash; alongside an account of why the same measurement on a repetitive one would have meant considerably less.</p>
         <ul class="hero-stats" aria-label="At a glance">
-          <li><b>467</b><span>tokens per query</span></li>
-          <li><b>59&times;</b><span>less than full history</span></li>
+          <li><b>4.19M</b><span>tokens of history</span></li>
+          <li><b>235</b><span>tokens per query</span></li>
           <li><b>7 / 7</b><span>probes answered</span></li>
-          <li><b>33&times;</b><span>history growth, flat cost</span></li>
+          <li><b>48,651</b><span>state nodes</span></li>
         </ul>
         <div class="hero-cta">
           <a class="btn btn-primary" href="papers/dcr-bounded-attention.pdf" download>Download PDF <span aria-hidden="true">&darr;</span></a>
