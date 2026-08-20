@@ -219,6 +219,7 @@ ol.refs em{color:#a9c8ee;font-style:italic}
       <p class="article-meta reveal">DCR-TR-2026-01 &nbsp;&middot;&nbsp; By <b>Stephan Botes</b> &nbsp;&middot;&nbsp; 20 August 2026</p>
       <div class="hero-cta reveal">
         <a class="btn btn-primary" href="papers/dcr-bounded-attention.pdf" download>Download PDF <span aria-hidden="true">&darr;</span></a>
+        <a class="btn btn-ghost" href="https://github.com/s-b-repo/subnext">Source &amp; experiments <span aria-hidden="true">&rarr;</span></a>
         <a class="btn btn-ghost" href="research.html">All research <span aria-hidden="true">&rarr;</span></a>
       </div>
       <ul class="hero-stats reveal" aria-label="At a glance">
@@ -633,7 +634,7 @@ ol.refs em{color:#a9c8ee;font-style:italic}
 <p>The measurements support a narrow, useful claim: a working set of a few hundred tokens can answer the same questions as a 27,000-token transcript, and stays the same size as that transcript grows 33× larger. They also show where the design is not yet earned — retrieval is still linear, and two of our mechanisms are not validated by our own benchmark. We would rather publish that than a table with no negative rows.</p>
 
 <h2 id="s9">Availability</h2>
-<p>The specification wiki, the Rust implementation, and every experiment in this paper live in the <span class="tt">subnext</span> project repository. All results reproduce offline with no API key and no network access:</p>
+<p>The specification wiki, the Rust implementation, and every experiment in this paper are available at <span class="tt">github.com/s-b-repo/subnext</span>. All results reproduce offline with no API key and no network access:</p>
 <pre class="snippet">cargo run --release -- bench                      # Table 3
 cargo run --release -- bench --scaling            # Table 4, Figure 2
 cargo run --release -- bench --sweep              # Table 5
@@ -660,7 +661,7 @@ cargo test                                        # 75 tests</pre>
 </ol>
 
 <div class="footnotes">
-<p><span class="fn">1</span> The recursive-language-model framing used here is taken from the Dynamic Context Runtime specification wiki (the <span class="tt">subnext</span> project repository), which describes the primitive as treating context as a variable in a REPL that the model can slice and recursively query. This paper responds to that framing; it does not evaluate against any particular implementation of it.</p>
+<p><span class="fn">1</span> The recursive-language-model framing used here is taken from the Dynamic Context Runtime specification wiki (<span class="tt">github.com/s-b-repo/subnext</span>), which describes the primitive as treating context as a variable in a REPL that the model can slice and recursively query. This paper responds to that framing; it does not evaluate against any particular implementation of it.</p>
 </div>
 
       </div>
