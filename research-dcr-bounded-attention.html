@@ -131,35 +131,8 @@ ol.refs em{color:#a9c8ee;font-style:italic}
 }
 .footnotes p{margin:0}
 
-/* download strip */
-.paper-actions{
-  display:flex;flex-wrap:wrap;gap:.8rem;align-items:center;
-  margin:1.4rem 0 0;
-}
-.paper-dl{
-  display:inline-flex;align-items:center;gap:.55rem;
-  font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;
-  background:var(--acc);color:#fff;border-radius:10px;padding:.7rem 1.1rem;
-  border:1px solid var(--acc);transition:background .18s ease,transform .18s ease;
-}
-.paper-dl:hover{background:var(--acc-deep);transform:translateY(-1px)}
-.paper-alt{
-  display:inline-flex;align-items:center;gap:.5rem;
-  font-family:var(--font-mono);font-size:.82rem;color:var(--text);
-  border:1px solid var(--line);border-radius:10px;padding:.7rem 1.1rem;
-  transition:border-color .18s ease,color .18s ease;
-}
-.paper-alt:hover{border-color:var(--acc);color:#dbe9ff}
-.paper-facts{
-  display:flex;flex-wrap:wrap;gap:1.4rem;margin:1.5rem 0 0;
-  font-family:var(--font-mono);font-size:.74rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--faint);
-}
-.paper-facts b{display:block;font-size:.95rem;letter-spacing:0;text-transform:none;color:#cddff5;margin-top:.15rem}
-
 @media (max-width:640px){
   .paper-body table{font-size:.8rem}
-  .paper-facts{gap:1rem}
 }
 </style>
 
@@ -244,17 +217,16 @@ ol.refs em{color:#a9c8ee;font-style:italic}
       <h1 class="reveal">Dynamic Context Runtime: Bounded Attention over Unbounded History</h1>
       <p class="page-sub reveal">Separating unbounded history from bounded attention with a representation ladder, a provenance graph, and a budgeted context planner</p>
       <p class="article-meta reveal">DCR-TR-2026-01 &nbsp;&middot;&nbsp; By <b>Stephan Botes</b> &nbsp;&middot;&nbsp; 20 August 2026</p>
-      <div class="paper-actions reveal">
-        <a class="paper-dl" href="papers/dcr-bounded-attention.pdf" download>Download PDF <span aria-hidden="true">&darr;</span></a>
-        <a class="paper-alt" href="https://github.com/s-b-repo/subnext">Source &amp; experiments <span aria-hidden="true">&rarr;</span></a>
-        <a class="paper-alt" href="research.html">All research <span aria-hidden="true">&rarr;</span></a>
+      <div class="hero-cta reveal">
+        <a class="btn btn-primary" href="papers/dcr-bounded-attention.pdf" download>Download PDF <span aria-hidden="true">&darr;</span></a>
+        <a class="btn btn-ghost" href="research.html">All research <span aria-hidden="true">&rarr;</span></a>
       </div>
-      <div class="paper-facts reveal">
-        <span>Working set<b>467 tokens</b></span>
-        <span>vs full history<b>59x less</b></span>
-        <span>Probes answered<b>7 of 7</b></span>
-        <span>Implementation<b>Rust, 0 deps</b></span>
-      </div>
+      <ul class="hero-stats reveal" aria-label="At a glance">
+        <li><b>467</b><span>tokens per query</span></li>
+        <li><b>59&times;</b><span>less than full history</span></li>
+        <li><b>7 / 7</b><span>probes answered</span></li>
+        <li><b>Rust</b><span>zero dependencies</span></li>
+      </ul>
     </div>
   </section>
 
@@ -457,7 +429,7 @@ ol.refs em{color:#a9c8ee;font-style:italic}
 
 <p><strong>Cost.</strong> The knapsack is <span class="m">O(n · B/q)</span> for <span class="m">n</span> candidates, budget <span class="m">B</span>, and quantum <span class="m">q</span> chosen to keep <span class="m">B/q</span> at a fixed 400. Lexical retrieval is sub-linear through an inverted index; vector retrieval is a linear scan over state nodes, which is the implementation's most consequential shortcut and is examined in §6.</p>
 
-<p>The implementation ships 71 tests. They encode the invariants as executable claims — that an unsourced fact is rejected, that a superseded node stays in the graph, that a stale node never enters a plan, that the knapsack never exceeds its budget and matches a brute-force optimum on small instances, and that the working set stays bounded as history grows.</p>
+<p>The implementation ships 75 tests. They encode the invariants as executable claims — that an unsourced fact is rejected, that a superseded node stays in the graph, that a stale node never enters a plan, that disabling supersession makes the mutation probe's negative control fail rather than silently pass, that the knapsack never exceeds its budget and matches a brute-force optimum on small instances, and that the working set stays bounded as history grows.</p>
 
 <h2 id="s5">5&ensp;Evaluation</h2>
 
@@ -661,12 +633,13 @@ ol.refs em{color:#a9c8ee;font-style:italic}
 <p>The measurements support a narrow, useful claim: a working set of a few hundred tokens can answer the same questions as a 27,000-token transcript, and stays the same size as that transcript grows 33× larger. They also show where the design is not yet earned — retrieval is still linear, and two of our mechanisms are not validated by our own benchmark. We would rather publish that than a table with no negative rows.</p>
 
 <h2 id="s9">Availability</h2>
-<p>The specification wiki, the Rust implementation, and every experiment in this paper are available at <span class="tt">github.com/s-b-repo/subnext</span>. All results reproduce offline with no API key and no network access:</p>
+<p>The specification wiki, the Rust implementation, and every experiment in this paper live in the <span class="tt">subnext</span> project repository. All results reproduce offline with no API key and no network access:</p>
 <pre class="snippet">cargo run --release -- bench                      # Table 3
 cargo run --release -- bench --scaling            # Table 4, Figure 2
 cargo run --release -- bench --sweep              # Table 5
 cargo run --release -- bench --ablate             # Table 6
-cargo test                                        # 71 tests</pre>
+cargo run --release -- bench --mutate             # Table 7
+cargo test                                        # 75 tests</pre>
 
 <h2 id="refs">References</h2>
 <ol class="refs">
@@ -687,7 +660,7 @@ cargo test                                        # 71 tests</pre>
 </ol>
 
 <div class="footnotes">
-<p><span class="fn">1</span> The recursive-language-model framing used here is taken from the Dynamic Context Runtime specification wiki (<span class="tt">github.com/s-b-repo/subnext</span>), which describes the primitive as treating context as a variable in a REPL that the model can slice and recursively query. This paper responds to that framing; it does not evaluate against any particular implementation of it.</p>
+<p><span class="fn">1</span> The recursive-language-model framing used here is taken from the Dynamic Context Runtime specification wiki (the <span class="tt">subnext</span> project repository), which describes the primitive as treating context as a variable in a REPL that the model can slice and recursively query. This paper responds to that framing; it does not evaluate against any particular implementation of it.</p>
 </div>
 
       </div>
