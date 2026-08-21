@@ -61,4 +61,4 @@ for r in "${REPOS[@]}"; do
   fi
 done
 echo "--------------------------------------------------------------"
-[[ $APPLY == 0 ]] && echo "Dry run only. Re-run with --apply to make changes."
+if [[ $APPLY == 0 ]]; then echo "Dry run only. Re-run with --apply to make changes."; fi
