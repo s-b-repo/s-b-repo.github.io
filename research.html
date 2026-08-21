@@ -112,13 +112,13 @@
           <span class="res-cat">DCR-TR-2026-01</span>
           <span class="res-date">20 August 2026</span>
           <span class="res-cat">LLM systems</span>
-          <span class="res-date">9 pages</span>
+          <span class="res-date">17 pages</span>
         </div>
         <h3>Dynamic Context Runtime: Bounded Attention over Unbounded History</h3>
         <p>Language models degrade as stale and superseded material piles up in their context. Making the window bigger does not fix it. This report describes a runtime that keeps history unbounded and attention bounded &mdash; storing everything as immutable spans and a typed provenance graph, then assembling a small working set each turn by solving a knapsack under an explicit token budget. It includes a zero-dependency Rust implementation, an ablation that names which mechanisms are actually carrying the result, and a scaling table that holds at 4.19&nbsp;million tokens of history on a lexically varied corpus &mdash; alongside an account of why the same measurement on a repetitive one would have meant considerably less.</p>
         <ul class="hero-stats" aria-label="At a glance">
           <li><b>4.19M</b><span>tokens of history</span></li>
-          <li><b>235</b><span>tokens per query</span></li>
+          <li><b>259</b><span>tokens per query</span></li>
           <li><b>7 / 7</b><span>probes answered</span></li>
           <li><b>48,651</b><span>state nodes</span></li>
         </ul>
