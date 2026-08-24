@@ -4,18 +4,18 @@
    store page only — every engagement is still quoted and invoiced in USD. */
 window.CS_RATES = {
   base: "USD",
-  updated: "17 Aug 2026",
+  updated: "24 Aug 2026",
   rates: {
     USD: 1,
-    ZAR: 16.1879,
-    EUR: 0.8642,
-    GBP: 0.7385,
-    AUD: 1.4117,
-    CAD: 1.3873,
-    CHF: 0.8127,
+    ZAR: 16.0121,
+    EUR: 0.8562,
+    GBP: 0.7329,
+    AUD: 1.3952,
+    CAD: 1.3785,
+    CHF: 0.8008,
     AED: 3.6725,
-    SGD: 1.2791,
-    INR: 95.6104,
-    NZD: 1.6974,
+    SGD: 1.2695,
+    INR: 95.7937,
+    NZD: 1.674,
   }
 };
