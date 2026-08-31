@@ -1,38 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://cybersec.org.za/feed.xml</loc>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://cybersec.org.za/</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/services.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/store.html</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/about.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/contact.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/resources.html</loc>
-    <lastmod>2026-07-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -56,103 +62,109 @@
   </url>
   <url>
     <loc>https://cybersec.org.za/facts.html</loc>
-    <lastmod>2026-08-03</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-rust-offensive-tooling.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-reverse-engineering-vpn.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-2026-security-landscape.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-beyond-the-scanner.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-compliance-to-security.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-red-team-playbook.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-detection-engineering-program.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-supply-chain-assessment.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-ir-tabletop-exercises.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-ransomware-healthcare.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-critical-cve-triage.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/article-apt-threat-actor-patterns.html</loc>
-    <lastmod>2026-07-11</lastmod>
+    <lastmod>2026-08-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://cybersec.org.za/article-passwordless-double-totp.html</loc>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/store-openhack.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/store-peregrine.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/store-onlyoffice-mcp.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://cybersec.org.za/store-arcticfox-c3.html</loc>
-    <lastmod>2026-08-13</lastmod>
+    <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

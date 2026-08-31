@@ -10,10 +10,42 @@
 
 <title>Building Memory-Safe Offensive Tooling in Rust | Cyber Sec</title>
 <meta name="description" content="Why we write offensive security tooling in Rust — memory safety, fearless concurrency, single static binaries, and the patterns that keep custom tools reliable under fire during an engagement." />
-<meta name="keywords" content="rust offensive tooling, memory-safe security tools, rustsploit, exploit development rust, custom pentesting tools, offensive security engineering, static binary tooling" />
 <meta name="author" content="Stephan Botes" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://cybersec.org.za/article-rust-offensive-tooling.html" />
+<link rel="alternate" hreflang="en" href="https://cybersec.org.za/article-rust-offensive-tooling.html" />
+<link rel="alternate" hreflang="en-ZA" href="https://cybersec.org.za/article-rust-offensive-tooling.html" />
+<link rel="alternate" hreflang="x-default" href="https://cybersec.org.za/article-rust-offensive-tooling.html" />
+<link rel="alternate" type="application/atom+xml" title="Cyber Sec Articles Feed" href="https://cybersec.org.za/feed.xml" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-600.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-700.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibmplexsans-var.woff2" crossorigin />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://cybersec.org.za/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Resources",
+      "item": "https://cybersec.org.za/resources.html"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Building Memory-Safe Offensive Tooling in Rust",
+      "item": "https://cybersec.org.za/article-rust-offensive-tooling.html"
+    }
+  ]
+}
+</script>
 <meta name="theme-color" content="#000000" />
 
 <meta property="og:type" content="article" />
@@ -21,11 +53,14 @@
 <meta property="og:title" content="Building Memory-Safe Offensive Tooling in Rust" />
 <meta property="og:description" content="Offensive tools fail at the worst possible moment — mid-engagement, against a live target. Here's why we write ours in Rust, and the patterns that keep them reliable." />
 <meta property="og:url" content="https://cybersec.org.za/article-rust-offensive-tooling.html" />
+<meta property="article:published_time" content="2026-05-12T00:00:00+02:00" />
 <meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Cyber Sec — Building Memory-Safe Offensive Tooling in Rust" />
 <meta property="og:locale" content="en_ZA" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="en_GB" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Building Memory-Safe Offensive Tooling in Rust" />

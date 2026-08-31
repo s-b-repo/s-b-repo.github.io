@@ -13,17 +13,20 @@ plain HTML/CSS/JS that drops straight onto **GitHub Pages**.
 ├── contact.html          # contact page
 ├── resources.html        # resources & insights
 ├── facts.html            # "current cyber struggle" + submission form
-├── article-*.html        # 12 full resource articles
+├── article-*.html        # 13 full resource articles
 ├── 404.html              # GitHub Pages custom 404 (noindex, absolute asset paths)
 ├── assets/
 │   ├── styles.css        # all styling (dark "tactical" theme)
 │   ├── main.js           # canvases, reveals, mobile nav, terminal typing, forms
 │   ├── favicon.svg       # favicon
+│   ├── fonts/            # self-hosted woff2 (preloaded in every page head)
 │   └── og-image.png      # 1200×630 social share card
 ├── .well-known/
 │   └── security.txt      # RFC 9116 disclosure policy — keep Expires in the future
 ├── robots.txt
-├── sitemap.xml           # must list every indexable page (19 URLs)
+├── feed.xml              # Atom feed — pinged by readers; update when adding an article
+├── sitemap.xml           # must list every indexable page (25 URLs incl. feed.xml)
+├── d36cc885471936f7a89115da13f8df68.txt   # IndexNow key file (see §9)
 ├── .nojekyll             # serve files as-is (skip Jekyll)
 ├── CNAME                 # custom domain
 ├── CNAME.example
@@ -113,7 +116,8 @@ A few files carry values that go stale and produce no error when they do:
   invalid by tooling. Bump it once a year.
 - **`sitemap.xml`** — hand-maintained. Adding a page without adding a `<url>` entry is
   invisible until you notice the page never gets indexed (`facts.html` was missing this way).
-  Quick check: `ls *.html | wc -l` should equal `grep -c '<url>' sitemap.xml` + 1 for `404.html`.
+  Quick check: `grep -c '<url>' sitemap.xml` should equal `ls *.html | wc -l` − 5 (the noindex
+  `404.html` + the four noindex legal pages) **+ 1** for `feed.xml`. Today: 29 − 5 + 1 = 25.
 - **The FAQ on `index.html`** exists twice — once as visible `<details>` markup and once as
   `FAQPage` JSON-LD. Google requires the answers to be visible on the page, so **edit both
   or neither**.
@@ -221,8 +225,16 @@ deliberately does not quote amounts, since they are revised by regulation.
 ## 8. SEO checklist (already done)
 
 - Descriptive `<title>` + meta description + canonical
-- Open Graph + Twitter Card with a 1200x630 image
-- JSON-LD structured data: `Organization` + `ProfessionalService` + `WebSite`
+- **hreflang cluster on every page** (`en`, `en-ZA`, `x-default`) — one URL serves
+  every region; there are deliberately **no per-country doorway pages** (a Google
+  manual-action magnet). Rankings abroad come from content + backlinks, not geo pages.
+- Open Graph + Twitter Card with a 1200x630 image, `og:locale` + `en_US`/`en_GB` alternates
+- Articles carry `article:published_time` and `BreadcrumbList`; store pages carry
+  `Product` + `Offer` (real prices) + `BreadcrumbList`. **Never add `aggregateRating`
+  without real reviews** — fabricated ratings are a structured-data spam penalty.
+- Atom feed (`feed.xml`) linked from every page head
+- Font preloads (Chakra Petch 600/700 + IBM Plex Sans) for faster text render
+- JSON-LD structured data: `Organization` + `ProfessionalService` + `WebSite` + `FAQPage`
 - Semantic landmarks, alt text, skip link, `aria` labels, reduced-motion support
 - Custom `404.html`, `security.txt`, CSP + referrer policy, AA colour contrast
 - `robots.txt` + `sitemap.xml`
@@ -231,6 +243,40 @@ deliberately does not quote amounts, since they are revised by regulation.
 **After deploy:** test the share card at
 [opengraph.xyz](https://www.opengraph.xyz/) and the structured data at
 [Google's Rich Results Test](https://search.google.com/test/rich-results).
+
+---
+
+## 9. Search-engine handoff (one-time + per-deploy)
+
+Ranking abroad is won outside this repo: verified consoles, sitemap submission, and
+backlinks from real sites. The markup here only makes the site *eligible*.
+
+**One-time (do after first deploy):**
+
+1. **Google Search Console** — [search.google.com/search-console](https://search.google.com/search-console)
+   → add `cybersec.org.za` (Domain property, DNS TXT verification) → Sitemaps → submit `sitemap.xml`.
+2. **Bing Webmaster Tools** — [bing.com/webmasters](https://www.bing.com/webmasters)
+   → "Import from Google Search Console" (covers DuckDuckGo + Yahoo too) → submit `sitemap.xml`.
+3. **Yandex Webmaster** — [webmaster.yandex.com](https://webmaster.yandex.com) — dominant in Russia/CIS.
+4. **Seznam** — [search.seznam.cz/webmaster](https://search.seznam.cz/webmaster/) (Czechia).
+5. **Naver Search Advisor** — [searchadvisor.naver.com](https://searchadvisor.naver.com) (South Korea).
+6. Add **hreflang coverage** check: after indexing, spot-check
+   `site:cybersec.org.za` from a few countries' Google domains to confirm serving.
+
+**Every deploy that adds/changes a page — IndexNow ping (Bing/Yandex/Seznam/Naver):**
+
+```bash
+curl -s "https://api.indexnow.org/indexnow?url=https%3A%2F%2Fcybersec.org.za%2F&key=d36cc885471936f7a89115da13f8df68"
+```
+
+The key file `d36cc885471936f7a89115da13f8df68.txt` must stay in the repo root — search
+engines fetch it to verify pings. To notify multiple changed URLs at once, POST a JSON
+list to `api.indexnow.org/IndexNow.json` (see indexnow.org docs). Do not ping more than
+needed; repeated pings of unchanged URLs is exactly the kind of behaviour that gets a
+host rate-limited.
+
+**When adding an article:** add its `<url>` to `sitemap.xml`, add an `<entry>` to
+`feed.xml` (newest-first — bump the feed's top `<updated>`), and ping IndexNow once.
 
 ---
 
