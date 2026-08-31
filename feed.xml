@@ -16,6 +16,14 @@
     <summary>Two 30-second 8-digit 2FA codes instead of a password: the brute-force math, the fail-anywhere-restart rule, and the honest gaps. Feasibility research from Cyber Sec.</summary>
   </entry>
   <entry>
+    <title>Dynamic Context Runtime: Bounded Attention over Unbounded History</title>
+    <link href="https://cybersec.org.za/research-dcr-bounded-attention.html" />
+    <id>https://cybersec.org.za/research-dcr-bounded-attention.html</id>
+    <published>2026-08-21T00:00:00+02:00</published>
+    <updated>2026-08-21T00:00:00+02:00</updated>
+    <summary>A runtime that separates unbounded history from bounded attention: a representation ladder, a provenance graph, and a budgeted context planner. Measured at 145 tokens per query over a 27,362-token transcript, flat across 33x history growth.</summary>
+  </entry>
+  <entry>
     <title>Rise in Ransomware Targeting Healthcare</title>
     <link href="https://cybersec.org.za/article-ransomware-healthcare.html" />
     <id>https://cybersec.org.za/article-ransomware-healthcare.html</id>
