@@ -121,7 +121,7 @@ A few files carry values that go stale and produce no error when they do:
   invisible until you notice the page never gets indexed (`facts.html` was missing this way).
   Quick check: `grep -c '<url>' sitemap.xml` should equal `ls *.html | wc -l` − 5 (the noindex
   `404.html` + the four noindex legal pages) **+ 1** for `feed.xml` **+ 1** per paper PDF
-  listed (the root URL stands in for `index.html`). Today: 31 − 5 + 2 = 28.
+  listed (the root URL stands in for `index.html`). Today: 31 − 5 + 3 = 29.
 - **The FAQ on `index.html`** exists twice — once as visible `<details>` markup and once as
   `FAQPage` JSON-LD. Google requires the answers to be visible on the page, so **edit both
   or neither**.
