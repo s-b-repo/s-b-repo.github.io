@@ -131,7 +131,37 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-labelledby="index-h">
+  <section class="section section-alt" aria-labelledby="totp-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// also featured</p>
+        <h2 id="totp-h">Passwordless Login: the Double-TOTP Study</h2>
+      </header>
+
+      <article class="card lead-report reveal">
+        <div class="res-meta">
+          <span class="res-cat">Feasibility study</span>
+          <span class="res-date">31 August 2026</span>
+          <span class="res-cat">Authentication</span>
+          <span class="res-date">2 &times; 8 digits</span>
+        </div>
+        <h3>Can Two 30-Second Codes Replace Your Password?</h3>
+        <p>A feasibility study of passwordless login built entirely from two independent 8-digit, 30-second TOTP layers &mdash; no password, no shared secret typed anywhere. Both codes must be correct inside the same window and the fail-anywhere-restart rule squares the effective code space: at the NIST attempt cap the expected time to break the pair is roughly 950,000 years, and the paper is as clear about where that number leaks (clock drift triples the odds; a synced seed compromise voids it) as it is about where it holds.</p>
+        <ul class="hero-stats" aria-label="At a glance">
+          <li><b>100M</b><span>values per 30-second window</span></li>
+          <li><b>1&times;10&#8315;&sup1;&sup2;</b><span>odds per double-layer cycle</span></li>
+          <li><b>~950,000 yrs</b><span>expected crack time (NIST cap)</span></li>
+          <li><b>2 &times; 30 s</b><span>layers &mdash; fail anywhere, restart</span></li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="article-passwordless-double-totp.html">Read the full study <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="resources.html">More resources <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="index-h">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="kicker">// index</p>
@@ -161,7 +191,7 @@
     </div>
   </section>
 
-  <section class="section" aria-labelledby="standards-h">
+  <section class="section section-alt" aria-labelledby="standards-h">
     <div class="wrap">
       <header class="section-head reveal">
         <p class="kicker">// how we publish</p>
@@ -193,7 +223,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-labelledby="cta-h">
+  <section class="section" aria-labelledby="cta-h">
     <div class="wrap">
       <header class="section-head reveal" style="max-width:52ch">
         <p class="kicker">// collaboration</p>
