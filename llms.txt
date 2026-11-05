@@ -32,6 +32,7 @@ Cyber Sec is run by Stephan Botes and operates remotely and on-site, worldwide. 
 ## Articles and resources
 
 - [Resources index](https://cybersec.org.za/resources.html)
+- [Learning resources](https://cybersec.org.za/learning.html): Curated free training, wikis and references we recommend — Professor Messer (CompTIA), HackTricks, PayloadsAllTheThings, LOLOL.farm, and Awesome Hacking.
 - [Beyond the Scanner](https://cybersec.org.za/article-beyond-the-scanner.html)
 - [The Red Team Playbook](https://cybersec.org.za/article-red-team-playbook.html)
 - [The 2026 Security Landscape](https://cybersec.org.za/article-2026-security-landscape.html)

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' https://github.com https://objects.githubusercontent.com https://user-images.githubusercontent.com https://private-user-images.githubusercontent.com; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<title>Security Learning Resources — Training, Wikis &amp; Payload References | Cyber Sec</title>
+<meta name="description" content="A curated set of free cybersecurity learning resources Cyber Sec recommends: Professor Messer's CompTIA training, the HackTricks pentesting wiki, PayloadsAllTheThings, the LOLOL.farm living-off-the-land search, and the Awesome Hacking collection." />
+<meta name="author" content="Cyber Sec" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://cybersec.org.za/learning.html" />
+<link rel="alternate" hreflang="en" href="https://cybersec.org.za/learning.html" />
+<link rel="alternate" hreflang="en-ZA" href="https://cybersec.org.za/learning.html" />
+<link rel="alternate" hreflang="x-default" href="https://cybersec.org.za/learning.html" />
+<link rel="alternate" type="application/atom+xml" title="Cyber Sec Articles Feed" href="https://cybersec.org.za/feed.xml" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-600.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-700.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibmplexsans-var.woff2" crossorigin />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Security Learning Resources — Training, Wikis &amp; Payload References | Cyber Sec" />
+<meta property="og:description" content="Free cybersecurity learning resources Cyber Sec recommends — CompTIA training, the HackTricks wiki, PayloadsAllTheThings, LOLOL.farm, and the Awesome Hacking collection." />
+<meta property="og:url" content="https://cybersec.org.za/learning.html" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Security Learning Resources" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="en_GB" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Security Learning Resources — Training, Wikis &amp; Payload References | Cyber Sec" />
+<meta name="twitter:description" content="Free cybersecurity learning resources we recommend — CompTIA training, HackTricks, PayloadsAllTheThings, LOLOL.farm, and Awesome Hacking." />
+<meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
+
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
+
+<link rel="stylesheet" href="assets/styles.css?v=42a42cb6" />
+
+<style>
+  .learn-note{max-width:760px;margin:0 auto;color:var(--muted);font-size:.92rem;line-height:1.6;
+    border:1px solid var(--line-soft);border-left:3px solid var(--acc);border-radius:var(--radius);
+    background:var(--surface);padding:.95rem 1.15rem}
+  .learn-note strong{color:#cddff5}
+  .res-host{display:block;margin:.2rem 0 .7rem;font-family:var(--font-mono);font-size:.72rem;
+    letter-spacing:.03em;color:var(--faint);word-break:break-all}
+  .resource-card .res-link{font-weight:500}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cybersec.org.za/learning.html",
+      "url": "https://cybersec.org.za/learning.html",
+      "name": "Security Learning Resources | Cyber Sec",
+      "description": "A curated set of free cybersecurity learning resources recommended by Cyber Sec — training, methodology wikis, payload references and living-off-the-land search.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://cybersec.org.za/#website" },
+      "about": ["Cybersecurity training", "Penetration testing methodology", "Offensive security learning", "CompTIA", "Capture the flag"]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://cybersec.org.za/learning.html#resources",
+      "name": "Recommended cybersecurity learning resources",
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "numberOfItems": 5,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "url": "https://www.youtube.com/@professormesser", "name": "Professor Messer — free CompTIA training" },
+        { "@type": "ListItem", "position": 2, "url": "https://book.hacktricks.xyz/", "name": "HackTricks — pentesting & red-team wiki" },
+        { "@type": "ListItem", "position": 3, "url": "https://github.com/swisskyrepo/PayloadsAllTheThings", "name": "PayloadsAllTheThings — payload & bypass reference" },
+        { "@type": "ListItem", "position": 4, "url": "https://lolol.farm/", "name": "LOLOL.farm — living-off-the-land search" },
+        { "@type": "ListItem", "position": 5, "url": "https://github.com/Hack-with-Github/Awesome-Hacking", "name": "Awesome Hacking — curated list of lists" }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cybersec.org.za/#org",
+      "name": "Cyber Sec",
+      "url": "https://cybersec.org.za/",
+      "sameAs": ["https://github.com/s-b-repo"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cybersec.org.za/#website",
+      "url": "https://cybersec.org.za/",
+      "name": "Cyber Sec",
+      "publisher": { "@id": "https://cybersec.org.za/#org" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="research.html">Research</a>
+      <a href="learning.html" aria-current="page">Learning</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="store.html">Store</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="research.html">Research</a>
+    <a href="learning.html" aria-current="page">Learning</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// learning</p>
+      <h1 class="reveal">Security Learning <span class="hl">Resources.</span></h1>
+      <p class="page-sub reveal">The free, independent resources we actually rate — the ones we point people to when they want to go from curious to capable. Start with the foundations, then live in the reference material the way working testers do.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="start-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// start here — foundations</p>
+        <h2 id="start-h">Build the fundamentals</h2>
+        <p class="section-sub">Before the exploits, the groundwork: networking, operating systems, and the security vocabulary everything else is built on.</p>
+      </header>
+      <div class="resource-grid">
+        <article class="card resource-card res-featured reveal">
+          <div class="res-meta">
+            <span class="res-cat">Foundations</span>
+            <span class="res-date">Video course</span>
+          </div>
+          <h3>Professor Messer</h3>
+          <p>Free, full-length CompTIA training — <strong>A+, Network+, and Security+</strong> — taught clearly and completely on YouTube. It's the on-ramp to the fundamentals our own team is certified on, and the fastest honest way to go from curious to job-ready basics.</p>
+          <span class="res-host">youtube.com/@professormesser</span>
+          <a class="res-link" href="https://www.youtube.com/@professormesser" target="_blank" rel="noopener noreferrer">Visit channel <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="deeper-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// go deeper — methodology &amp; reference</p>
+        <h2 id="deeper-h">The field manuals</h2>
+        <p class="section-sub">The references working offensive testers keep open in a tab — methodology, payloads, and the native tooling attackers abuse.</p>
+      </header>
+      <div class="resource-grid">
+        <article class="card resource-card reveal">
+          <div class="res-meta">
+            <span class="res-cat">Methodology wiki</span>
+            <span class="res-date">Reference</span>
+          </div>
+          <h3>HackTricks</h3>
+          <p>A vast, continuously updated pentesting and red-team wiki: enumeration, privilege escalation, and exploitation notes for nearly every service, protocol and platform. The field manual most testers keep within reach.</p>
+          <span class="res-host">book.hacktricks.xyz</span>
+          <a class="res-link" href="https://book.hacktricks.xyz/" target="_blank" rel="noopener noreferrer">Open the wiki <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <div class="res-meta">
+            <span class="res-cat">Payload reference</span>
+            <span class="res-date">GitHub</span>
+          </div>
+          <h3>PayloadsAllTheThings</h3>
+          <p>A reference library of payloads and bypass techniques for web and infrastructure testing — injection, SSRF, deserialization, authentication bypass and far more — with ready-to-adapt examples and methodology for each class.</p>
+          <span class="res-host">github.com/swisskyrepo/PayloadsAllTheThings</span>
+          <a class="res-link" href="https://github.com/swisskyrepo/PayloadsAllTheThings" target="_blank" rel="noopener noreferrer">Open the repo <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <div class="res-meta">
+            <span class="res-cat">Living off the land</span>
+            <span class="res-date">Search</span>
+          </div>
+          <h3>LOLOL.farm</h3>
+          <p>One search across the &ldquo;living off the land&rdquo; projects — LOLBAS, GTFOBins, LOLDrivers and friends. The native binaries, scripts and signed drivers attackers abuse to stay quiet, and exactly what defenders should be watching for.</p>
+          <span class="res-host">lolol.farm</span>
+          <a class="res-link" href="https://lolol.farm/" target="_blank" rel="noopener noreferrer">Open the search <span aria-hidden="true">↗</span></a>
+        </article>
+
+        <article class="card resource-card reveal">
+          <div class="res-meta">
+            <span class="res-cat">Curated collections</span>
+            <span class="res-date">GitHub</span>
+          </div>
+          <h3>Awesome Hacking</h3>
+          <p>A curated index of &ldquo;awesome&rdquo; lists spanning web and mobile hacking, OSINT, CTFs, forensics and reversing — a map into thousands of deeper tools, labs and guides for when you know what you want to learn next.</p>
+          <span class="res-host">github.com/Hack-with-Github/Awesome-Hacking</span>
+          <a class="res-link" href="https://github.com/Hack-with-Github/Awesome-Hacking" target="_blank" rel="noopener noreferrer">Open the collection <span aria-hidden="true">↗</span></a>
+        </article>
+      </div>
+
+      <p class="learn-note reveal" style="margin-top:1.8rem">
+        <strong>A note on these links.</strong> These are independent, third-party resources we rate and use &mdash; we are not affiliated with them, and they are not affiliated with us. Everything here is for building skills and defending systems. Use what you learn only against systems you are authorized to test.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-cta" aria-labelledby="cta-h">
+    <div class="wrap">
+      <p class="kicker reveal">// what's next</p>
+      <h2 id="cta-h" class="reveal">Know the theory. Want it applied?</h2>
+      <p class="reveal">Reading about attacks and running them against your own estate under written scope are different things. When you want a practitioner to prove where you're exposed &mdash; and then help you close it &mdash; that's what we do.</p>
+      <a class="btn btn-primary reveal" href="services.html">See our services <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost reveal" href="contact.html">Talk to us <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Code auditing &amp; hardening · custom pentesting tooling · vulnerability research · open-source audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="research.html">Research</a>
+      <a href="learning.html">Learning</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js?v=e9de9559" defer></script>
+</body>
+</html>
