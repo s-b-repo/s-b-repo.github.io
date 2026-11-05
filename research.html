@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' https://github.com https://objects.githubusercontent.com https://user-images.githubusercontent.com https://private-user-images.githubusercontent.com; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Research &amp; Technical Reports | Cyber Sec</title>
@@ -32,7 +32,7 @@
 <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
-<link rel="stylesheet" href="assets/styles.css?v=80cdc3d1" />
+<link rel="stylesheet" href="assets/styles.css?v=42a42cb6" />
 <style>/* Research index. The page is built from the site's own components
    (card, resource-card, hero-cta, hero-stats, btn); this only adds a little
    emphasis to the featured report card. */
@@ -47,6 +47,49 @@
 .lead-report .hero-stats{margin-top:1.4rem;margin-bottom:1.4rem}
 .lead-report .hero-cta{margin-top:0}
 </style>
+
+<!-- Structured data: research index + reports -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cybersec.org.za/research.html",
+      "url": "https://cybersec.org.za/research.html",
+      "name": "Research & Technical Reports",
+      "description": "Technical reports and systems research from Cyber Sec. Every result reproduces offline from released source, negative results included.",
+      "inLanguage": "en",
+      "isPartOf": { "@type": "WebSite", "@id": "https://cybersec.org.za/#website", "url": "https://cybersec.org.za/", "name": "Cyber Sec" },
+      "publisher": { "@type": "Organization", "name": "Cyber Sec", "url": "https://cybersec.org.za/" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Dynamic Context Runtime: Bounded Attention over Unbounded History",
+      "url": "https://cybersec.org.za/research-dcr-bounded-attention.html",
+      "datePublished": "2026-08-21",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "Cyber Sec" },
+      "publisher": { "@type": "Organization", "name": "Cyber Sec", "url": "https://cybersec.org.za/" },
+      "about": ["LLM systems", "Long-context retrieval", "Agent memory", "Provenance"],
+      "identifier": "DCR-TR-2026-01",
+      "associatedMedia": { "@type": "MediaObject", "contentUrl": "https://cybersec.org.za/papers/dcr-bounded-attention.pdf", "encodingFormat": "application/pdf" }
+    },
+    {
+      "@type": "TechArticle",
+      "headline": "Can Two 30-Second Codes Replace Your Password? A Double-TOTP Feasibility Study",
+      "url": "https://cybersec.org.za/research-double-totp-passwordless.html",
+      "datePublished": "2026-08-31",
+      "inLanguage": "en",
+      "author": { "@type": "Organization", "name": "Cyber Sec" },
+      "publisher": { "@type": "Organization", "name": "Cyber Sec", "url": "https://cybersec.org.za/" },
+      "about": ["Authentication", "TOTP", "Passwordless login", "Two-factor authentication"],
+      "identifier": "CS-FS-2026-01",
+      "associatedMedia": { "@type": "MediaObject", "contentUrl": "https://cybersec.org.za/papers/double-totp-passwordless.pdf", "encodingFormat": "application/pdf" }
+    }
+  ]
+}
+</script>
 </head>
 
 <body>
@@ -154,9 +197,9 @@
           <li><b>2 &times; 30 s</b><span>layers &mdash; fail anywhere, restart</span></li>
         </ul>
         <div class="hero-cta">
-          <a class="btn btn-primary" href="article-passwordless-double-totp.html">Read the full study <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-primary" href="research-double-totp-passwordless.html">Read in browser <span aria-hidden="true">&rarr;</span></a>
           <a class="btn btn-ghost" href="papers/double-totp-passwordless.pdf" download>Download PDF <span aria-hidden="true">&darr;</span></a>
-          <a class="btn btn-ghost" href="resources.html">More resources <span aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn-ghost" href="article-passwordless-double-totp.html">Companion article <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     </div>
@@ -186,7 +229,7 @@
           </div>
           <h3>Can Two 30-Second Codes Replace Your Password?</h3>
           <p>Two 30-second 8-digit 2FA codes instead of a password: the brute-force math, the fail-anywhere-restart rule, and the honest gaps. Feasibility research from Cyber Sec.</p>
-          <a class="res-link" href="article-passwordless-double-totp.html">Read article <span aria-hidden="true">&rarr;</span></a>
+          <a class="res-link" href="research-double-totp-passwordless.html">Read report <span aria-hidden="true">&rarr;</span></a>
         </article>
       </div>
     </div>

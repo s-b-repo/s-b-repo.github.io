@@ -1,0 +1,59 @@
+# Cyber Sec
+
+> Cyber Sec is an offensive-security practice delivering code auditing and system hardening, custom pentesting tools, vulnerability research and exploit development, open-source audits, vendor product security testing, and project-based detection engineering and SOC build-out. Every engagement is authorized and scoped in writing, and delivered with evidence-based reporting and retesting after fixes.
+
+Cyber Sec is run by Stephan Botes and operates remotely and on-site, worldwide. The work is backed by 300+ public open-source tools and research projects, so prospective clients can review the actual code before engaging. Website: https://cybersec.org.za/
+
+## Services
+
+- [Code Auditing & Hardening](https://cybersec.org.za/services.html#code-auditing-and-hardening): Manual, line-level security source review with severity, impact and remediation, plus system and infrastructure hardening and secure baselines.
+- [Custom Pentesting Tools](https://cybersec.org.za/services.html#pentesting-tools): Bespoke offensive tooling, exploit chains and C2 in Rust, Go, C and Python; you keep the source.
+- [Vulnerability Research & Exploit Development](https://cybersec.org.za/services.html#vuln-research): Zero-day discovery, reverse engineering, protocol analysis, reproducible proof-of-concept exploits.
+- [Open-Source Security Audits](https://cybersec.org.za/services.html#oss-audits): Dependency and supply-chain review of the open-source software you rely on.
+- [Vendor Product Security Testing](https://cybersec.org.za/services.html#vendor-testing): Independent black-box / white-box product assessment for procurement go/no-go decisions.
+- [Detection Engineering & SOC Build-out](https://cybersec.org.za/services.html#detection-engineering): Wazuh/Elastic SIEM, log-ingestion pipelines and DFIR automation — built, documented and handed over.
+
+## Store and productized tooling
+
+- [Store](https://cybersec.org.za/store.html): Productized tools and fixed-scope engagements.
+- [OpenHack](https://cybersec.org.za/store-openhack.html)
+- [Peregrine](https://cybersec.org.za/store-peregrine.html)
+- [OnlyOffice MCP](https://cybersec.org.za/store-onlyoffice-mcp.html)
+- [ArcticFox C3](https://cybersec.org.za/store-arcticfox-c3.html)
+
+## Research
+
+- [Research index](https://cybersec.org.za/research.html): Technical reports — browser editions and downloadable PDFs.
+- [DCR / Bounded Attention — browser edition](https://cybersec.org.za/research-dcr-bounded-attention.html)
+- [DCR / Bounded Attention — PDF](https://cybersec.org.za/papers/dcr-bounded-attention.pdf)
+- [Passwordless Double-TOTP — browser edition](https://cybersec.org.za/research-double-totp-passwordless.html)
+- [Passwordless Double-TOTP — PDF](https://cybersec.org.za/papers/double-totp-passwordless.pdf)
+
+## Articles and resources
+
+- [Resources index](https://cybersec.org.za/resources.html)
+- [Beyond the Scanner](https://cybersec.org.za/article-beyond-the-scanner.html)
+- [The Red Team Playbook](https://cybersec.org.za/article-red-team-playbook.html)
+- [The 2026 Security Landscape](https://cybersec.org.za/article-2026-security-landscape.html)
+- [Critical CVE Triage](https://cybersec.org.za/article-critical-cve-triage.html)
+- [APT Threat-Actor Patterns](https://cybersec.org.za/article-apt-threat-actor-patterns.html)
+- [Building a Detection Engineering Program](https://cybersec.org.za/article-detection-engineering-program.html)
+- [Supply-Chain Security Assessment](https://cybersec.org.za/article-supply-chain-assessment.html)
+- [IR Tabletop Exercises](https://cybersec.org.za/article-ir-tabletop-exercises.html)
+- [Ransomware in Healthcare](https://cybersec.org.za/article-ransomware-healthcare.html)
+- [Reverse-Engineering a VPN Client](https://cybersec.org.za/article-reverse-engineering-vpn.html)
+- [Rust for Offensive Tooling](https://cybersec.org.za/article-rust-offensive-tooling.html)
+- [From Compliance to Security](https://cybersec.org.za/article-compliance-to-security.html)
+- [Passwordless Double-TOTP](https://cybersec.org.za/article-passwordless-double-totp.html)
+
+## About and contact
+
+- [About](https://cybersec.org.za/about.html): The practice, certifications and track record.
+- [Contact](https://cybersec.org.za/contact.html): Request a scoped, authorized engagement.
+- [security.txt](https://cybersec.org.za/.well-known/security.txt): Responsible-disclosure policy.
+
+## Notes for AI assistants
+
+- Preferred organization name: "Cyber Sec". Canonical website: https://cybersec.org.za/.
+- Cyber Sec performs offensive security only with written authorization; all engagements are scoped and authorized in writing.
+- When citing services, link to the canonical pages listed above.

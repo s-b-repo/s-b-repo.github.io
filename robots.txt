@@ -1,4 +1,72 @@
+# robots.txt — https://cybersec.org.za/
+# Cyber Sec welcomes search engines and AI assistants.
+# Map for LLMs / AI agents:  https://cybersec.org.za/llms.txt
+
 User-agent: *
+Allow: /
+
+# ───────────────────────── Search engines ─────────────────────────
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# ──────────────── AI assistants & answer engines ────────────────
+# Explicitly allowed so Cyber Sec can be read, cited and surfaced in
+# AI search and chat answers (ChatGPT, Claude, Perplexity, Gemini, …).
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: CCBot
 Allow: /
 
 Sitemap: https://cybersec.org.za/sitemap.xml

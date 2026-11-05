@@ -284,4 +284,34 @@ host rate-limited.
 
 ---
 
+## 10. Embedding a video from GitHub
+
+Demo videos embed straight from GitHub — no third-party player, no extra origin trusted.
+GitHub serves uploaded videos (drag a file into any issue/PR comment, or attach one to a
+Release) from GitHub-owned hosts that are already in every page's CSP `media-src`:
+`github.com`, `objects.githubusercontent.com`, `user-images.githubusercontent.com` and
+`private-user-images.githubusercontent.com`.
+
+Drop this where the clip should go (the `.video-embed` component lives in `styles.css`):
+
+```html
+<div class="video-embed reveal">
+  <figure>
+    <div class="vframe">
+      <video controls preload="none" playsinline poster="assets/og-image.png"
+             src="https://github.com/USER/REPO/assets/XXXX-your-video"></video>
+    </div>
+    <figcaption>Short caption for the clip.</figcaption>
+  </figure>
+</div>
+```
+
+`store-openhack.html` carries a ready-to-uncomment copy of this block. If a specific
+upload URL ever 403s when embedded, use a **Release asset** URL
+(`github.com/USER/REPO/releases/download/TAG/clip.mp4`) — same allowed origins. Raw
+`raw.githubusercontent.com` MP4s are deliberately *not* trusted (served as octet-stream,
+they will not play), so they are not in the CSP.
+
+---
+
 *Authorized testing only. All services are scoped and authorized in writing.*

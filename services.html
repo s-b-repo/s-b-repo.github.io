@@ -5,15 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' https://github.com https://objects.githubusercontent.com https://user-images.githubusercontent.com https://private-user-images.githubusercontent.com; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <!-- ════════════════════════════════════════════════════════════════════
      SITE URL — replace https://cybersec.org.za everywhere
      (this file, sitemap.xml, robots.txt) with your real domain.
      ════════════════════════════════════════════════════════════════════ -->
-<title>Pentesting Tools, Code Audits &amp; Vulnerability Research | Cyber Sec</title>
-<meta name="description" content="Custom pentesting tools, vulnerability research and exploit development, code and open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
+<title>Code Auditing, Hardening &amp; Pentesting Tools | Cyber Sec</title>
+<meta name="description" content="Code auditing and system hardening, custom pentesting tools, vulnerability research and exploit development, open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
 <meta name="author" content="Cyber Sec" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://cybersec.org.za/services.html" />
@@ -29,8 +29,8 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cyber Sec" />
-<meta property="og:title" content="Pentesting Tools, Code Audits &amp; Vulnerability Research | Cyber Sec" />
-<meta property="og:description" content="Custom pentesting tools, vulnerability research and exploit development, code and open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
+<meta property="og:title" content="Code Auditing, Hardening &amp; Pentesting Tools | Cyber Sec" />
+<meta property="og:description" content="Code auditing and system hardening, custom pentesting tools, vulnerability research and exploit development, open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
 <meta property="og:url" content="https://cybersec.org.za/services.html" />
 <meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
 <meta property="og:image:width" content="1200" />
@@ -42,8 +42,8 @@
 
 <!-- Twitter / X -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Pentesting Tools, Code Audits &amp; Vulnerability Research | Cyber Sec" />
-<meta name="twitter:description" content="Custom pentesting tools, vulnerability research and exploit development, code and open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
+<meta name="twitter:title" content="Code Auditing, Hardening &amp; Pentesting Tools | Cyber Sec" />
+<meta name="twitter:description" content="Code auditing and system hardening, custom pentesting tools, vulnerability research and exploit development, open-source audits, vendor product testing, and detection engineering. Cyber Sec — fixed-scope, evidence-based security services." />
 <meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
 
 <!-- Icons -->
@@ -54,7 +54,7 @@
 <!-- Fonts: Chakra Petch (display, tactical) · JetBrains Mono (terminal) · IBM Plex Sans (body) -->
 <!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
 
-<link rel="stylesheet" href="assets/styles.css?v=80cdc3d1" />
+<link rel="stylesheet" href="assets/styles.css?v=42a42cb6" />
 
 <!-- Structured data: ServicePage + Services -->
 <script type="application/ld+json">
@@ -74,7 +74,24 @@
         "areaServed": "Worldwide",
         "priceRange": "$$$",
         "sameAs": ["https://github.com/s-b-repo"],
-      "knowsAbout": ["Custom Pentesting Tools","Vulnerability Research & Exploit Development","Code Audits","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out"]
+      "knowsAbout": ["Code Auditing & Hardening","Custom Pentesting Tools","Vulnerability Research & Exploit Development","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out","Security Hardening"]
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://cybersec.org.za/services.html#code-auditing-and-hardening",
+      "name": "Code Auditing & Hardening",
+      "provider": { "@id": "https://cybersec.org.za/#org" },
+      "serviceType": "Code Auditing & Hardening",
+      "description": "Manual, security-focused source code review paired with system and infrastructure hardening — logic flaws, auth bypasses, injection, unsafe crypto and supply-chain risk, plus secure baselines and host and service hardening, with retesting after fixes.",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Code Auditing & Hardening",
+          "description": "Line-level vulnerability findings with severity, impact and remediation, secure configuration baselines and host and service hardening, and re-testing after fixes are applied."
+        }
       }
     },
     {
@@ -91,23 +108,6 @@
           "@type": "Service",
           "name": "Custom Pentesting Tools",
           "description": "Reconnaissance frameworks, exploit chains, C2 infrastructure, detection-bypass tooling. Purpose-built for your stack, memory-safe maintainable code, and you keep the source."
-        }
-      }
-    },
-    {
-      "@type": "Service",
-      "@id": "https://cybersec.org.za/services.html#code-audits",
-      "name": "Code Audits",
-      "provider": { "@id": "https://cybersec.org.za/#org" },
-      "serviceType": "Code Audits",
-      "description": "Manual, security-focused source review — not just a linter. We hunt logic flaws, auth bypasses, injection, unsafe crypto and supply-chain risk.",
-      "areaServed": "Worldwide",
-      "offers": {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Code Audits",
-          "description": "Line-level vulnerability findings with severity, impact, and remediation guidance. Includes re-testing after fixes are applied."
         }
       }
     },
@@ -237,14 +237,14 @@
       <div class="hero-copy">
         <p class="eyebrow reveal"><span class="blip"></span> // what we deliver</p>
         <h1 id="svc-hero-h" class="reveal">Comprehensive Cybersecurity <span class="hl">Services.</span></h1>
-        <p class="page-sub reveal">From bespoke offensive tooling and vulnerability research to deep code audits and detection engineering — six focused services, one standard of evidence and execution.</p>
+        <p class="page-sub reveal">From deep code auditing and system hardening to bespoke offensive tooling, vulnerability research and detection engineering — six focused services, one standard of evidence and execution.</p>
       </div>
 
       <div class="hero-term reveal" aria-hidden="true">
         <div class="term-bar"><span></span><span></span><span></span><i>scope@cybersec:~</i></div>
         <pre class="term-body"><code><span class="c-dim">$</span> <span class="c-acc">ls ./services/</span>
-pentesting-tools  ·  vuln-research  ·  code-audits
-oss-audits  ·  vendor-testing  ·  detection-engineering
+code-auditing  ·  system-hardening  ·  pentesting-tools
+vuln-research  ·  oss-audits  ·  vendor-testing  ·  detection-engineering
 <span class="c-dim">$</span> <span class="c-acc">cat ./engagement-model.txt</span>
 <span class="c-ok">[ok]</span> scoped to your risk. delivered with evidence.
 <span class="c-dim">$</span> <span class="c-acc">./start --brief</span>
@@ -278,9 +278,22 @@ oss-audits  ·  vendor-testing  ·  detection-engineering
 
       <div class="svc-grid">
 
-        <!-- 01 — Custom Pentesting Tools -->
+        <!-- 01 — Code Auditing & Hardening -->
         <article class="card svc reveal">
           <span class="svc-num">01</span>
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Code Auditing &amp; Hardening</h3>
+          <p>Manual, security-focused source review paired with <strong>system and infrastructure hardening</strong>. We read the code others only scan — logic flaws, auth bypasses, injection, unsafe crypto and supply-chain risk — then lock down the hosts, services and baselines around it.</p>
+          <ul class="svc-list">
+            <li>Line-level findings with severity, impact &amp; remediation</li>
+            <li>Secure baselines &amp; host/service hardening</li>
+            <li>Re-test after fixes</li>
+          </ul>
+        </article>
+
+        <!-- 02 — Custom Pentesting Tools -->
+        <article class="card svc reveal">
+          <span class="svc-num">02</span>
           <span class="reticle" aria-hidden="true"></span>
           <h3>Custom Pentesting Tools</h3>
           <p>Bespoke offensive tooling built for <strong>your targets and rules of engagement</strong>. Recon frameworks, exploit chains, C2 and detection-bypass tooling, written in Rust, Go, C and Python.</p>
@@ -291,9 +304,9 @@ oss-audits  ·  vendor-testing  ·  detection-engineering
           </ul>
         </article>
 
-        <!-- 02 — Vulnerability Research & Exploit Development -->
+        <!-- 03 — Vulnerability Research & Exploit Development -->
         <article class="card svc reveal">
-          <span class="svc-num">02</span>
+          <span class="svc-num">03</span>
           <span class="reticle" aria-hidden="true"></span>
           <h3>Vulnerability Research &amp; Exploit Development</h3>
           <p>Original security research that goes <strong>beyond scanning</strong>. We find the bugs others miss, then prove them with working exploits — zero-day discovery, reverse engineering, protocol analysis, and reproducible proof-of-concept development.</p>
@@ -301,19 +314,6 @@ oss-audits  ·  vendor-testing  ·  detection-engineering
             <li>Zero-day discovery &amp; responsible disclosure</li>
             <li>Reverse engineering &amp; protocol analysis</li>
             <li>Reproducible PoCs &amp; working exploits</li>
-          </ul>
-        </article>
-
-        <!-- 03 — Code Audits -->
-        <article class="card svc reveal">
-          <span class="svc-num">03</span>
-          <span class="reticle" aria-hidden="true"></span>
-          <h3>Code Audits</h3>
-          <p>Manual, security-focused source review — <strong>not just a linter</strong>. We hunt logic flaws, auth bypasses, injection, unsafe crypto and supply-chain risk.</p>
-          <ul class="svc-list">
-            <li>Line-level vulnerability findings</li>
-            <li>Severity, impact &amp; remediation</li>
-            <li>Re-test after fixes</li>
           </ul>
         </article>
 
@@ -383,7 +383,7 @@ oss-audits  ·  vendor-testing  ·  detection-engineering
   <div class="wrap footer-inner">
     <div class="footer-brand">
       <span class="brand-text">CYBER<i>SEC</i></span>
-      <p>Custom pentesting tooling · vulnerability research · code audits · OSS audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+      <p>Code auditing &amp; hardening · custom pentesting tooling · vulnerability research · open-source audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
       <a href="index.html">Home</a>

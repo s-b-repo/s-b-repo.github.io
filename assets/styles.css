@@ -803,3 +803,10 @@ a:focus-visible, .btn:focus-visible {
 .article-foot{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;align-items:center;margin-top:2rem}
 .article-back{font-family:var(--font-mono);font-size:.9rem;color:var(--acc);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line)}
 .article-back:hover{color:var(--text)}
+
+/* Video embed — GitHub-hosted demo clips */
+.video-embed{margin:1.9rem 0 0}
+.video-embed figure{margin:0}
+.video-embed .vframe{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--ink-2);box-shadow:var(--shadow)}
+.video-embed video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#000}
+.video-embed figcaption{margin-top:.7rem;font-family:var(--font-mono);font-size:.72rem;letter-spacing:.04em;color:var(--faint);line-height:1.5}
