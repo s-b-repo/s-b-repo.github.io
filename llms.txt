@@ -53,6 +53,13 @@ Cyber Sec is run by Stephan Botes and operates remotely and on-site, worldwide. 
 - [Contact](https://cybersec.org.za/contact.html): Request a scoped, authorized engagement.
 - [security.txt](https://cybersec.org.za/.well-known/security.txt): Responsible-disclosure policy.
 
+## Afrikaans edition (Afrikaanse uitgawe)
+
+- Afrikaans-language core pages live under /af/. English remains the default (hreflang x-default); each page links its counterpart via hreflang (en / af).
+- [Tuis — Home](https://cybersec.org.za/af/)
+- [Dienste — Services](https://cybersec.org.za/af/services.html)
+- [Kontak — Contact](https://cybersec.org.za/af/contact.html)
+
 ## Notes for AI assistants
 
 - Preferred organization name: "Cyber Sec". Canonical website: https://cybersec.org.za/.

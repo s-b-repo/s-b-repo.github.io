@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' https://github.com https://objects.githubusercontent.com https://user-images.githubusercontent.com https://private-user-images.githubusercontent.com; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<title>Cyber Sec | Kode-ouditering, Verharding &amp; Pentoetsinstrumente</title>
+<meta name="description" content="Kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing en ontginningsontwikkeling, oopbron-oudits, verskaffer-produktoetsing, en opsporingsingenieurswese. Cyber Sec — bewysgebaseerde verslagdoening en vaste-omvang opdragte." />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://cybersec.org.za/af/" />
+<link rel="alternate" hreflang="en" href="https://cybersec.org.za/" />
+<link rel="alternate" hreflang="en-ZA" href="https://cybersec.org.za/" />
+<link rel="alternate" hreflang="af" href="https://cybersec.org.za/af/" />
+<link rel="alternate" hreflang="x-default" href="https://cybersec.org.za/" />
+<link rel="alternate" type="application/atom+xml" title="Cyber Sec Artikels-voer" href="https://cybersec.org.za/feed.xml" />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chakrapetch-600.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/chakrapetch-700.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/ibmplexsans-var.woff2" crossorigin />
+<meta name="theme-color" content="#000000" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Cyber Sec | Kode-ouditering, Verharding &amp; Pentoetsinstrumente" />
+<meta property="og:description" content="Kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing, oopbron-oudits, verskaffer-produktoetsing, en opsporingsingenieurswese. Bewysgebaseerde verslagdoening, vaste-omvang opdragte." />
+<meta property="og:url" content="https://cybersec.org.za/af/" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Ondernemingsekuriteit" />
+<meta property="og:locale" content="af_ZA" />
+<meta property="og:locale:alternate" content="en_ZA" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cyber Sec | Kode-ouditering, Verharding &amp; Pentoetsinstrumente" />
+<meta name="twitter:description" content="Kode-ouditering &amp; verharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing, oopbron-oudits &amp; opsporingsingenieurswese. Bewysgebaseerd. Vaste omvang." />
+<meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
+
+<!-- Icons -->
+<link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+
+<!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
+
+<link rel="stylesheet" href="/assets/styles.css?v=f09539e5" />
+
+<!-- Structured data: Organization + ProfessionalService + WebSite + FAQ (Afrikaans edition) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://cybersec.org.za/#org",
+      "name": "Cyber Sec",
+      "alternateName": ["CyberSec", "cybersec.org.za"],
+      "url": "https://cybersec.org.za/",
+      "logo": "https://cybersec.org.za/assets/favicon.png",
+      "image": "https://cybersec.org.za/assets/og-image.png",
+      "founder": { "@type": "Person", "name": "Stephan Botes" },
+      "contactPoint": { "@type": "ContactPoint", "email": "stephanbotesIT@proton.me", "contactType": "sales", "areaServed": "Worldwide", "availableLanguage": ["Afrikaans", "English"] },
+      "email": "stephanbotesIT@proton.me",
+      "description": "Kubersekuriteitspraktyk wat kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing en ontginningsontwikkeling, oopbron-oudits, verskaffer-produk sekuriteitstoetsing, en projekgebaseerde opsporingsingenieurswese lewer.",
+      "areaServed": "Worldwide",
+      "sameAs": ["https://github.com/s-b-repo"],
+      "knowsAbout": ["Code Auditing & Hardening","Custom Pentesting Tools","Vulnerability Research & Exploit Development","Offensive Security","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out","Reverse Engineering","SIEM","Exploit Development","Security Hardening"]
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://cybersec.org.za/#service",
+      "name": "Cyber Sec",
+      "url": "https://cybersec.org.za/",
+      "email": "stephanbotesIT@proton.me",
+      "areaServed": "Worldwide",
+      "priceRange": "$$$",
+      "serviceType": ["Code Auditing & Hardening","Custom Pentesting Tools","Vulnerability Research & Exploit Development","Open-Source Security Audits","Vendor Product Security Testing","Detection Engineering & SOC Build-out"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cybersec.org.za/#website",
+      "url": "https://cybersec.org.za/",
+      "name": "Cyber Sec",
+      "publisher": { "@id": "https://cybersec.org.za/#org" }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://cybersec.org.za/af/#faq",
+      "inLanguage": "af",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Watter dienste bied Cyber Sec aan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ses gefokusde dienslyne: kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing en ontginningsontwikkeling, oopbron-sekuriteitsoudits, verskaffer-produk sekuriteitstoetsing, en opsporingsingenieurswese en SOC-opbou. Elke opdrag word afgebaken en skriftelik gemagtig voordat enige werk begin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Doen Cyber Sec kwesbaarheidsnavorsing en ontginningsontwikkeling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Oorspronklike navorsing — nul-dag ontdekking, truontwerp, en protokol-analise — plus herhaalbare bewys-van-konsep ontginnings teen die sagteware wat jy bou of op staatmaak, met verantwoordelike openbaarmaking waar derde partye betrokke is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan Cyber Sec ons opsporing- en SOC-moniteringstapel bou?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, op 'n projekbasis. Ons ontwerp, bou, verfyn, en oorhandig jou moniteringstapel — Wazuh of Elastic SIEM, log-innames-pyplyne, en DFIR-outomatisering wat by jou omgewing pas. Dit word gebou, gedokumenteer, en is joune om te bestuur — nie 'n bestuurde intekening nie."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Met wie werk Cyber Sec?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sagtewarespanne, produkverskaffers, en organisasies wat praktiese aanvallende sekuriteit en opsporingsingenieurswese benodig. Elke opdrag word afgebaken vir jou spesifieke stapel en bedreigingsmodel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hoe werk die kode-ouditproses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kode-oudits is handmatige, lyn-vlak sekuriteitshersienings — nie outomatiese skanderings nie. Ons identifiseer kwesbaarhede, logika-foute, en voorsieningsketting-risiko's, en lewer dan geprioritiseerde bevindinge met besigheidsimpak-analise en konkrete remediëringstappe. Hertoetsing nadat regstellings toegepas is, is ingesluit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan ek jou werk sien voordat ek jou huur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Meer as 300 publieke instrumente en navorsingsprojekte, insluitend Rustsploit, skoonkamer-truontwerp van 'n onderneming SSL VPN-kliënt, onafhanklike I2P- en gSOAP bewys-van-konsep ontginnings, en SOC-instrumente — dieselfde werk waarop ons opdragte bou. Vra en ons sal jou daardeur neem."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Slaan oor na inhoud</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- ───────────────────────── header ───────────────────────── -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="/af/" aria-label="Cyber Sec, tuis">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primêr">
+      <a href="/af/">Tuis</a>
+      <a href="/af/services.html">Dienste</a>
+      <a href="/store.html">Winkel</a>
+      <a href="/about.html">Oor ons</a>
+      <a href="/resources.html">Hulpbronne</a>
+      <a href="/research.html">Navorsing</a>
+      <a href="/learning.html">Leer</a>
+      <a href="/facts.html">Feite</a>
+      <a class="nav-cta" href="/af/contact.html">Kom in kontak</a>
+    </nav>
+
+    <div class="lang-switch" aria-label="Taal / Language">
+      <a href="/" hreflang="en">EN</a>
+      <a href="/af/" hreflang="af" aria-current="true">AF</a>
+    </div>
+
+    <button class="nav-toggle" aria-label="Maak kieslys oop" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="/af/">Tuis</a>
+    <a href="/af/services.html">Dienste</a>
+    <a href="/store.html">Winkel</a>
+    <a href="/about.html">Oor ons</a>
+    <a href="/resources.html">Hulpbronne</a>
+    <a href="/research.html">Navorsing</a>
+    <a href="/learning.html">Leer</a>
+    <a href="/facts.html">Feite</a>
+    <a href="/af/contact.html">Kom in kontak</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ───────────────────────── hero ───────────────────────── -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow reveal"><span class="blip"></span> Onderneming-kubersekuriteit &amp; Risikobestuur</p>
+        <h1 class="reveal glitch" data-text="Verdedig jou onderneming.
+Voorspel voor die inbraak.">Verdedig jou onderneming.<br><span class="hl">Voorspel voor die inbraak.</span></h1>
+        <p class="lede reveal"><strong>Cyber Sec</strong> lewer kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing en ontginningsontwikkeling, oopbron-oudits, verskaffer-produktoetsing, en opsporingsingenieurswese vir organisasies wat nie kompromie kan bekostig nie. Ons werk met presisie, diskresie, en 'n enkele fokus: bewys waar jy blootgestel is, en help jou dan om dit toe te maak.</p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="/af/contact.html">Versoek 'n konsultasie <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost" href="/af/services.html">Verken dienste</a>
+        </div>
+        <ul class="hero-stats reveal" aria-label="Met 'n oogopslag">
+          <li><b>156+</b><span>kwesbaarhede ontdek</span></li>
+          <li><b>5</b><span>bevestigde inbrake ontgin</span></li>
+          <li><b>280+</b><span>oopbron-sekuriteitsinstrumente</span></li>
+          <li><b>7</b><span>organisasies indirek beveilig</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-term reveal" aria-hidden="true">
+        <div class="term-bar"><span></span><span></span><span></span><i>cybersec@enterprise:~</i></div>
+        <pre class="term-body"><code><span class="c-dim">$</span> <span class="c-acc">cat ./vermoens.txt</span>
+<span class="type" data-type="[+] Kode-ouditering &amp; Verharding — Lyn-vlak Hersiening · Veilige Grondlyne
+[+] Doelgemaakte Pentoetsinstrumente &amp; Ontginningsontwikkeling
+[+] Kwesbaarheidsnavorsing &amp; Nul-dag Openbaarmaking
+[+] Oopbron-oudits  ·  Verskaffer-produktoetsing
+[+] Opsporingsingenieurswese &amp; SOC-opbou
+[+] Truontwerp &amp; Protokol-analise"></span><span class="cursor">█</span>
+<span class="c-dim">$</span> <span class="c-acc">./engage --scope gemagtig --report bewysgebaseerd</span>
+<span class="c-ok">[ok]</span> gereed wanneer jy is.</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── trust bar ───────────────────────── -->
+  <section class="trust" aria-label="Kernvermoëns">
+    <div class="wrap trust-inner">
+      <span class="trust-label">Kernvermoëns</span>
+      <ul>
+        <li>Kode-ouditering &amp; Verharding</li>
+        <li>Aanvallende Instrumente</li>
+        <li>Kwesbaarheidsnavorsing</li>
+        <li>Ontginningsontwikkeling</li>
+        <li>Oopbron-oudits</li>
+        <li>Opsporingsingenieurswese</li>
+        <li>Truontwerp</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── core services ───────────────────────── -->
+  <section class="section" id="services" aria-labelledby="services-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// wat ons doen</p>
+        <h2 id="services-h">Omvattende sekuriteit, gelewer met dissipline.</h2>
+        <p class="section-sub">Gefokusde dienslyne — elkeen afgebaken vir jou omgewing, gelewer met bewysgebaseerde verslagdoening, en gerugsteun deur gesertifiseerde spesialiste wat met presisie werk.</p>
+      </header>
+
+      <div class="svc-grid">
+        <article class="card svc reveal">
+          <span class="svc-num">01</span>
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Kode-ouditering &amp; Verharding</h3>
+          <p>Handmatige, sekuriteitsgefokusde bronhersiening — logika-foute, verifikasie-omseilings, inspuiting, onveilige kriptografie en voorsieningsketting-risiko — gekoppel aan stelsel- en infrastruktuurverharding om vas te maak wat oorbly.</p>
+          <ul class="svc-list">
+            <li>Lyn-vlak kwesbaarheidsbevindinge</li>
+            <li>Veilige grondlyne &amp; verharding</li>
+            <li>Erns, impak &amp; remediëring</li>
+          </ul>
+        </article>
+
+        <article class="card svc reveal">
+          <span class="svc-num">02</span>
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Doelgemaakte Pentoetsinstrumente</h3>
+          <p>Doelgemaakte aanvallende instrumente gebou vir jou teikens en reëls van opdrag — verkenningsraamwerke, ontginningskettings, en C2-instrumente in Rust, Go, C en Python.</p>
+          <ul class="svc-list">
+            <li>Doelgebou vir jou stapel</li>
+            <li>Geheue-veilige, onderhoubare kode</li>
+            <li>Jy behou die bronkode</li>
+          </ul>
+        </article>
+
+        <article class="card svc reveal">
+          <span class="svc-num">03</span>
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Verskaffer-produk Sekuriteitstoetsing</h3>
+          <p>Onafhanklike assessering van derdeparty-produkte en -toestelle voordat jy hulle in produksie vertrou, sodat verkrygingsbesluite op bewyse gegrond is.</p>
+          <ul class="svc-list">
+            <li>Voor-aankoop risikovalidasie</li>
+            <li>Protokol- &amp; binêre analise</li>
+            <li>Duidelike gaan/nie-gaan verslagdoening</li>
+          </ul>
+        </article>
+
+        <article class="card svc reveal">
+          <span class="svc-num">04</span>
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Kwesbaarheidsnavorsing &amp; Ontginningsontwikkeling</h3>
+          <p>Oorspronklike sekuriteitsnavorsing wat verder gaan as skandering — nul-dag ontdekking, truontwerp, en werkende ontginningsontwikkeling teen die sagteware wat jy bou of op staatmaak.</p>
+          <ul class="svc-list">
+            <li>Nul-dag ontdekking &amp; openbaarmaking</li>
+            <li>Truontwerp &amp; protokol-analise</li>
+            <li>Herhaalbare PoC's &amp; werkende ontginnings</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="tools-foot reveal">
+        <a class="btn btn-ghost" href="/af/services.html">Bekyk alle dienste <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── why cyber sec ───────────────────────── -->
+  <section class="section section-alt" aria-labelledby="why-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// waarom cyber sec</p>
+        <h2 id="why-h">Sekuriteit is nie 'n produk nie. Dit is 'n dissipline.</h2>
+        <p class="section-sub">Wat Cyber Sec onderskei is hoe ons lewer — streng metodologie, verifieerbare kundigheid, en 'n verbintenis tot uitkomste waarop jou span kan reageer.</p>
+      </header>
+
+      <div class="svc-grid">
+        <div class="card svc reveal">
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Verifieerbaar, Nie Net Gesertifiseer Nie</h3>
+           <p>CompTIA Security+, Network+, A+, CSIS en CIOS, plus Fortra Clearswift en Azure Fundamentals — en, meer nuttig, 300+ publieke instrumente en navorsingsprojekte wat jy kan hersien voordat jy enigiets teken.</p>
+        </div>
+
+        <div class="card svc reveal">
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Bewysgebaseerde Verslagdoening</h3>
+          <p>Geen outomatiese skandeerder-geraas nie. Elke bevinding word handmatig herproduseer, gedokumenteer met besigheidsimpak, en vergesel van konkrete, geprioritiseerde remediëringstappe.</p>
+        </div>
+
+        <div class="card svc reveal">
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Kliëntbelynde Opdrag</h3>
+          <p>Vaste omvang, vaste prys, met duidelike lewerbares en tydlyne. Jy weet presies wat jy kry, wanneer jy dit sal kry, en wat dit kos — voordat werk begin.</p>
+        </div>
+
+        <div class="card svc reveal">
+          <span class="reticle" aria-hidden="true"></span>
+          <h3>Deurlopende Verbetering</h3>
+          <p>Na-opdrag hersienings, hertoetsing na remediëring, en gestruktureerde kennisoordrag na jou interne spanne — sodat sekuriteitsvermoë saamgroei, nie verval nie.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── case study ───────────────────────── -->
+  <section class="section" aria-labelledby="case-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// gevallestudie</p>
+        <h2 id="case-h">Bewese resultate in die werklike wêreld.</h2>
+      </header>
+
+      <article class="card svc svc-feature reveal">
+        <span class="reticle" aria-hidden="true"></span>
+        <div class="svc-feature-copy">
+          <span class="svc-badge"><span class="blip"></span> Openbare Sektor · 9-dag Opdrag</span>
+          <span class="svc-num">01</span>
+          <h3>Volle-omvang penetrasietoets — ekstern, intern, draadloos, fisies</h3>
+          <p>Volle-omvang penetrasietoets van 'n openbare-sektor-organisasie. Het <strong>36 kwesbaarhede gevind — 18 krities</strong>, insluitend 'n samewerkingsplatform wat meer as agt jaar verby sy lewenseinde in produksie geloop het. Nasionale identiteitsnommers en persoonlike rekords vanaf 'n onbeveiligde bediener herwin — 'n <strong>rapporteerbare persoonlike-inligting-inbreuk</strong> onder POPIA.</p>
+          <p><strong>Domein-admin</strong> bereik deur 'n lank-herstelde SMB-kwesbaarheid op 'n vergete nalatenskap-Windows-gasheer te ontgin, en 5 personeel-geloofsbriewe onttrek. Fisiese toegangsbeheer by ontvangs omseil en 'n beperkte kantoor onopgemerk bereik. Die draadlose netwerk het verouderde enkripsie langs 'n oop gaste-SSID gebruik. DMARC was slegs-monitering — uitgaande pos was ten volle vervalsbaar. <strong>Nie een waarskuwing is opgewek nie.</strong></p>
+        </div>
+        <ul class="svc-list svc-feature-list">
+          <li>36 kwesbaarhede — 18 krities, 9 hoog</li>
+          <li>5 bevestigde inbrake op die terrein ontgin</li>
+          <li>Burger-PII onttrek — POPIA geaktiveer</li>
+          <li>Fisies + draadloos + intern + ekstern</li>
+        </ul>
+      </article>
+
+      <article class="card svc svc-feature reveal">
+        <span class="reticle" aria-hidden="true"></span>
+        <div class="svc-feature-copy">
+          <span class="svc-badge"><span class="blip"></span> Diensverskaffer · Gaping-assessering</span>
+          <span class="svc-num">02</span>
+          <h3>57 gashere. 50+ blootgestelde VM-beelde. 7 stroomaf-organisasies geraak.</h3>
+          <p>Wit-boks penetrasietoets oor 3 subnette van 'n internet- en bestuurde diensverskaffer. <strong>27 werknemer-wagwoordhasings uit 10 unieke rekeninge</strong> oor 8 gemonteerde VM's onttrek — almal met 'n identiese hasing. 'n Volledige omtrek-brandmuurkonfigurasie getrek, insluitend <strong>17 geënkripteerde geloofsbriewe</strong>, 'n kliënt se gids-bindrekening, 9 VPN-gebruikers, 3 RADIUS-geheime, en 5 SSL-privaatsleutels.</p>
+          <p>50+ virtuele-skyfbeelde op ongeverifieerde NFS-deelareas ontdek — volledige rugsteun-bewaarplekke, insluitend 'n multi-terabyte korporatiewe pos-databasis. <strong>4 Active Directory-domeine met 21 Windows-gashere gekarteer — almal sonder geloofsbriewe geïnventariseer</strong>. Die blootstellingsketting het na <strong>7 stroomaf-organisasies</strong> oor die openbare sektor, vervoer, vervaardiging en finansiële dienste gekaskadeer.</p>
+        </div>
+        <ul class="svc-list svc-feature-list">
+          <li>37 kwesbaarhede — 12 krities, 11 hoog</li>
+          <li>27 hasings uit 10 rekeninge onttrek</li>
+          <li>4 AD-domeine gekarteer, 21 gashere, geen geloofsbriewe</li>
+          <li>7 stroomaf-organisasies beveilig</li>
+        </ul>
+      </article>
+
+      <div class="tools-foot reveal">
+        <a class="btn btn-ghost" href="/af/contact.html">Bespreek 'n opdrag <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── open source / proof ───────────────────────── -->
+  <section class="section section-alt" id="open-source" aria-labelledby="oss-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// die bewyse</p>
+        <h2 id="oss-h">Moenie ons woord daarvoor neem nie. Kyk na die werk.</h2>
+        <p class="section-sub">Elke diens op hierdie bladsy word gerugsteun deur instrumente wat ons werklik gebou het. Meer as <strong>300 projekte</strong> — raamwerke, ontginnings, truontwerp-werk en opsporingsinstrumente. Dit is dieselfde kode waarop ons opdragte bou.</p>
+      </header>
+
+      <div class="repo-grid">
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-rust">Rust</span></div>
+          <h3>rustsploit</h3>
+          <p>Modulêre ontginningsraamwerk. Het begin as 'n Rust-herskrywing van routersploit en ver daarby verbygegroei — die ruggraat van ons doelgemaakte instrumentwerk.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-rust">Rust</span></div>
+          <h3>firec2</h3>
+          <p>Bevel-en-beheer-bediener in Rust gebou rondom 'n bekendgemaakte Firefox-ontginning — geskryf om te toets of 'n verdediger se instrumente die kanaal werklik vang.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-c">C++ / Python</span></div>
+          <h3>iNode-VPN</h3>
+          <p>Skoonkamer-herimplementering van die H3C SSL VPN-kliënt — protokol vanaf die draad truontwerp, toe herbou as volledig oopbron.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>i2p-zero-exploits</h3>
+          <p>Gepubliseerde bewys-van-konsep ontginnings uit onafhanklike I2P-navorsing, bekendgemaak Maart 2026. Herhaalbaar, nie teoreties nie.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>gsoap-poc-exploits-2.7</h3>
+          <p>Werkende PoC's teen gSOAP 2.7 — die soort ingebedde-stapel kwesbaarheidsnavorsing wat verskaffer-produktoetsing oplewer.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>p2soc</h3>
+          <p>SOC-videomuur op 'n Raspberry Pi 5 — Wazuh-, Zabbix- en Grafana-panele met Vaultwarden-gerugsteunde outo-aanmelding en 'n autossh-springtonnel.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-py">Python</span></div>
+          <h3>nfsmw-2005-re</h3>
+          <p>Langvorm truontwerp: 27 substelsels gekarteer, 6,511 funksies benoem, 85.2% van die attribuut-hasings gekraak, werkende mod-SDK.</p>
+        </article>
+
+        <article class="card repo reveal">
+          <div class="repo-top"><span class="repo-ico" aria-hidden="true">◆</span><span class="lang lang-blue">Navorsing</span></div>
+          <h3>cardsz</h3>
+          <p>RFID/NFC-kaart sekuriteitsassesseringsgids — Proxmark3-metodologie vir Mifare, HID, iCLASS en NTAG, gebruik op fisiese opdragte.</p>
+        </article>
+      </div>
+
+      <div class="tools-foot reveal">
+        <a class="btn btn-ghost" href="/store.html">Blaai deur die winkel <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── FAQ ───────────────────────── -->
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// algemene vrae</p>
+        <h2 id="faq-h">Vrae wat ons eerste gevra word.</h2>
+      </header>
+
+      <div class="faq-list">
+        <details class="card faq reveal">
+          <summary>Watter dienste bied Cyber Sec aan?</summary>
+          <p>Ses gefokusde dienslyne: kode-ouditering en stelselverharding, doelgemaakte pentoetsinstrumente, kwesbaarheidsnavorsing en ontginningsontwikkeling, oopbron-sekuriteitsoudits, verskaffer-produk sekuriteitstoetsing, en opsporingsingenieurswese en SOC-opbou. Elke opdrag word afgebaken en skriftelik gemagtig voordat enige werk begin.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Doen Cyber Sec kwesbaarheidsnavorsing en ontginningsontwikkeling?</summary>
+          <p>Ja. Oorspronklike navorsing — nul-dag ontdekking, truontwerp, en protokol-analise — plus herhaalbare bewys-van-konsep ontginnings teen die sagteware wat jy bou of op staatmaak, met verantwoordelike openbaarmaking waar derde partye betrokke is.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Kan Cyber Sec ons opsporing- en SOC-moniteringstapel bou?</summary>
+          <p>Ja, op 'n projekbasis. Ons ontwerp, bou, verfyn, en oorhandig jou moniteringstapel — Wazuh of Elastic SIEM, log-innames-pyplyne, en DFIR-outomatisering wat by jou omgewing pas. Dit word gebou, gedokumenteer, en is joune om te bestuur — nie 'n bestuurde intekening nie.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Met wie werk Cyber Sec?</summary>
+          <p>Sagtewarespanne, produkverskaffers, en organisasies wat praktiese aanvallende sekuriteit en opsporingsingenieurswese benodig. Elke opdrag word afgebaken vir jou spesifieke stapel en bedreigingsmodel.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Hoe werk die kode-ouditproses?</summary>
+          <p>Kode-oudits is handmatige, lyn-vlak sekuriteitshersienings — nie outomatiese skanderings nie. Ons identifiseer kwesbaarhede, logika-foute, en voorsieningsketting-risiko's, en lewer dan geprioritiseerde bevindinge met besigheidsimpak-analise en konkrete remediëringstappe. Hertoetsing nadat regstellings toegepas is, is ingesluit.</p>
+        </details>
+
+        <details class="card faq reveal">
+          <summary>Kan ek jou werk sien voordat ek jou huur?</summary>
+          <p>Ja — dit is die punt van die afdeling hierbo. Meer as 300 publieke instrumente en navorsingsprojekte, insluitend Rustsploit, skoonkamer-truontwerp van 'n onderneming SSL VPN-kliënt, onafhanklike I2P- en gSOAP bewys-van-konsep ontginnings, en SOC-instrumente. Die instrumente wat op hierdie webwerf beskryf word, is dieselfde werk waarop ons opdragte bou.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ───────────────────────── CTA ───────────────────────── -->
+  <section class="section" aria-labelledby="cta-h">
+    <div class="wrap">
+      <header class="section-head reveal" style="max-width:42ch">
+        <p class="kicker">// begin die gesprek</p>
+        <h2 id="cta-h">Gereed om jou onderneming te beveilig?</h2>
+        <p class="section-sub">Of jy nou 'n kode-oudit, stelselverharding, doelgemaakte instrumente, kwesbaarheidsnavorsing, of 'n opsporingstapel benodig wat gebou en oorhandig word — ons is gereed om die opdrag af te baken.</p>
+      </header>
+
+      <div class="reveal" style="margin-top:2rem">
+        <a class="btn btn-primary" href="/af/contact.html" style="margin-bottom:1.2rem">Versoek 'n konsultasie <span aria-hidden="true">→</span></a>
+      </div>
+
+      <div class="reveal">
+        <a class="contact-mail" href="mailto:stephanbotesIT@proton.me">
+          <span class="contact-mail-ico" aria-hidden="true">✉</span>
+          <span><b>stephanbotesIT@proton.me</b><small>Geënkripteerde ProtonMail</small></span>
+        </a>
+      </div>
+
+      <p class="contact-note reveal">Slegs gemagtigde toetsing. Ons vereis skriftelike magtiging voordat enige assessering begin.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ───────────────────────── footer ───────────────────────── -->
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+       <p>Kode-ouditering &amp; verharding · doelgemaakte pentoetsinstrumente · kwesbaarheidsnavorsing · oopbron-oudits · verskaffertoetsing · opsporingsingenieurswese. Afstand &amp; op-terrein.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Voetskrif">
+      <a href="/af/">Tuis</a>
+      <a href="/af/services.html">Dienste</a>
+      <a href="/store.html">Winkel</a>
+      <a href="/about.html">Oor ons</a>
+      <a href="/resources.html">Hulpbronne</a>
+      <a href="/research.html">Navorsing</a>
+      <a href="/learning.html">Leer</a>
+      <a href="/facts.html">Feite</a>
+      <a href="/af/contact.html">Kontak</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Slegs gemagtigde toetsing.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Terug na bo">↑</a>
+
+<script src="/assets/main.js?v=e9de9559" defer></script>
+</body>
+</html>

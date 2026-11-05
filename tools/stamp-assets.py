@@ -41,7 +41,10 @@ def main() -> int:
         stamps[a] = short_hash(p)
 
     changed = 0
-    for f in sorted(root.glob("*.html")):
+    # rglob (not glob) so language subdirectories like af/ are stamped too. Those
+    # pages reference assets with an absolute leading slash (/assets/...); the regex
+    # below already preserves it.
+    for f in sorted(root.rglob("*.html")):
         src = f.read_text(encoding="utf-8")
         out = src
         for asset, h in stamps.items():
