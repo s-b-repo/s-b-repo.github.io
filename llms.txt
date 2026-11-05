@@ -16,10 +16,21 @@ Cyber Sec is run by Stephan Botes and operates remotely and on-site, worldwide. 
 ## Store and productized tooling
 
 - [Store](https://cybersec.org.za/store.html): Productized tools and fixed-scope engagements.
+- [Tools](https://cybersec.org.za/tools.html): Every open-source tool we publish, with its features, capabilities and limits — Quicmap (QUIC/HTTP3 scanner), rustsploit, rustforce, OpenHack (AI pentest agent), ArcticFox-C3 (Rust C2), CAU (Go malware-detection engine), Elastacat, Dockerised Wazuh installer, p2soc (SOC video wall), Windows hardening, Peregrine (MoE inference engine), OnlyOffice MCP, plus the cardsz and advanced-shodan-requests reference guides.
 - [OpenHack](https://cybersec.org.za/store-openhack.html)
 - [Peregrine](https://cybersec.org.za/store-peregrine.html)
 - [OnlyOffice MCP](https://cybersec.org.za/store-onlyoffice-mcp.html)
 - [ArcticFox C3](https://cybersec.org.za/store-arcticfox-c3.html)
+- [Rustsploit](https://cybersec.org.za/store-rustsploit.html): Modular Rust exploitation framework for embedded/IoT.
+- [Rustforce](https://cybersec.org.za/store-rustforce.html): Rust credential-testing toolkit (FTP/SSH/Telnet).
+- [Recon Toolkit](https://cybersec.org.za/store-recon-toolkit.html): Quicmap QUIC/HTTP-3 scanning plus bulk-recon tools.
+- [CAU](https://cybersec.org.za/store-cau.html): Transparent Go malware-detection engine, ATT&CK-mapped.
+- [Elastacat](https://cybersec.org.za/store-elastacat.html): Automated Elastic + TheHive/Cortex installer.
+- [Wazuh Installer](https://cybersec.org.za/store-wazuh-installer.html): Scripted Docker-based Wazuh deployment.
+- [p2soc](https://cybersec.org.za/store-p2soc.html): Raspberry Pi 5 SOC video wall.
+- [Advanced Shodan Queries](https://cybersec.org.za/store-advanced-shodan.html): Curated attack-surface discovery queries (reference).
+- [Cardsz](https://cybersec.org.za/store-cardsz.html): Proxmark3 RFID/NFC assessment methodology (reference).
+- [Hardening & Field Guides](https://cybersec.org.za/store-hardening-guides.html): Windows baseline, nmap, MITM and dorking references.
 
 ## Research
 

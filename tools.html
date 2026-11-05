@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<!-- GitHub Pages cannot set response headers; these are the meta equivalents. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; media-src 'self' https://github.com https://objects.githubusercontent.com https://user-images.githubusercontent.com https://private-user-images.githubusercontent.com; connect-src 'self' https://formspree.io https://api.web3forms.com https://cloudflareinsights.com; form-action 'self' https://formspree.io https://api.web3forms.com; base-uri 'none'; object-src 'none'; upgrade-insecure-requests" />
+<meta name="referrer" content="strict-origin-when-cross-origin" />
+
+<title>Open-Source Security Tools — Features, Capabilities &amp; Limits | Cyber Sec</title>
+<meta name="description" content="A plain-spoken breakdown of every open-source tool Cyber Sec publishes — what each one does, what it can do, and exactly where its limits are. QUIC scanning, a Rust C2 framework, a Go malware-detection engine, an AI pentest agent, a SOC video wall and more. Source is public; support and customisation are paid. Authorized testing only." />
+<meta name="author" content="Cyber Sec" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<link rel="canonical" href="https://cybersec.org.za/tools.html" />
+<link rel="alternate" hreflang="en" href="https://cybersec.org.za/tools.html" />
+<link rel="alternate" hreflang="en-ZA" href="https://cybersec.org.za/tools.html" />
+<link rel="alternate" hreflang="x-default" href="https://cybersec.org.za/tools.html" />
+<link rel="alternate" type="application/atom+xml" title="Cyber Sec Articles Feed" href="https://cybersec.org.za/feed.xml" />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-600.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/chakrapetch-700.woff2" crossorigin />
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/ibmplexsans-var.woff2" crossorigin />
+<meta name="theme-color" content="#000000" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cyber Sec" />
+<meta property="og:title" content="Open-Source Security Tools — Features, Capabilities &amp; Limits | Cyber Sec" />
+<meta property="og:description" content="What each open-source tool Cyber Sec publishes does, what it's capable of, and where its limits are — a QUIC scanner, a Rust C2 framework, a Go malware-detection engine, an AI pentest agent, a SOC video wall and more." />
+<meta property="og:url" content="https://cybersec.org.za/tools.html" />
+<meta property="og:image" content="https://cybersec.org.za/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cyber Sec — Open-Source Security Tools" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:locale:alternate" content="en_GB" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Open-Source Security Tools — Features, Capabilities &amp; Limits | Cyber Sec" />
+<meta name="twitter:description" content="What each open-source tool we publish does, what it can do, and where its limits are." />
+<meta name="twitter:image" content="https://cybersec.org.za/assets/og-image.png" />
+
+<link rel="icon" type="image/png" sizes="256x256" href="assets/favicon.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+<!-- Self-hosted fonts: @font-face lives at the top of styles.css. -->
+
+<link rel="stylesheet" href="assets/styles.css?v=f09539e5" />
+
+<style>
+  .tool-note{max-width:820px;margin:0 auto 2rem;color:var(--muted);font-size:.92rem;line-height:1.6;
+    border:1px solid var(--line-soft);border-left:3px solid var(--acc);border-radius:var(--radius);
+    background:var(--surface);padding:.95rem 1.15rem}
+  .tool-note strong{color:#cddff5}
+  .tool-card .tool-lang{display:block;margin:.1rem 0 .55rem;font-family:var(--font-mono);font-size:.72rem;
+    letter-spacing:.03em;color:var(--faint)}
+  .tool-card h3{margin-bottom:.15rem}
+  .tool-card .tool-what{color:var(--muted)}
+  .tool-card .tool-caps{font-size:.9rem;line-height:1.6;margin:.4rem 0 .2rem}
+  .tool-card .tool-caps strong{color:#cddff5}
+  .tool-limit{display:block;margin:.55rem 0 .85rem;font-size:.86rem;line-height:1.55;
+    color:var(--muted);border-top:1px dashed var(--line-soft);padding-top:.6rem}
+  .tool-limit b{color:var(--acc);font-weight:600;font-family:var(--font-mono);font-size:.74rem;
+    letter-spacing:.04em;text-transform:uppercase;display:inline-block;margin-right:.35rem}
+  .tool-src{font-weight:500}
+  .tool-legend{display:inline-flex;gap:.4rem;align-items:center;font-family:var(--font-mono);
+    font-size:.68rem;letter-spacing:.04em;color:var(--faint)}
+</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cybersec.org.za/tools.html",
+      "url": "https://cybersec.org.za/tools.html",
+      "name": "Open-Source Security Tools | Cyber Sec",
+      "description": "A breakdown of every open-source security tool Cyber Sec publishes — features, capabilities and limits for each.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://cybersec.org.za/#website" },
+      "about": ["Open-source security tools", "QUIC scanning", "Command and control", "Malware detection", "Offensive security", "Detection engineering"]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://cybersec.org.za/tools.html#tools",
+      "name": "Cyber Sec open-source security tools",
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "numberOfItems": 12,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1,  "item": { "@type": "SoftwareApplication", "name": "Quicmap", "applicationCategory": "SecurityApplication", "operatingSystem": "Cross-platform (Python)", "url": "https://github.com/s-b-repo/Quicmap" } },
+        { "@type": "ListItem", "position": 2,  "item": { "@type": "SoftwareApplication", "name": "rustsploit", "applicationCategory": "SecurityApplication", "operatingSystem": "Linux (Rust)", "url": "https://github.com/s-b-repo/rustsploit" } },
+        { "@type": "ListItem", "position": 3,  "item": { "@type": "SoftwareApplication", "name": "rustforce", "applicationCategory": "SecurityApplication", "operatingSystem": "Linux (Rust)", "url": "https://github.com/s-b-repo/rustforce" } },
+        { "@type": "ListItem", "position": 4,  "item": { "@type": "SoftwareApplication", "name": "OpenHack", "applicationCategory": "SecurityApplication", "operatingSystem": "Cross-platform (Bun/TypeScript)", "url": "https://github.com/s-b-repo/openhack" } },
+        { "@type": "ListItem", "position": 5,  "item": { "@type": "SoftwareApplication", "name": "ArcticFox-C3", "applicationCategory": "SecurityApplication", "operatingSystem": "Linux (Rust)", "url": "https://github.com/s-b-repo/arcticfox-c3" } },
+        { "@type": "ListItem", "position": 6,  "item": { "@type": "SoftwareApplication", "name": "CAU", "applicationCategory": "SecurityApplication", "operatingSystem": "Cross-platform (Go)", "url": "https://github.com/s-b-repo/cau" } },
+        { "@type": "ListItem", "position": 7,  "item": { "@type": "SoftwareApplication", "name": "Elastacat", "applicationCategory": "SecurityApplication", "operatingSystem": "Debian 12", "url": "https://github.com/s-b-repo/elastacat" } },
+        { "@type": "ListItem", "position": 8,  "item": { "@type": "SoftwareApplication", "name": "Dockerised Wazuh Installer", "applicationCategory": "SecurityApplication", "operatingSystem": "Debian / Ubuntu", "url": "https://github.com/s-b-repo/docker-wazuh-installer-py" } },
+        { "@type": "ListItem", "position": 9,  "item": { "@type": "SoftwareApplication", "name": "p2soc", "applicationCategory": "SecurityApplication", "operatingSystem": "Raspberry Pi OS / Linux", "url": "https://github.com/s-b-repo/p2soc" } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "SoftwareApplication", "name": "Windows Hardening", "applicationCategory": "SecurityApplication", "operatingSystem": "Windows", "url": "https://github.com/s-b-repo/windows-hardening" } },
+        { "@type": "ListItem", "position": 11, "item": { "@type": "SoftwareApplication", "name": "Peregrine", "applicationCategory": "DeveloperApplication", "operatingSystem": "Linux (Rust)", "url": "https://github.com/s-b-repo/peregrine" } },
+        { "@type": "ListItem", "position": 12, "item": { "@type": "SoftwareApplication", "name": "OnlyOffice MCP Server", "applicationCategory": "DeveloperApplication", "operatingSystem": "Cross-platform (Python)", "url": "https://github.com/s-b-repo/onlyoffice-mcp-server" } }
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cybersec.org.za/#org",
+      "name": "Cyber Sec",
+      "url": "https://cybersec.org.za/",
+      "sameAs": ["https://github.com/s-b-repo"]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cybersec.org.za/#website",
+      "url": "https://cybersec.org.za/",
+      "name": "Cyber Sec",
+      "publisher": { "@id": "https://cybersec.org.za/#org" }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="Cyber Sec, home">
+      <span class="brand-mark" aria-hidden="true">
+        <canvas id="globe-canvas" width="60" height="60" aria-hidden="true"></canvas>
+      </span>
+      <span class="brand-text">CYBER<i>SEC</i></span>
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="tools.html" aria-current="page">Tools</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="research.html">Research</a>
+      <a href="learning.html">Learning</a>
+      <a href="facts.html">Facts</a>
+      <a class="nav-cta" href="contact.html">Contact</a>
+    </nav>
+
+    <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav" hidden>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="store.html">Store</a>
+    <a href="tools.html" aria-current="page">Tools</a>
+    <a href="about.html">About</a>
+    <a href="resources.html">Resources</a>
+    <a href="research.html">Research</a>
+    <a href="learning.html">Learning</a>
+    <a href="facts.html">Facts</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="kicker reveal">// tools</p>
+      <h1 class="reveal">The <span class="hl">toolkit.</span></h1>
+      <p class="page-sub reveal">Every tool we publish is open source, and every one is listed here with the same three things spelled out: what it <strong>is</strong>, what it's <strong>capable of</strong>, and where its <strong>limits</strong> are. No overselling — a tool that quietly does less than its README implies is a liability on an engagement. The source is public; support, hardening and customisation are the paid part. Everything here is for authorized testing and defence only.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="offensive-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// offensive &amp; recon</p>
+        <h2 id="offensive-h">Reconnaissance &amp; exploitation</h2>
+        <p class="section-sub">Scanning, credential testing and exploitation — used only against systems you are authorized in writing to test.</p>
+      </header>
+      <div class="resource-grid">
+
+        <article class="card tool-card reveal">
+          <h3>Quicmap</h3>
+          <span class="tool-lang">Python · QUIC/HTTP3 scanner</span>
+          <p class="tool-what">An asynchronous QUIC and HTTP/3 port scanner with banner grabbing — reconnaissance for the UDP-based, TLS-wrapped transport that ordinary TCP scanners miss entirely.</p>
+          <ul class="prod-feat"><li>QUIC / HTTP/3</li><li>ALPN &amp; H3 headers</li><li>JSON · TXT output</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> probes single ports, ranges or all 65,535; negotiates ALPN; for HTTP/3 it issues a real GET and returns the server headers; for other QUIC services it grabs a generic banner. Concurrency and per-port timeout are tunable, and results export to JSON or text.</p>
+          <span class="tool-limit"><b>Limits</b> QUIC/UDP only — it is not a general TCP or service scanner, and a silent host is reported closed. Needs Python 3 with <code>aioquic</code> and <code>colorama</code> (see <code>requirements.txt</code>). TLS certificates are not verified (recon, not validation).</span>
+          <a class="tool-src res-link" href="store-recon-toolkit.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>rustsploit</h3>
+          <span class="tool-lang">Rust · exploitation framework</span>
+          <p class="tool-what">A modular offensive-tooling framework for embedded and IoT targets — it began as a Rust rebuild of RouterSploit and has since grown into its own thing.</p>
+          <ul class="prod-feat"><li>Modular exploits</li><li>Embedded / IoT</li><li>Bluetooth support</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> a framework of scanner, exploit and credential modules aimed at embedded devices, built in safe, fast Rust. Default builds include a Bluetooth module (BLE via <code>btleplug</code>).</p>
+          <span class="tool-limit"><b>Limits</b> Research-grade and evolving — module coverage varies by target. Compiles with a heavy release profile (fat LTO), so a first build is slow. Strictly for authorized testing of devices you own or are contracted to assess.</span>
+          <a class="tool-src res-link" href="store-rustsploit.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>rustforce</h3>
+          <span class="tool-lang">Rust · credential testing</span>
+          <p class="tool-what">A fast, concurrent FTP brute-forcer (the <code>dftp</code> binary) for authorized credential-strength testing.</p>
+          <ul class="prod-feat"><li>Concurrent FTP</li><li>Wordlist-driven</li><li>Single static binary</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> high-concurrency FTP login testing against a target and credential list, compiled to one small native binary with no runtime dependencies.</p>
+          <span class="tool-limit"><b>Limits</b> FTP only today, and it drops straight into scan mode with no <code>--help</code> usage screen — read the repo's usage notes first. Brute-forcing any service you are not explicitly authorized to test is illegal; this is for sanctioned password-policy checks only.</span>
+          <a class="tool-src res-link" href="store-rustforce.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>OpenHack</h3>
+          <span class="tool-lang">Bun / TypeScript · AI agent</span>
+          <p class="tool-what">An AI-powered security-assessment agent — an OpenCode fork wired for authorized penetration testing, driven from a terminal UI.</p>
+          <ul class="prod-feat"><li>Agentic TUI</li><li>MCP tool servers</li><li>Multi-provider LLM</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> a 45-package monorepo exposing a <code>tui</code>, headless <code>run</code>, MCP and ACP integrations, provider/auth management and attachable tool servers — an LLM-steered assistant for recon, triage and assessment workflows.</p>
+          <span class="tool-limit"><b>Limits</b> Needs the Bun runtime and your own model-provider API keys; the bundled MCP security servers are opt-in and bring their own toolchains. It assists a tester — it does not replace human judgement or written authorization, and an LLM can be confidently wrong.</span>
+          <a class="tool-src res-link" href="store-openhack.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="c2-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// command &amp; control</p>
+        <h2 id="c2-h">Red-team infrastructure</h2>
+        <p class="section-sub">Adversary-emulation infrastructure for sanctioned red-team engagements.</p>
+      </header>
+      <div class="resource-grid">
+
+        <article class="card tool-card reveal">
+          <h3>ArcticFox-C3</h3>
+          <span class="tool-lang">Rust · command-and-control</span>
+          <p class="tool-what">A command-and-control framework for red-team operations — a multi-crate Rust workspace covering the whole chain from agent to operator console.</p>
+          <ul class="prod-feat"><li>Agent · API · dashboard</li><li>io_uring transport</li><li>MCP + scanner</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> builds a family of binaries — agent, API server, the <code>c3</code> operator dashboard, control plane, bindshell, a scanner and an MCP bridge — with an io_uring-based transport. Adversary emulation to test detection and response.</p>
+          <span class="tool-limit"><b>Limits</b> This is offensive infrastructure: run it only inside a red-team engagement that is authorized in writing, on infrastructure you control. Research-grade — expect to read the code. Standing C2 up against systems without authorization is a crime.</span>
+          <a class="tool-src res-link" href="store-arcticfox-c3.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="blue-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// blue team &amp; detection</p>
+        <h2 id="blue-h">Detection, hardening &amp; monitoring</h2>
+        <p class="section-sub">The defensive half of the kit — detect malware, stand up a monitoring stack, and harden the endpoints.</p>
+      </header>
+      <div class="resource-grid">
+
+        <article class="card tool-card reveal">
+          <h3>CAU</h3>
+          <span class="tool-lang">Go · malware-detection engine</span>
+          <p class="tool-what">&ldquo;Certs Are Useless&rdquo; — a transparent, open-source malware-detection engine. Fourteen detectors read every file once, and every finding is explained with a labelled class and an ATT&amp;CK technique.</p>
+          <ul class="prod-feat"><li>14 detectors · ATT&amp;CK</li><li>SARIF · OCSF · JSON</li><li>YARA · static · heuristics</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> hash and YARA matching, heuristics, native PE/ELF/Mach-O structure analysis, hidden-codepoint and encoded/obfuscated-payload detection, and parsers for LNK, OLE macros, PDF and ISO lures. It also scans the live process table and UEFI firmware, keeps an integrity-sealed quarantine vault, and emits CI exit codes and SARIF/OCSF/JSON for a security lake.</p>
+          <span class="tool-limit"><b>Limits</b> A scanning and detection engine, not a real-time kernel EDR on its own (kernel enforcement lives in the separate <code>cau-kernel</code> sensor). Detection quality tracks its signatures and rules, so keep them current; heuristic verdicts are suspicion, not proof.</span>
+          <a class="tool-src res-link" href="store-cau.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>Elastacat</h3>
+          <span class="tool-lang">Python · stack installer</span>
+          <p class="tool-what">An automated installer for an Elastic + TheHive/Cortex stack — the log-pipeline and case-management side of a working detection setup.</p>
+          <ul class="prod-feat"><li>Elastic</li><li>TheHive · Cortex</li><li>One-shot setup</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> installs and wires Java, Elasticsearch and the TheHive/Cortex case-management layer so you get an ingestion-and-triage pipeline without assembling it by hand.</p>
+          <span class="tool-limit"><b>Limits</b> It is a provisioning script, not a running service: it targets <b>Debian 12</b> specifically and must run as root. Run it on a fresh host you intend to dedicate to the stack — review it before pointing it at anything else.</span>
+          <a class="tool-src res-link" href="store-elastacat.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>Dockerised Wazuh Installer</h3>
+          <span class="tool-lang">Python · stack installer</span>
+          <p class="tool-what">Automated, Docker-based deployment of Wazuh — the open-source XDR/SIEM — with separate paths for Debian and Ubuntu.</p>
+          <ul class="prod-feat"><li>Wazuh XDR/SIEM</li><li>Dockerised</li><li>Debian &amp; Ubuntu</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> drives the full Wazuh-in-Docker install end to end, so a host goes from bare to a working Wazuh manager and dashboard with the steps scripted and repeatable.</p>
+          <span class="tool-limit"><b>Limits</b> A provisioning script: needs Docker and root on a supported <b>Debian/Ubuntu</b> host, and does not manage the stack after install. Size the host for Wazuh's requirements first.</span>
+          <a class="tool-src res-link" href="store-wazuh-installer.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>p2soc — SOC Video Wall</h3>
+          <span class="tool-lang">Python + GTK · kiosk appliance</span>
+          <p class="tool-what">Turns a Raspberry Pi 5 into a Security-Operations-Centre video wall: an HDMI display that boots into a taskbar-less 2×2 grid of auto-logging-in dashboards.</p>
+          <ul class="prod-feat"><li>Wazuh · Zabbix · Grafana</li><li>Vault-backed logins</li><li>autossh · VPN · self-heal</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> four draggable browser panels, each auto-logging-in from a local Vaultwarden secrets vault and re-logging-in on timeout; panels can reach remote networks over an autossh jump tunnel or a supervised Fortinet/OpenVPN/WireGuard link. It self-heals crashed panels and is configured entirely on-screen — no SSH, no file editing. An interactive <code>setup.py</code> wizard writes the config.</p>
+          <span class="tool-limit"><b>Limits</b> A GUI kiosk appliance: it expects its target — a Raspberry Pi 5 (the reference board) or a Linux desktop with GTK/PyGObject and a display — so it does not run headless. Credentials are only as safe as the vault passphrase you set.</span>
+          <a class="tool-src res-link" href="store-p2soc.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>Windows Hardening</h3>
+          <span class="tool-lang">PowerShell · baseline script</span>
+          <p class="tool-what">A PowerShell script that applies a security-hardening baseline to a Windows host.</p>
+          <ul class="prod-feat"><li>Windows baseline</li><li>One script</li><li>Auditable</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> applies a set of defensive configuration changes in one pass, with the whole baseline visible in a single readable script you can diff and adapt.</p>
+          <span class="tool-limit"><b>Limits</b> Windows only, and must run elevated (Administrator). Hardening can break line-of-business software — <b>read it, test on a non-production machine, and have a rollback</b> before applying it to real endpoints.</span>
+          <a class="tool-src res-link" href="store-hardening-guides.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-labelledby="infra-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// infrastructure &amp; integration</p>
+        <h2 id="infra-h">Performance &amp; integration</h2>
+        <p class="section-sub">Supporting engines that aren't security tools themselves but earn their place in the kit.</p>
+      </header>
+      <div class="resource-grid">
+
+        <article class="card tool-card reveal">
+          <h3>Peregrine</h3>
+          <span class="tool-lang">Rust · inference engine</span>
+          <p class="tool-what">&ldquo;The fastest bird&rdquo; — a Rust Mixture-of-Experts inference engine that drives CPU, GPU, RAM and SSD concurrently with io_uring.</p>
+          <ul class="prod-feat"><li>MoE inference</li><li>io_uring I/O</li><li>CPU default · CUDA optional</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> an 11-crate workspace that runs large Mixture-of-Experts models by overlapping compute and storage I/O, so it can serve models larger than RAM. The local-AI engine behind our AI-assisted tooling.</p>
+          <span class="tool-limit"><b>Limits</b> A performance/ML engine, not a security tool in itself. CUDA is an off-by-default feature — the default build is CPU-only and GPU acceleration needs the NVIDIA toolchain. Research-grade and fast-moving.</span>
+          <a class="tool-src res-link" href="store-peregrine.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>OnlyOffice MCP Server</h3>
+          <span class="tool-lang">Python · MCP server</span>
+          <p class="tool-what">A Model Context Protocol server that lets an AI agent read and write Office documents — Word, Excel and PowerPoint — through a clean tool interface.</p>
+          <ul class="prod-feat"><li>docx · xlsx · pptx</li><li>MCP over stdio</li><li>Report automation</li></ul>
+          <p class="tool-caps"><strong>Capabilities:</strong> exposes document tools over MCP (built on <code>python-docx</code>, <code>openpyxl</code> and <code>python-pptx</code>), so an agent can generate and edit deliverables such as assessment reports instead of hand-formatting them.</p>
+          <span class="tool-limit"><b>Limits</b> Not a standalone app — it is a stdio MCP server you attach to an MCP-capable client. It pins the <code>mcp</code> 1.x API; it is a document-automation integration, not a security scanner.</span>
+          <a class="tool-src res-link" href="store-onlyoffice-mcp.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="ref-h">
+    <div class="wrap">
+      <header class="section-head reveal">
+        <p class="kicker">// reference material</p>
+        <h2 id="ref-h">Guides &amp; references (not programs)</h2>
+        <p class="section-sub">Two of our public repositories are documentation, not software — included here so the distinction is explicit.</p>
+      </header>
+      <div class="resource-grid">
+
+        <article class="card tool-card reveal">
+          <h3>cardsz</h3>
+          <span class="tool-lang">Reference · RFID/NFC guide</span>
+          <p class="tool-what">A comprehensive write-up on how RFID and NFC access cards are assessed and cloned with a Proxmark3 — Mifare Classic, HID Prox, EM4100, iCLASS, NTAG, DESFire and more.</p>
+          <span class="tool-limit"><b>Not a tool</b> It is a Markdown guide — there is nothing to install or run. For educational and authorized physical-security assessment only; cloning credentials you don't own or aren't permitted to test is illegal.</span>
+          <a class="tool-src res-link" href="store-cardsz.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+        <article class="card tool-card reveal">
+          <h3>advanced-shodan-requests</h3>
+          <span class="tool-lang">Reference · Shodan queries</span>
+          <p class="tool-what">A curated reference of advanced Shodan search queries for finding exposed services and devices — with screenshots of the kinds of results each one surfaces.</p>
+          <span class="tool-limit"><b>Not a tool</b> It is a query reference, not a program — there is nothing to run. Use it to understand your own external exposure; investigate only systems you are authorized to assess.</span>
+          <a class="tool-src res-link" href="store-advanced-shodan.html">Read the full breakdown <span aria-hidden="true">→</span></a>
+        </article>
+
+      </div>
+
+      <p class="tool-note reveal" style="margin-top:1.8rem">
+        <strong>Open source, paid support.</strong> The code for these tools is public under their respective licences — read it, run it, fork it. What we sell on the <a href="store.html">store</a> is our time: deployment, hardening, custom modules and support. And a standing rule for everything on this page — <strong>use it only against systems you own or are authorized in writing to test.</strong>
+      </p>
+    </div>
+  </section>
+
+  <section class="page-cta" aria-labelledby="cta-h">
+    <div class="wrap">
+      <p class="kicker reveal">// put them to work</p>
+      <h2 id="cta-h" class="reveal">Want one of these deployed, extended or supported?</h2>
+      <p class="reveal">Running a tool and running it well on your estate are different jobs. We deploy, harden and customise anything here &mdash; and build new tooling to fit your environment. Tell us what you're trying to do.</p>
+      <a class="btn btn-primary reveal" href="store.html">See the store <span aria-hidden="true">→</span></a>
+      <a class="btn btn-ghost reveal" href="contact.html">Talk to us <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">CYBER<i>SEC</i></span>
+      <p>Code auditing &amp; hardening · custom pentesting tooling · vulnerability research · open-source audits · vendor testing · detection engineering. Remote &amp; on-site.</p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="store.html">Store</a>
+      <a href="tools.html">Tools</a>
+      <a href="about.html">About</a>
+      <a href="resources.html">Resources</a>
+      <a href="research.html">Research</a>
+      <a href="learning.html">Learning</a>
+      <a href="facts.html">Facts</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="footer-meta">
+      <a href="mailto:stephanbotesIT@proton.me">stephanbotesIT@proton.me</a>
+      <a href="/.well-known/security.txt">security.txt</a>
+      <span>&copy; <span id="year">2026</span> Cyber Sec. Authorized testing only.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+
+<script src="assets/main.js?v=e9de9559" defer></script>
+</body>
+</html>

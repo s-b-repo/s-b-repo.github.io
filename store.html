@@ -9,7 +9,7 @@
 <meta name="referrer" content="strict-origin-when-cross-origin" />
 
 <title>Store — Security Tooling, Support &amp; Customisation | Cyber Sec</title>
-<meta name="description" content="Cyber Sec security tooling — OpenHack AI pentest agent, Peregrine inference engine, OnlyOffice MCP, Rustsploit, Razor EDR, Wazuh and recon tools. Source is public for most tools; support, improvements and customisation are paid, from $149. Authorized security testing only." />
+<meta name="description" content="Cyber Sec security tooling — OpenHack AI pentest agent, Peregrine inference engine, OnlyOffice MCP, Rustsploit, CAU malware-detection engine, Wazuh and recon tools. Source is public for most tools; support, improvements and customisation are paid, from $149. Authorized security testing only." />
 <meta name="author" content="Cyber Sec" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <link rel="canonical" href="https://cybersec.org.za/store.html" />
@@ -149,6 +149,7 @@
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="store.html" aria-current="page">Store</a>
+      <a href="tools.html">Tools</a>
       <a href="about.html">About</a>
       <a href="resources.html">Resources</a>
       <a href="research.html">Research</a>
@@ -165,6 +166,7 @@
     <a href="index.html">Home</a>
     <a href="services.html">Services</a>
     <a href="store.html" aria-current="page">Store</a>
+    <a href="tools.html">Tools</a>
     <a href="about.html">About</a>
     <a href="resources.html">Resources</a>
     <a href="research.html">Research</a>
@@ -220,7 +222,7 @@
           <p>Modular exploitation framework in Rust. Started as a routersploit rewrite and grew well past it — the backbone of our custom tooling work.</p>
           <ul class="prod-feat"><li>Rust</li><li>Modular</li><li>★58 stars</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/rustsploit" target="_blank" rel="noopener">github.com/s-b-repo/rustsploit <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Rustsploit%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-rustsploit.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -247,7 +249,7 @@
           <p>Fast, modular credential-testing toolkit in Rust covering FTP, SSH and Telnet, bundled with IP-generation and proxy download/test utilities.</p>
           <ul class="prod-feat"><li>Rust</li><li>FTP · SSH · Telnet</li><li>Proxy-aware</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/rustforce" target="_blank" rel="noopener">github.com/s-b-repo/rustforce <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Rustforce%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-rustforce.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -269,7 +271,7 @@
           <p>Scripted stand-up of a Wazuh deployment — the boring part of a SIEM rollout, automated so you can get to tuning.</p>
           <ul class="prod-feat"><li>Wazuh</li><li>Docker</li><li>Scripted</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/docker-wazuh-installer-py" target="_blank" rel="noopener">github.com/s-b-repo/docker-wazuh-installer-py <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Wazuh%20Installer%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-wazuh-installer.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -278,16 +280,16 @@
           <p>Automated Elastic + TheHive/Cortex installer — the log-pipeline and case-management side of a working detection stack.</p>
           <ul class="prod-feat"><li>Elastic</li><li>Ingestion</li><li>Automated setup</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/elastacat" target="_blank" rel="noopener">github.com/s-b-repo/elastacat <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Elastacat%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-elastacat.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
           <div class="prod-top"><span class="prod-tag">Deploy &amp; own</span><span class="prod-price"><span class="amt" data-usd="499">from $499</span><small>support &amp; customisation</small></span></div>
-          <h3>Razor</h3>
-          <p>Open-source EDR for Linux. Rule-based plus ML detection over process and user behaviour, with automatic quarantine and process termination.</p>
-          <ul class="prod-feat"><li>Linux EDR</li><li>Behavioural</li><li>Auto-response</li></ul>
-          <a class="prod-src" href="https://github.com/s-b-repo/razor" target="_blank" rel="noopener">github.com/s-b-repo/razor <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Razor%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <h3>cau — Malware Detection Engine</h3>
+          <p>Transparent open-source malware detection engine in Go. Fourteen detectors read every file once, each finding explained with a labeled class and an ATT&amp;CK technique, and every report is machine-readable with CI exit codes.</p>
+          <ul class="prod-feat"><li>Go · ATT&amp;CK-mapped</li><li>SARIF · OCSF · JSON</li><li>MIT</li></ul>
+          <a class="prod-src" href="https://github.com/s-b-repo/cau" target="_blank" rel="noopener">github.com/s-b-repo/cau <span aria-hidden="true">↗</span></a>
+          <a class="btn btn-primary prod-buy" href="store-cau.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -296,7 +298,7 @@
           <p>Turns a Raspberry Pi 5 into a SOC video wall: a draggable 2×2 kiosk of auto-logging-in Wazuh, Zabbix and Grafana panels, secrets in Vaultwarden, autossh jump tunnel.</p>
           <ul class="prod-feat"><li>Raspberry Pi 5</li><li>Wazuh · Zabbix · Grafana</li><li>GPLv3</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/p2soc" target="_blank" rel="noopener">github.com/s-b-repo/p2soc <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=p2soc%20-%20SOC%20Video%20Wall%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-p2soc.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -318,7 +320,7 @@
           <p><strong>Quicmap</strong> for QUIC/HTTP-3 port scanning and service fingerprinting, <strong>Stalkroute</strong> for deep path tracing, <strong>worldroute</strong> for bulk host recon, <strong>smfp</strong> for SMTP/FTP sweeps.</p>
           <ul class="prod-feat"><li>QUIC / HTTP-3</li><li>Bulk recon</li><li>Rust · Python</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/Quicmap" target="_blank" rel="noopener">github.com/s-b-repo/Quicmap <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Recon%20Toolkit%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-recon-toolkit.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -327,7 +329,7 @@
           <p>A curated collection of Shodan search queries for attack-surface discovery — the interesting, the funny, and the genuinely alarming.</p>
           <ul class="prod-feat"><li>Attack surface</li><li>OSINT</li><li>★10 stars</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/advanced-shodan-requests" target="_blank" rel="noopener">github.com/s-b-repo/advanced-shodan-requests <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Advanced%20Shodan%20Queries%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-advanced-shodan.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -336,7 +338,7 @@
           <p>Full Proxmark3 methodology for physical access control: Mifare, HID, iCLASS and NTAG. The guide behind the badge-cloning half of a physical engagement.</p>
           <ul class="prod-feat"><li>Proxmark3</li><li>Mifare · HID · iCLASS</li><li>Physical security</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/cardsz" target="_blank" rel="noopener">github.com/s-b-repo/cardsz <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Cardsz%20-%20RFID/NFC%20Assessment%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-cardsz.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
 
         <article class="card prod reveal">
@@ -345,7 +347,7 @@
           <p><strong>windows-hardening</strong> PowerShell baselines, a <strong>MITM proxy</strong> interception guide, a <strong>detailed nmap</strong> cheatsheet, and a <strong>code-search dorks</strong> collection for supply-chain recon.</p>
           <ul class="prod-feat"><li>Windows hardening</li><li>Nmap</li><li>Dorking</li></ul>
           <a class="prod-src" href="https://github.com/s-b-repo/windows-hardening" target="_blank" rel="noopener">github.com/s-b-repo/windows-hardening <span aria-hidden="true">↗</span></a>
-          <a class="btn btn-primary prod-buy" href="mailto:stephanbotesIT@proton.me?subject=Hardening%20and%20Field%20Guides%20-%20support%20%26%20customisation">Get support <span aria-hidden="true">→</span></a>
+          <a class="btn btn-primary prod-buy" href="store-hardening-guides.html">View &amp; buy <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -480,6 +482,7 @@
       <a href="index.html">Home</a>
       <a href="services.html">Services</a>
       <a href="store.html">Store</a>
+      <a href="tools.html">Tools</a>
       <a href="about.html">About</a>
       <a href="resources.html">Resources</a>
       <a href="research.html">Research</a>
