@@ -1,0 +1,5 @@
+deploy.sh
+.env
+.wrangler/
+__pycache__/
+*.pyc
